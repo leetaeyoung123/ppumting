@@ -60,10 +60,11 @@ public class Userservlet extends HttpServlet {
 		user.setSsn(ssn);
 		user.setPhone(phone);
 		user.setAddr(addr1+ " " + addr2);
-
-		userService.addUser(user);
-		request.setAttribute("name", name);
 		
+		userService.addUser(user);
+		
+		
+		request.setAttribute("name", name);
 		dispatcher = request.getRequestDispatcher("result/success.jsp");
 		dispatcher.forward(request, response);
 	}
