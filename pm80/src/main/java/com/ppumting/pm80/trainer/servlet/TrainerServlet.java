@@ -43,7 +43,7 @@ public class TrainerServlet extends HttpServlet {
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
 		}else if(ssn == null || ssn.length() == 0) {
-			errorMsgs.add("주민번호를 입력해주세요");
+			errorMsgs.add("주민번호를 입력해	주세요");
 		}else if(phone == null || phone.length() == 0) {
 			errorMsgs.add("전화번호를 입력해주세요");
 		}else if(passwd == null || passwd.length() == 0) {
