@@ -6,14 +6,14 @@ CREATE TABLE Senduser (
 	sendDate 	TIMESTAMP		NOT NULL 		DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE Senduser add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
+ALTER TABLE Senduser ADD CONSTRAINT FK_SendUser_Users_userNumber FOREIGN KEY (userNumber) REFERENCES Users(userNumber);
 
 CREATE TABLE Receiveuser (
-	ring		BIGINT			PRIMARY KEY,
+	ring		BIGINT			PRIMARY KEY DEFAULT 0,
 	userNumber	BIGINT			NOT NULL,
 	msg			VARCHAR(200)	NOT NULL,
-	FOREIGN KEY(userNumber) REFERENCES Users(userNumber),
-	FOREIGN KEY(msg) REFERENCES Senduser(msg)
+	CONSTRAINT FK_ReceiveUser_Users_userNumber FOREIGN KEY(userNumber) REFERENCES Users(userNumber),
+	CONSTRAINT FK_Receiveuser_SendUser_msg FOREIGN KEY(msg) REFERENCES Senduser(msg)
 );
 
 
@@ -21,15 +21,6 @@ CREATE TABLE Receiveuser (
 SELECT * FROM senduser;
 SELECT * FROM Receiveuser;
 
-DROP TABLE reciveuser;
+DROP TABLE Receiveuser;
 DROP TABLE senduser;
 
--- 외래키 설정방법
--- Users 테이블 먼저 생성후 쿼리문 실행 또는
--- ALTER TABLE Senduser add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
--- Senduser
-
--- ALTER TABLE userNumber add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
--- Reciveuser
