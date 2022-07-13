@@ -11,14 +11,14 @@ public class DataSource {
 	private String jdbcDriver;
 	private String jdbcUrl;
 	private String jdbcUserName;
-	private String jdbcPassworld;
+	private String jdbcPassword;
 
-	public DataSource(String jdbcDriver, String jdbcUrl, String jdbcUserName, String jdbcPassworld) {
+	public DataSource(String jdbcDriver, String jdbcUrl, String jdbcUserName, String jdbcPassword) {
 		super();
 		this.jdbcDriver = jdbcDriver;
 		this.jdbcUrl = jdbcUrl;
 		this.jdbcUserName = jdbcUserName;
-		this.jdbcPassWord = jdbcPassWord;
+		this.jdbcPassword = jdbcPassword;
 
 	      try {
 	          Class.forName(jdbcDriver);
@@ -30,7 +30,7 @@ public class DataSource {
 
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassWord);
+			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassword);
 		} catch (SQLException e) {
 			throw new RuntimeException("ConnectionNotAvailableException");
 		}
