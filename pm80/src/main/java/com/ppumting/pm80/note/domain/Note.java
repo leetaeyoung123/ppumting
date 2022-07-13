@@ -4,6 +4,28 @@ import com.ppumting.pm80.user.domain.User;
 
 public class Note {
 	User sendUser = new User();
+	User receiveUser = new User();
+	String toMsg;
+	String fromMsg;
+	
+	public User getReceiveUser() {
+		return receiveUser;
+	}
+	public void setReceiveUser(User receiveUser) {
+		this.receiveUser = receiveUser;
+	}
+	public String getToMsg() {
+		return toMsg;
+	}
+	public void setToMsg(String toMsg) {
+		this.toMsg = toMsg;
+	}
+	public String getFromMsg() {
+		return fromMsg;
+	}
+	public void setFromMsg(String fromMsg) {
+		this.fromMsg = fromMsg;
+	}
 	String msg;
 	long ring = 0;
 	
