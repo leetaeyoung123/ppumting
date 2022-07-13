@@ -27,7 +27,7 @@ public class DataSource {
 	}
 	
 	
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		try {
 			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassWord);
 		} catch (SQLException e) {
