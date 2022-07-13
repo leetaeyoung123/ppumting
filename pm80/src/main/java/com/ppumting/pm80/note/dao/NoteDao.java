@@ -8,8 +8,6 @@ import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.point.data.DataSource;
 import com.ppumting.pm80.point.data.NamingService;
 
-
-
 public class NoteDao {
 	
 	private static NoteDao instance = new NoteDao();
