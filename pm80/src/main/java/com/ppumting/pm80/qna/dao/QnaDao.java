@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
-import com.ppumting.pm80.point.data.DataSource;
+//import com.ppumting.pm80.point.data.DataSource;
 import com.ppumting.pm80.qna.domain.Qna;
+import com.ppumting.pm80.qna.service.DataSource;
 import com.ppumting.pm80.qna.service.NamingService;
 import com.ppumting.pm80.replay.Dao.ReplayDao;
 import com.ppumting.pm80.replay.domain.Replay;
@@ -33,7 +34,7 @@ public class QnaDao {
 			Connection con = null; 
 			PreparedStatement pstmt = null;
 			try {
-				con =DataSource.getConnection();
+				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
 				pstmt.setLong(1, qna.getUserNumber());
 				pstmt.setString(2, qna.getQnaTitle());
