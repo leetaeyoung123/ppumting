@@ -9,8 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-dsfdfdfdsdsd
-	dsfdfdfdsdsddsfdfdfdsdsddsfdfdfdsdsddsfdfdfdsdsd
 	
 </body>
 </html>

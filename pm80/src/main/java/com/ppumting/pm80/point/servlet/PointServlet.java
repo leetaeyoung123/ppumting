@@ -2,26 +2,28 @@ package com.ppumting.pm80.point.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ppumting.pm80.point.service.PointService;
+
 @WebServlet("/point/addPoint.jsp")
 public class PointServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public PointServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	private PointService pointService;
+
+	public void init(ServletConfig config) throws ServletException {
+		pointService = new PointService();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 	}
 
 }

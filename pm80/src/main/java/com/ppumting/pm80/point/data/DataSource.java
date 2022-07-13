@@ -1,4 +1,4 @@
-package com.ppumting.pm80.point.dao;
+package com.ppumting.pm80.point.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
