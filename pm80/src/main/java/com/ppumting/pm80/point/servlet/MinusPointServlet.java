@@ -23,20 +23,12 @@ public class MinusPointServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("addPoint.jsp").forward(request, response);
+		request.getRequestDispatcher("minusPoint.jsp").forward(request, response);
 		String userId = request.getParameter("userId");
 		String passwd = request.getParameter("passwd");
 		String trainerPrice = request.getParameter("price");
 		pointService.minusPoint(userId, passwd, trainerPrice);
 }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		
-		
-		
-		
-	}
 
 }

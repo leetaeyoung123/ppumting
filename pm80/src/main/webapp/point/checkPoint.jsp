@@ -6,8 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>포인트 조회</title>
 </head>
 <body>
-	gdgd
+	<form action="checkPoint">
+	<fieldset>
+	<legend>포인트 조회</legend>
+		아이디 : <input type="text" name="userId"/>
+    	<button type="submit">조회하기</button>
+	</fieldset>
+	</form>
 </body>
 </html>
