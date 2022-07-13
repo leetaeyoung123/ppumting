@@ -5,12 +5,9 @@ CREATE TABLE Trainers (
 	phone 			VARCHAR(13) NOT NULL,
 	trainerId 		VARCHAR(16) NOT NULL,
 	pw 				VARCHAR(20) NOT NULL,
-	addr 			VARCHAR(25) NOT NULL,
-	--aid  BIGINT NOT NULL,
-	--ring BIGINT NOT NULL,
-	--CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid),
-	--CONSTRAINT User_ring_FK FOREIGN KEY (ring) REFERENCES Note(ring)
+	addr 			VARCHAR(25) NOT NULL
+
 )AUTO_INCREMENT = 1;
 
-SELECT * FROM Trainer;
-DROP TABLE Trainer;
+SELECT * FROM Trainers;
+DROP TABLE Trainers;
