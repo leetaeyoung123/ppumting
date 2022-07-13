@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/add_trainer.do")
+@WebServlet("/Trainer/addTrainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService = TrainerService.getInstance();
 	
-	   public void init(ServletConfig config) throws ServletException {
-		      super.init();
-		   }
+//	   public void init(ServletConfig config) throws ServletException {
+//		      super.init();
+//		   }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
