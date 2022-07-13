@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ppumting.pm80.point.service.PointService;
 
-@WebServlet("/point/addPoint.jsp")
+@WebServlet("/point/addPoint")
 public class PointServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
