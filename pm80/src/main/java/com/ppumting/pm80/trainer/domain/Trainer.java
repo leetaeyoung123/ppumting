@@ -4,7 +4,7 @@ public class Trainer {
 	String name;
 	String ssn;
 	String phone;
-	String userId;
+	String trainerId;
 	String pw;
 	String addr;
 	
