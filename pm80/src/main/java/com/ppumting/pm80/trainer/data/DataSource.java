@@ -1,4 +1,4 @@
-package com.ppumting.pm80.point.data;
+package com.ppumting.pm80.trainer.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,14 +9,14 @@ import java.sql.SQLException;
 public class DataSource {
 	private static String Driver;
 	private static String Url;
-	private static String UserName;
+	private static String TrainerName;
 	private static String Password;
 
-	public DataSource(String Driver, String Url, String UserName, String Password) {
+	public DataSource(String Driver, String Url, String TrainerName, String Password) {
 		super();
 		this.Driver = Driver;
 		this.Url = Url;
-		this.UserName = UserName;
+		this.TrainerName = TrainerName;
 		this.Password = Password;
 		
 		try {
@@ -29,7 +29,7 @@ public class DataSource {
 	
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(Url, UserName, Password);
+			return DriverManager.getConnection(Url, TrainerName, Password);
 		} catch (SQLException e) {
 			throw new RuntimeException("ConnectionNotAvailableException");
 		}

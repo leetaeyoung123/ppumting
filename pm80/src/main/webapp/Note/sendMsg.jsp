@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>에러</title>
+<title>Insert title here</title>
 </head>
 <body>
-	에러
+<form action="sendMsg.do" method="post">
+test
+<input type="submit" value="전송">
+</form>
 </body>
 </html>

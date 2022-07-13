@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 완료</title>
+<title>Insert title here</title>
 </head>
 <body>
- 회원가입 완료
-</body>
+success!
+</body> 
 </html>
