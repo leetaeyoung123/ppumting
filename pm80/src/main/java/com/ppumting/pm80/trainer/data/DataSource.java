@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataSource {
-	private static String Driver;
-	private static String Url;
-	private static String TrainerName;
-	private static String Password;
+	private String Driver;
+	private String Url;
+	private String TrainerName;
+	private String Password;
 
 	public DataSource(String Driver, String Url, String TrainerName, String Password) {
 		super();
