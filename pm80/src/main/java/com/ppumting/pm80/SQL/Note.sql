@@ -24,3 +24,12 @@ SELECT * FROM Receiveuser;
 DROP TABLE reciveuser;
 DROP TABLE senduser;
 
+-- 외래키 설정방법
+-- Users 테이블 먼저 생성후 쿼리문 실행 또는
+-- ALTER TABLE Senduser add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-- Senduser
+
+-- ALTER TABLE userNumber add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
+-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-- Reciveuser
