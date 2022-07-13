@@ -8,7 +8,7 @@ CREATE TABLE Point(
 
 -- 	Point테이블에 추가해줄거 
 --	userNumber	BIGINT		NOT NULL,
-	CONSTRAINT Point_userNumber_FK FOREIGN KEY (userNumber) REFERENCES Users(userNumber) 
+--	CONSTRAINT Point_userNumber_FK FOREIGN KEY (userNumber) REFERENCES Users(userNumber)
 
 SELECT * FROM Point;
 SELECT * FROM Users;
