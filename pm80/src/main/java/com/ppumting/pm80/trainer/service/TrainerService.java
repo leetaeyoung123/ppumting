@@ -6,12 +6,8 @@ import com.ppumting.pm80.trainer.dao.TrainerDao;
 import com.ppumting.pm80.trainer.domain.Trainer;
 
 public class TrainerService {
-	private static TrainerService instance = new TrainerService(); //싱글톤
 	private TrainerDao trainerDao = TrainerDao.getInstance();
-	
-	public TrainerService() {
-		
-	}
+	private static TrainerService instance = new TrainerService(); //싱글톤
 	
 	public static TrainerService getInstance() {
 		return instance;
@@ -20,8 +16,7 @@ public class TrainerService {
 	public void addTrainer(Trainer trainer) {
 		trainerDao.addTrainer(trainer);	
 	}
-	
-	
+
 	public List<Trainer> findAllTrainers() {
 		return trainerDao.findAllTrainers();
 	}
