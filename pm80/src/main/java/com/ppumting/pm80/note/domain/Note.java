@@ -7,6 +7,7 @@ public class Note {
 	User receiveUser = new User();
 	String toMsg;
 	String fromMsg;
+	long ring = 0;
 	
 	public User getReceiveUser() {
 		return receiveUser;
@@ -27,8 +28,7 @@ public class Note {
 		this.fromMsg = fromMsg;
 	}
 	String msg;
-	long ring = 0;
-	
+
 	public User getSendUser() {
 		return sendUser;
 	}
