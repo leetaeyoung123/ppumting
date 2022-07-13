@@ -26,11 +26,11 @@ public class Trainer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getUserId() {
-		return userId;
+	public String getTrainerId() {
+		return trainerId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setTrainerId(String trainerId) {
+		this.trainerId = trainerId;
 	}
 	public String getPw() {
 		return pw;
