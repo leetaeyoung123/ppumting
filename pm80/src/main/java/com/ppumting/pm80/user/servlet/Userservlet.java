@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ppumting.pm80.user.dao.Userdao;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
@@ -22,6 +21,7 @@ public class Userservlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String userId = request.getParameter("userId");
@@ -62,10 +62,7 @@ public class Userservlet extends HttpServlet {
 		user.setSsn(ssn);
 		user.setPhone(phone);
 		user.setAddr(addr1+ " " + addr2);
-		
-		userService = new Userservice();
 		userService.addUser(user);
-		
 		request.setAttribute("user", user);
 		
 		dispatcher = request.getRequestDispatcher("result/success.jsp");

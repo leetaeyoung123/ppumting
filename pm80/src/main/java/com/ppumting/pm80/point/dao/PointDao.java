@@ -70,13 +70,13 @@ public class PointDao {
 	}
 
 	public void checkPoint(String userId) { // 사용자 아이디를 이용한 포인트 조회
-		String sql = "SELECT name,point FROM Point p INNER JOIN Users u " +
-					"ON p.userNumber = u.userNumber WHERE u.userId = '?'";
+		String sql = "SELECT point FROM Point, Users WHERE Point.? = Users.?";
 		
 		try {
 			Connection con = DataSource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userId);
+			stmt.setString(2, userId);
 			ResultSet rs = stmt.executeQuery();
 			try {
 				while(rs.next()) {

@@ -7,67 +7,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataSource {
-	private static String Driver;
-	private static String Url;
-	private static String UserName;
-	private static String Password;
+	private String jdbcDriver;
+	private String jdbcUrl;
+	private String jdbcUserName;
+	private String jdbcPassWord;
 
-	public DataSource(String Driver, String Url, String UserName, String Password) {
+	public DataSource(String jdbcDriver,String jdbcUrl, String jdbcUserName, String jdbcPassWord) {
 		super();
-		this.Driver = Driver;
-		this.Url = Url;
-		this.UserName = UserName;
-		this.Password = Password;
-		
-		try {
-			Class.forName(Driver);
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("JdbcDriverNotAvailableException");
-		}
+		this.jdbcDriver = jdbcDriver;
+		this.jdbcUrl = jdbcUrl;
+		this.jdbcUserName = jdbcUserName;
+		this.jdbcPassWord = jdbcPassWord;
+
+	      try {
+	          Class.forName(jdbcDriver);
+	       }catch(ClassNotFoundException e) {
+	          throw new RuntimeException("JdbcNotFoundException");
+	       }
 	}
-	
-	
-	public Connection getConnection() {
+
+
+	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection(Url, UserName, Password);
+			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassWord);
 		} catch (SQLException e) {
 			throw new RuntimeException("ConnectionNotAvailableException");
 		}
-		
 	}
+
 	
-//	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
-//		if( rs != null && !rs.isClosed() ) {
-//			rs.close();
-//		}
-//
-//		if( pstmt != null && !pstmt.isClosed() ) {
-//			pstmt.close();
-//		}
-//		
-//		if( con != null && !con.isClosed() ) {
-//			con.close();
-//		}
-//	}
-	
-	
-	public void close(ResultSet rs, ResultSet rs2, PreparedStatement pstmt, PreparedStatement pstmt2, Connection con) throws SQLException {
+	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
 		if( rs != null && !rs.isClosed() ) {
 			rs.close();
 		}
-		
-		if( rs2 != null && !rs2.isClosed() ) {
-			rs2.close();
-		}
-		
 		if( pstmt != null && !pstmt.isClosed() ) {
 			pstmt.close();
 		}
-		
-		if (pstmt2 != null && !pstmt2.isClosed() ) {
-			pstmt2.close();
-		}
-		
 		if( con != null && !con.isClosed() ) {
 			con.close();
 		}
@@ -75,7 +50,7 @@ public class DataSource {
 
 
 	public void close(PreparedStatement pstmt, Connection con) throws SQLException {
-		close (null, null, pstmt, null, con);
+		close(null, pstmt, con);
 	}
-	
+
 }
