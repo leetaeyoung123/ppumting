@@ -9,8 +9,14 @@ CREATE TABLE Users (
 	aid  BIGINT NOT NULL,
 	ring BIGINT NOT NULL DEFAULT 0
 )AUTO_INCREMENT = 1;
+<<<<<<< HEAD
 	--CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 ALTER TABLE Users ADD CONSTRAINT Users_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+=======
+
+ALTER TABLE Users ADD CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+
+>>>>>>> Boardbranch
 SELECT * FROM Users;
 
 DROP TABLE Users;
