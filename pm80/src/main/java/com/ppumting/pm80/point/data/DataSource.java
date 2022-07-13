@@ -27,7 +27,7 @@ public class DataSource {
 	}
 
 
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		try {
 			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassWord);
 		} catch (SQLException e) {
@@ -35,7 +35,7 @@ public class DataSource {
 		}
 	}
 
-	
+
 	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
 		if( rs != null && !rs.isClosed() ) {
 			rs.close();
