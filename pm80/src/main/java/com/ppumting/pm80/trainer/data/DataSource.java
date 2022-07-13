@@ -7,20 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataSource {
-	private String Driver;
-	private String Url;
-	private String TrainerName;
-	private String Password;
-
-	public DataSource(String Driver, String Url, String TrainerName, String Password) {
+	private String jdbcDriver;
+	private static String jdbcUrl;
+	private static String jdbcUserName;
+	private static String jdbcPassWord;
+	
+	public DataSource(String jdbcDriver,String jdbcUrl, String jdbcUserName, String jdbcPassWord) {
 		super();
-		this.Driver = Driver;
-		this.Url = Url;
-		this.TrainerName = TrainerName;
-		this.Password = Password;
+		this.jdbcDriver = jdbcDriver;
+		this.jdbcUrl = jdbcUrl;
+		this.jdbcUserName = jdbcUserName;
+		this.jdbcPassWord = jdbcPassWord;
 		
 		try {
-			Class.forName(Driver);
+			Class.forName(jdbcDriver);
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("JdbcDriverNotAvailableException");
 		}
@@ -29,7 +29,7 @@ public class DataSource {
 	
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(Url, TrainerName, Password);
+			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassWord);
 		} catch (SQLException e) {
 			throw new RuntimeException("ConnectionNotAvailableException");
 		}
