@@ -8,7 +8,10 @@
 </head>
 <body>
 <form action="sendMsg.do" method="post">
-test
+메세지 입력<br>
+<textarea rows="10" cols="30" name="msg"></textarea><br>
+보내실 분 : <input type="text" name="toMsg"><br>
+본인 ID : <input type="text" name="userId"><br>
 <input type="submit" value="전송">
 </form>
 </body>

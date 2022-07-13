@@ -12,4 +12,4 @@ SELECT * FROM Users;
 DROP TABLE Users;
 
 INSERT INTO Users (name, ssn, phone, userId, pw, addr)
-VALUES('박상규', '980618', '010-3490-3180', 'sssssg06', '1234', 'daegu');
+VALUES('이태영', '970312', '010-2881-2498', 'lty', '1234', 'daegu');

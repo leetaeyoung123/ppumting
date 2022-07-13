@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
-import com.ppumting.pm80.user.domain.User;
 
 @WebServlet("/Note/sendMsg.do")
 public class NoteServlet extends HttpServlet {
@@ -27,20 +26,19 @@ public class NoteServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		User user = new User();
-		
 		String msg = request.getParameter("msg");
 		String toMsg = request.getParameter("toMsg");
-		user.setUserId(request.getParameter("userId")); 
+		String userId = request.getParameter("userId");
 		
 		RequestDispatcher dispatcher = null;
 		
 		Note note = new Note();
 		note.setMsg(msg);
 		note.setToMsg(toMsg);
-		note.setUser(user);
+		note.setUser(userId);
 		
 		service.sendNote(note);
+		System.out.println("성공");
 		
 		request.setAttribute("note", note);
 		dispatcher = request.getRequestDispatcher("success.jsp");

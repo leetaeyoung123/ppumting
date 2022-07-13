@@ -6,13 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class DataSource {
 	private String jdbcDriver;
 	private String jdbcUrl;
 	private String jdbcUserName;
-	private String jdbcPassWord;
+	private String jdbcPassworld;
 
-	public DataSource(String jdbcDriver,String jdbcUrl, String jdbcUserName, String jdbcPassWord) {
+	public DataSource(String jdbcDriver, String jdbcUrl, String jdbcUserName, String jdbcPassworld) {
 		super();
 		this.jdbcDriver = jdbcDriver;
 		this.jdbcUrl = jdbcUrl;
@@ -35,15 +36,15 @@ public class DataSource {
 		}
 	}
 
-	
+
 	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
-		if( rs != null && !rs.isClosed() ) {
+		if(rs != null && !rs.isClosed()) {
 			rs.close();
 		}
-		if( pstmt != null && !pstmt.isClosed() ) {
+		if(pstmt != null && !pstmt.isClosed()) {
 			pstmt.close();
 		}
-		if( con != null && !con.isClosed() ) {
+		if(con != null && !con.isClosed()) {
 			con.close();
 		}
 	}

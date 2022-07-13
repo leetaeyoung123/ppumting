@@ -20,19 +20,23 @@ public class NoteDao {
 	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
 
 	public void addNote(Note note) {
-		String sendSql = "INSERT INTO Senduser(msg, toMsg, userNumber)"
+//		String receiveSql = "INSERT INTO Receiveuser(ring, fromMsg, userNumber, msg)"
+//				+ "VALUES(?, ?, ?, ?)";
+		String sendSql = "INSERT INTO Senduser(msg, toMsg, userId)"
 				+ "VALUES(?, ?, ?)";
-		String receiveSql = "INSERT INTO Receiveuser(ring, fromMsg, userNumber, msg)"
-				+ "VALUES(?, ?, ?, ?)";
+		System.out.println(note.getMsg());
+		System.out.println(note.getToMsg());
+		System.out.println(note.getUserId());
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			try {
+				System.out.println(1);
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sendSql);
 				pstmt.setString(1, note.getMsg());
 				pstmt.setString(2, note.getToMsg());
-				pstmt.setString(3, note.getUser().getUserId());
+				pstmt.setString(3, note.getUserId());
 				pstmt.executeUpdate();
 				System.out.println("addMsgComplete!");
 			}finally {
