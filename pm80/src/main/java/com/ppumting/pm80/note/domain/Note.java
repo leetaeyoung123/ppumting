@@ -6,13 +6,15 @@ public class Note {
 	User user = new User();
 	String toMsg;
 	String fromMsg;
+	String msg;
+	long ring = 0;
+	
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	long ring = 0;
 	
 	public String getToMsg() {
 		return toMsg;
@@ -26,7 +28,6 @@ public class Note {
 	public void setFromMsg(String fromMsg) {
 		this.fromMsg = fromMsg;
 	}
-	String msg;
 
 	public String getMsg() {
 		return msg;
