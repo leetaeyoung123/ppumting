@@ -6,13 +6,11 @@ CREATE TABLE Trainers (
 	trainerId 		VARCHAR(16) NOT NULL,
 	pw 				VARCHAR(20) NOT NULL,
 	addr 			VARCHAR(25) NOT NULL,
-	aid  			BIGINT 		NOT NULL,
-	ring 			BIGINT 		NOT NULL DEFAULT 0
+	aid  			BIGINT 		NOT NULL
 )AUTO_INCREMENT = 1;
 	-- CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 
 ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
-ALTER TABLE	Trainers ADD CONSTRAINT Trainers_ring_FK FOREIGN KEY (ring) REFERENCES Receiveuser(ring);
 
 SELECT * FROM Trainers;
 DROP TABLE Trainers;
