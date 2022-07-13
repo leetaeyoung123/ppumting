@@ -18,12 +18,12 @@ public class InitalizeDataSource implements ServletContextListener {
 			Properties prop = new Properties();
 			prop.load(is);
 			
-			String jdbcDriver = prop.getProperty("jdbc.driver");
-			String jdbcUrl = prop.getProperty("jdbc.url");
-			String userName = prop.getProperty("jdbc.username");
-			String password = prop.getProperty("jdbc.password");
+			String Driver = prop.getProperty("driver");
+			String Url = prop.getProperty("url");
+			String Name = prop.getProperty("username");
+			String password = prop.getProperty("password");
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
     }
 
