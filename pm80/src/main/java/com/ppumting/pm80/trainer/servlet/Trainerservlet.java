@@ -56,8 +56,8 @@ public class Trainerservlet extends HttpServlet {
 		
 		Trainer trainer = new Trainer();
 		
-		trainer.setUserId(userId);
-		trainer.setPw(pw);
+		trainer.setTrainerId(userId);
+		trainer.setPasswd(pw);
 		trainer.setName(name);
 		trainer.setSsn(ssn);
 		trainer.setPhone(phone);
