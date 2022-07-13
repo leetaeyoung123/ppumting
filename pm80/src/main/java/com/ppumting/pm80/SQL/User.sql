@@ -22,3 +22,6 @@ VALUES('이태영', '970312', '010-2881-2498', 'lty', '1234', 'daegu', '1');
 --FK
 --CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid),
 --CONSTRAINT User_ring_FK FOREIGN KEY (ring) REFERENCES Note(ring)
+
+ALTER TABLE Users ADD CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+ALTER TABLE	Users ADD CONSTRAINT User_ring_FK FOREIGN KEY (ring) REFERENCES Receiveuser(ring);

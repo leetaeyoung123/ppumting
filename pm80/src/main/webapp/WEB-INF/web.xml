@@ -10,7 +10,6 @@
   	<description></description>
   	<servlet-class>com.ppumting.pm80.point.servlet.PointServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>PointServlet</servlet-name>
-  	<url-pattern>/point/addPoint</url-pattern>
-  </servlet-mapping></web-app>
+
+  <display-name>Archetype Created Web Application</display-name></web-app>
+
