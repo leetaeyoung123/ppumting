@@ -40,6 +40,7 @@ public class TrainerDao {
                pstmt.setString(4, trainer.getPasswd());
                pstmt.setString(5, trainer.getAddr());
                pstmt.executeUpdate();
+               System.out.println("addTrainer!");
             } finally{
             	datasource.close(pstmt,con);
             }
