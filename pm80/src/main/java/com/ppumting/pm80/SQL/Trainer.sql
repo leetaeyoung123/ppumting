@@ -14,6 +14,7 @@ ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES
 
 SELECT * FROM Trainers;
 DROP TABLE Trainers;
+DELETE FROM Trainers WHERE name = '백기열';
 
-INSERT INTO Trainers (name, ssn, phone, trainerId, pw, addr, aid)
+INSERT INTO Trainers (name, ssn, phone, trainerId, pw, addr, aid) 
 VALUES('백기열', '950512', '010-8538-8436', 'bky', '1234', 'daegu', '1');
