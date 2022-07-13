@@ -16,11 +16,10 @@ public class NamingService {
 	}
 	
 	public void setAttribute(String name, Object obj) {
-		if( !nameValuePairs.containsKey(name) ) {
+		if(!nameValuePairs.containsKey(name)) {
 			nameValuePairs.put(name, obj);
 		}else {
-			throw new IllegalArgumentException("This name, " + name
-												+ ", is already in use.");
+			throw new IllegalArgumentException("This name, " + name + ", is already in use.");
 		}
 	}
 	
@@ -31,4 +30,5 @@ public class NamingService {
 	public void removeAttribute(String name) {
 		nameValuePairs.remove(name);
 	}
+	
 }

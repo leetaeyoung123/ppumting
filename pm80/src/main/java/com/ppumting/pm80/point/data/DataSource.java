@@ -6,49 +6,46 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DataSource {
-	private static String Driver;
-	private static String Url;
-	private static String UserName;
-	private static String Password;
 
-	public DataSource(String Driver, String Url, String UserName, String Password) {
+public class DataSource {
+	private String jdbcDriver;
+	private String jdbcUrl;
+	private String jdbcUserName;
+	private String jdbcPassworld;
+	
+	public DataSource(String jdbcDriver, String jdbcUrl, String jdbcUserName, String jdbcPassworld) {
 		super();
-		this.Driver = Driver;
-		this.Url = Url;
-		this.UserName = UserName;
-		this.Password = Password;
+		this.jdbcDriver = jdbcDriver;
+		this.jdbcUrl = jdbcUrl;
+		this.jdbcUserName = jdbcUserName;
+		this.jdbcPassworld = jdbcPassworld;
 		
 		try {
-			Class.forName(Driver);
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException("JdbcDriverNotAvailableException");
-		}
+			Class.forName(jdbcDriver);
+		}catch(ClassNotFoundException e) {
+			throw new RuntimeException("JdbcNotFoundException");
+		} 
 	}
-	
-	
+		
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(Url, UserName, Password);
-		} catch (SQLException e) {
+			return DriverManager.getConnection(jdbcUrl, jdbcUserName, jdbcPassworld);
+		} catch(SQLException e) {
 			throw new RuntimeException("ConnectionNotAvailableException");
 		}
-		
 	}
 	
-	
 	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
-		if( rs != null && !rs.isClosed() ) {
+		if(rs != null && !rs.isClosed()) {
 			rs.close();
 		}
-		if( pstmt != null && !pstmt.isClosed() ) {
+		if(pstmt != null && !pstmt.isClosed()) {
 			pstmt.close();
 		}
-		if( con != null && !con.isClosed() ) {
+		if(con != null && !con.isClosed()) {
 			con.close();
 		}
 	}
-	
 	
 	public void close(PreparedStatement pstmt, Connection con) throws SQLException {
 		close(null, pstmt, con);
