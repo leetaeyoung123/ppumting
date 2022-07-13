@@ -10,10 +10,10 @@ CREATE TABLE Users (
 	ring BIGINT NOT NULL DEFAULT 0
 )AUTO_INCREMENT = 1;
 	--CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
-ALTER TABLE Users ADD CONSTRAINT User_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+ALTER TABLE Users ADD CONSTRAINT Users_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
 SELECT * FROM Users;
 
-DROP TABLE User;
+DROP TABLE Users;
 
 INSERT INTO Users (name, ssn, phone, userId, pw, addr, aid)
 VALUES('이태영', '970312', '010-2881-2498', 'lty', '1234', 'daegu', '1');
