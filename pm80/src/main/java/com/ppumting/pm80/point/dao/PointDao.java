@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.ppumting.pm80.point.data.DataSource;
+import com.ppumting.pm80.point.data.NamingService;
 import com.ppumting.pm80.user.domain.User;
 
 public class PointDao {
 	private static PointDao pointdao = new PointDao();
 	private static User user = new User();
+	NamingService namingService = NamingService.getInstance();
+	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
 	public String createAccountNum() { // 계좌 생성
 		String sql = "INSERT INTO Point(point, accountNum) VALUES(?, ?)";
@@ -21,7 +24,7 @@ public class PointDao {
 		String sql = "INSERT INTO User(name, ssn, userid, passwd, email, addr)" + "VALUES(?, ?, ?, ?, ?, ?)";
 
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
 				stmt = con.prepareStatement(sql);
@@ -45,7 +48,7 @@ public class PointDao {
 		String sql = "SELECT userId,pw FROM Point p INNER JOIN Users u ON p.userId = u.userId";
 		
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			try {
@@ -73,7 +76,7 @@ public class PointDao {
 		String sql = "SELECT point FROM Point, Users WHERE Point.? = Users.?";
 		
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userId);
 			stmt.setString(2, userId);

@@ -34,8 +34,6 @@ public class Userdao {
 				pstmt.setString(5, user.getPw());
 				pstmt.setString(6, user.getAddr());
 			} finally {
-				System.out.println(pstmt);
-				System.out.println(con);
 				datasource.close(pstmt, con);
 				System.out.println("addUser end");
 			}
