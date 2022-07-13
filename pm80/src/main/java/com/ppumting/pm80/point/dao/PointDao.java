@@ -5,15 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.ppumting.pm80.point.data.DataSource;
+import com.ppumting.pm80.point.data.NamingService;
 import com.ppumting.pm80.user.domain.User;
 
 public class PointDao {
 	private static PointDao pointdao = new PointDao();
 	private static User user = new User();
 
-	public String createAccountNum() { // 계좌 생성
-		String sql = "INSERT INTO Point(point, accountNum) VALUES(?, ?)";
+	NamingService namingService = NamingService.getInstance();
+	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
+	public String createAccountNum() { // 계좌 생성
 		return null;
 	}
 
@@ -21,7 +23,7 @@ public class PointDao {
 		String sql = "INSERT INTO User(name, ssn, userid, passwd, email, addr)" + "VALUES(?, ?, ?, ?, ?, ?)";
 
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
 				stmt = con.prepareStatement(sql);
@@ -43,9 +45,9 @@ public class PointDao {
 
 	public void minusPoint(String userId, String passwd, String trainerPrice) { // 사용자 포인트 차감
 		String sql = "SELECT userId,pw FROM Point p INNER JOIN Users u ON p.userId = u.userId";
-		
+
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			try {
@@ -66,17 +68,16 @@ public class PointDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void checkPoint(String userId) { // 사용자 아이디를 이용한 포인트 조회
-		String sql = "SELECT point FROM Point, Users WHERE Point.? = Users.?";
-		
+		String sql = "SELECT point,name FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
+
 		try {
-			Connection con = DataSource.getConnection();
+			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userId);
-			stmt.setString(2, userId);
 			ResultSet rs = stmt.executeQuery();
 			try {
 				while(rs.next()) {

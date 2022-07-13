@@ -20,10 +20,10 @@ public class InitializeDataSource implements ServletContextListener {
          Properties prop = new Properties();
          prop.load(is);
          
-         String jdbcDriver = prop.getProperty("jdbc.driver");
-         String jdbcUrl = prop.getProperty("jdbc.url");
-         String userName = prop.getProperty("jdbc.username");
-         String password = prop.getProperty("jdbc.password");
+         String jdbcDriver = prop.getProperty("driver");
+         String jdbcUrl = prop.getProperty("url");
+         String userName = prop.getProperty("username");
+         String password = prop.getProperty("password");
          
          DataSource dataSource = new DataSource(jdbcDriver, jdbcUrl, userName, password);   // 데이터 소스 생성
          
