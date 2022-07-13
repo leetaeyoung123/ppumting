@@ -5,6 +5,7 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>UserServlet</servlet-name>
   	<display-name>UserServlet</display-name>
   	<description></description>
@@ -13,5 +14,15 @@
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/user/UserServlet</url-pattern>
+=======
+  	<servlet-name>PointServlet</servlet-name>
+  	<display-name>PointServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ppumting.pm80.point.servlet.PointServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PointServlet</servlet-name>
+  	<url-pattern>/PointServlet</url-pattern>
+>>>>>>> main
   </servlet-mapping>
 </web-app>
