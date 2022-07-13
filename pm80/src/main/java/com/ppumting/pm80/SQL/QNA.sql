@@ -22,4 +22,3 @@ INSERT INTO QNA (qna_no, user_number, qna_title)
 
 -- INSERT INTO QNA (name, ssn, phone, userId, pw, addr, aid)
 -- VALUES('이태영', '970312', '010-2881-2498', 'lty', '1234', 'daegu', '1');
-

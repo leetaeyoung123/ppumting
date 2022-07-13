@@ -1,4 +1,4 @@
-package com.ppumting.pm80.point.data;
+package com.ppumting.pm80.qna.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,46 +36,21 @@ public class DataSource {
 		
 	}
 	
-//	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
-//		if( rs != null && !rs.isClosed() ) {
-//			rs.close();
-//		}
-//
-//		if( pstmt != null && !pstmt.isClosed() ) {
-//			pstmt.close();
-//		}
-//		
-//		if( con != null && !con.isClosed() ) {
-//			con.close();
-//		}
-//	}
 	
-	
-	public void close(ResultSet rs, ResultSet rs2, PreparedStatement pstmt, PreparedStatement pstmt2, Connection con) throws SQLException {
+	public void close(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
 		if( rs != null && !rs.isClosed() ) {
 			rs.close();
 		}
-		
-		if( rs2 != null && !rs2.isClosed() ) {
-			rs2.close();
-		}
-		
 		if( pstmt != null && !pstmt.isClosed() ) {
 			pstmt.close();
 		}
-		
-		if (pstmt2 != null && !pstmt2.isClosed() ) {
-			pstmt2.close();
-		}
-		
 		if( con != null && !con.isClosed() ) {
 			con.close();
 		}
 	}
-
-
-	public void close(PreparedStatement pstmt, Connection con) throws SQLException {
-		close (null, null, pstmt, null, con);
-	}
 	
+	
+	public void close(PreparedStatement pstmt, Connection con) throws SQLException {
+		close(null, pstmt, con);
+	}
 }

@@ -17,7 +17,7 @@ public class Qna {
 	public Qna() {
 		
 	}
-	
+
 	public Qna(int qnaNo, int userNumber, String qanTitle, String qanContent, Date qnaRegDate, int qnaVisible) {
 		super();
 		this.qnaNo = qnaNo;
