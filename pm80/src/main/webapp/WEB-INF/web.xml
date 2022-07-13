@@ -1,26 +1,3 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-
-<web-app>
-	<servlet>
-		<servlet-name>NoteServlet</servlet-name>
-		<display-name>NoteServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.note.servlet.NoteServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>pm80/sendnote</servlet-name>
-		<display-name>pm80/sendnote</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.note.servlet.NoteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>NoteServlet</servlet-name>
-		<url-pattern>/pm80/add_note.do</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>pm80/sendnote</servlet-name>
-		<url-pattern>/pm80/sendnote</url-pattern>
-	</servlet-mapping></web-app>
