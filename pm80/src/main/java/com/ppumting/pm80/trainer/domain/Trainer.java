@@ -4,8 +4,8 @@ public class Trainer {
 	String name;
 	String ssn;
 	String phone;
-	String trainerId;
-	String pw;
+	String tId;
+	String passwd;
 	String addr;
 	
 	public String getName() {
@@ -27,16 +27,16 @@ public class Trainer {
 		this.phone = phone;
 	}
 	public String getTrainerId() {
-		return trainerId;
+		return tId;
 	}
-	public void setTrainerId(String trainerId) {
-		this.trainerId = trainerId;
+	public void setTrainerId(String tId) {
+		this.tId = tId;
 	}
-	public String getPw() {
-		return pw;
+	public String getPasswd() {
+		return passwd;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getAddr() {
 		return addr;
@@ -44,4 +44,5 @@ public class Trainer {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
 }

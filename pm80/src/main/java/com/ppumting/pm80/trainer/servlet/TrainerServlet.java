@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ppumting.pm80.trainer.domain.Trainer;
-import com.ppumting.pm80.trainer.service.Trainerservice;
+import com.ppumting.pm80.trainer.service.TrainerService;
 
 @WebServlet("/Trainer/trainer")
-public class Trainerservlet extends HttpServlet {
+public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private Trainerservice trainerService;
+	private TrainerService trainerService;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class Trainerservlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String trainerId = request.getParameter("trainerId");
-		String pw = request.getParameter("pw");
+		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
 		String ssn = request.getParameter("ssn");
 		String phone = request.getParameter("phone");
@@ -35,7 +35,7 @@ public class Trainerservlet extends HttpServlet {
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
 			errorMsgs.add("id를 입력해주세요,");		
-		}else if(pw == null || pw.length() == 0) {
+		}else if(passwd == null || passwd.length() == 0) {
 			errorMsgs.add("비밀번호를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
@@ -57,7 +57,7 @@ public class Trainerservlet extends HttpServlet {
 		Trainer trainer = new Trainer();
 		
 		trainer.setTrainerId(trainerId);
-		trainer.setPw(pw);
+		trainer.setPasswd(passwd);
 		trainer.setName(name);
 		trainer.setSsn(ssn);
 		trainer.setPhone(phone);
