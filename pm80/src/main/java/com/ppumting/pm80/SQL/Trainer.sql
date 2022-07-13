@@ -1,7 +1,7 @@
 CREATE TABLE Trainers (
 	TrainerNumber 	BIGINT PRIMARY KEY AUTO_INCERMENT,
 	name			VARCHAR(20) NOT NULL,
-	ssn 			VARCHAR(7) NOT NULL,
+	ssn 			VARCHAR(7) 	NOT NULL,
 	phone 			VARCHAR(13) NOT NULL,
 	trainerId 		VARCHAR(16) NOT NULL,
 	pw 				VARCHAR(20) NOT NULL,
