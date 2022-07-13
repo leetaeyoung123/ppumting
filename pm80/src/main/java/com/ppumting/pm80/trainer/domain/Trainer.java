@@ -1,13 +1,21 @@
 package com.ppumting.pm80.trainer.domain;
 
-public class Trainer {
+import java.io.Serializable;
+
+public class Trainer implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	String name;
 	String ssn;
 	String phone;
-	String userId;
-	String pw;
+	String trainerId;
+	String passwd;
 	String addr;
-	
+
+	public Trainer() {
+
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -26,17 +34,17 @@ public class Trainer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getUserId() {
-		return userId;
+	public String getTrainerId() {
+		return trainerId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setTrainerId(String trainerId) {
+		this.trainerId = trainerId;
 	}
-	public String getPw() {
-		return pw;
+	public String getPasswd() {
+		return passwd;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getAddr() {
 		return addr;
@@ -44,4 +52,5 @@ public class Trainer {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
 }
