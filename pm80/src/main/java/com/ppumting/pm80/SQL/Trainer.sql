@@ -7,8 +7,11 @@ CREATE TABLE Trainers (
 	pw 				VARCHAR(20) NOT NULL,
 	addr 			VARCHAR(25) NOT NULL,
 	aid  			BIGINT 		NOT NULL,
-	ring 			BIGINT 		NOT NULL DEFAULT 0
+	ring 			BIGINT 		NOT NULL DEFAULT 0,
+	CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 )AUTO_INCREMENT = 1;
+
+-- ALTER TABLE Trainers add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
 
 SELECT * FROM Trainers;
 DROP TABLE Trainers;
