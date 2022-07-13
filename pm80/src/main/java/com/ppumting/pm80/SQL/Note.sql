@@ -16,8 +16,6 @@ CREATE TABLE Receiveuser (
 	CONSTRAINT FK_Receiveuser_SendUser_msg FOREIGN KEY(msg) REFERENCES Senduser(msg)
 );
 
-
-
 SELECT * FROM senduser;
 SELECT * FROM Receiveuser;
 
