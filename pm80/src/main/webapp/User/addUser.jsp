@@ -12,6 +12,7 @@
 	비밀번호: <input type="password" name="pw"><br>
 	이름: <input type="text" name="name"><br>
 	주민번호: <input type="text" name="ssn" placeholder="앞자리 6자리만 입력해주세요"><br>
+	전화번호: <input type="text" name="phone" placeholder="-를 포함한 전화번호를 입력해주세요"><br>
 	주소: <select name = "addr1">
 			<option>지역 선택</option>
 			<option>서울</option>

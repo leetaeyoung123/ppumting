@@ -11,13 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ppumting.pm80.user.dao.Userdao;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
 @WebServlet("/User/user")
 public class Userservlet extends HttpServlet {	
 	private static final long serialVersionUID = 1L;
-	private Userservice userService;
+	private Userservice userService = Userservice.getInstance();
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -49,11 +51,11 @@ public class Userservlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		if(errorMsgs.size() > 0) {
 			dispatcher = request.getRequestDispatcher("result/error.jsp");
+			request.setAttribute("errorMsgs", errorMsgs);
 			dispatcher.forward(request, response);
+			return;
 		}
-		
 		User user = new User();
-		
 		user.setUserId(userId);
 		user.setPw(pw);
 		user.setName(name);
@@ -61,12 +63,12 @@ public class Userservlet extends HttpServlet {
 		user.setPhone(phone);
 		user.setAddr(addr1+ " " + addr2);
 		
+		userService = new Userservice();
 		userService.addUser(user);
 		
+		request.setAttribute("user", user);
 		
-		request.setAttribute("name", name);
 		dispatcher = request.getRequestDispatcher("result/success.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }

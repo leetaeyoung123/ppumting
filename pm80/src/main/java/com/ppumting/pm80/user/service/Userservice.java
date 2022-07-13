@@ -4,14 +4,14 @@ import com.ppumting.pm80.user.dao.Userdao;
 import com.ppumting.pm80.user.domain.User;
 
 public class Userservice {
-	private Userservice instance = new Userservice();
+	private static Userservice instance = new Userservice();
 	private Userdao userdao = Userdao.getInstance();
 	
-	private Userservice() {
+	public Userservice() {
 		
 	}
 	
-	public Userservice getInstance() {
+	public static Userservice getInstance() {
 		return instance;
 	}
 	
