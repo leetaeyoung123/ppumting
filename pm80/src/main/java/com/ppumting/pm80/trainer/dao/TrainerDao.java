@@ -25,7 +25,7 @@ public class TrainerDao {
 	}
 	
      public void addTrainer(Trainer trainer) {
-         String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, pw, addr)"
+         String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
                   + "VALUES(?, ?, ?, ?, ?, ?)";
          
          try {
@@ -65,7 +65,7 @@ public class TrainerDao {
                rs = pstmt.executeQuery();
                while(rs.next()) {
             	   Trainer t = new Trainer();
-            	   t.setTrainerId(rs.getString("tid"));
+            	   t.setTrainerId(rs.getString("trainerid"));
             	   t.setName(rs.getString("trainername"));
             	   t.setPasswd(rs.getString("passwd"));
             	   t.setSsn(rs.getString("ssn"));
