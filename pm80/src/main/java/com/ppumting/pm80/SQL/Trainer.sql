@@ -10,7 +10,7 @@ CREATE TABLE Trainers (
 )AUTO_INCREMENT = 1;
 	-- CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 
-ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+-- ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
 
 SELECT * FROM Trainers;
 DROP TABLE Trainers;
