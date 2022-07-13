@@ -1,13 +1,26 @@
 SHOW TABLES;
 
-CREATE TABLE `senduser` (
-  `msg` VARCHAR(200) NOT NULL,
-  `sendDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`msg`));
+CREATE TABLE Senduser (
+	msg			VARCHAR(200) 	PRIMARY KEY,
+	userNumber 	BIGINT 			NOT NULL,
+	sendDate 	TIMESTAMP		NOT NULL 		DEFAULT CURRENT_TIMESTAMP
+);
 
-CREATE TABLE `reciveuser` (
-  `ring` BIGINT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ring`));  
-  
+ALTER TABLE Senduser add FOREIGN KEY(userNumber) REFERENCES Users(userNumber);
+
+CREATE TABLE Receiveuser (
+	ring		BIGINT			PRIMARY KEY,
+	userNumber	BIGINT			NOT NULL,
+	msg			VARCHAR(200)	NOT NULL,
+	FOREIGN KEY(userNumber) REFERENCES Users(userNumber),
+	FOREIGN KEY(msg) REFERENCES Senduser(msg)
+);
+
+
+
 SELECT * FROM senduser;
-SELECT * FROM reciveuser;
+SELECT * FROM Receiveuser;
+
+DROP TABLE reciveuser;
+DROP TABLE senduser;
+
