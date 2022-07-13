@@ -15,18 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/addTrainer")
+@WebServlet("/Trainer/trainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService = TrainerService.getInstance();
 	
-	   public void init(ServletConfig config) throws ServletException {
-		      super.init();
-		   }
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		String trainerId = request.getParameter("trainerId");
@@ -69,7 +64,9 @@ public class TrainerServlet extends HttpServlet {
 		trainer.setPhone(phone);
 		trainer.setAddr(addr1+ " " + addr2);
 
+		trainerService = new TrainerService();
 		trainerService.addTrainer(trainer);
+		
 		request.setAttribute("trainer", trainer);
 		
 		dispatcher = request.getRequestDispatcher("success.jsp");

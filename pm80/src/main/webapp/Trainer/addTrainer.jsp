@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="addTrainer" method="post">
+	<form action="trainer" method="post">
 		트레이너 아이디: <input type="text" name="trainerId"><br>
 		이름: <input type="text" name="name"><br>
 		비밀번호: <input type="password" name="passwd"><br>
