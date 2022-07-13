@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ppumting.pm80.point.service.PointService;
 
-@WebServlet("/point/addPoint")
-public class PointServlet extends HttpServlet {
+@WebServlet("/point/minusPoint")
+public class MinusPointServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private PointService pointService;
@@ -23,8 +23,20 @@ public class PointServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		System.out.println("gdgd");
+		request.getRequestDispatcher("addPoint.jsp").forward(request, response);
+		String userId = request.getParameter("userId");
+		String passwd = request.getParameter("passwd");
+		String trainerPrice = request.getParameter("price");
+		pointService.minusPoint(userId, passwd, trainerPrice);
+}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+		
+		
+		
 	}
 
 }

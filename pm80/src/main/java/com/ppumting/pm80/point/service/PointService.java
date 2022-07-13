@@ -13,11 +13,13 @@ public class PointService {
 		return pointdao.addPoint();
 	}
 	
-	public String minusPoint() { //사용자 포인트 차감
-		return pointdao.minusPoint();
+	public void minusPoint(String userId, String passwd, String trainerPrice) { //사용자 포인트 차감
+		pointdao.minusPoint(userId, passwd, trainerPrice);
 	}
 	
-	public String checkPoint() { //포인트 조회
-		return pointdao.checkPoint();
+	public void checkPoint(String userId) { //포인트 조회
+		pointdao.checkPoint(userId);
 	}
+
+	
 }

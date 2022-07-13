@@ -2,4 +2,14 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app></web-app>
+<web-app>
+	<servlet>
+		<servlet-name>CheckPointServlet</servlet-name>
+		<display-name>CheckPointServlet</display-name>
+		<description></description>
+		<servlet-class>com.ppumting.pm80.point.servlet.CheckPointServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckPointServlet</servlet-name>
+		<url-pattern>/CheckPointServlet</url-pattern>
+	</servlet-mapping></web-app>
