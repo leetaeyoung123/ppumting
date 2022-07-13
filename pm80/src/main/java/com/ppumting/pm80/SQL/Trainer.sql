@@ -12,6 +12,7 @@ CREATE TABLE Trainers (
 	-- CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 
 ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
+ALTER TABLE	Trainers ADD CONSTRAINT Trainers_ring_FK FOREIGN KEY (ring) REFERENCES Receiveuser(ring);
 
 SELECT * FROM Trainers;
 DROP TABLE Trainers;
