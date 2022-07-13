@@ -18,6 +18,7 @@ public class Userdao {
 	}
 	
 	public void addUser(User user) {
+		System.out.println("addUser start");
 		String sql = "INSERT INTO Users (name, ssn, phone, userId, pw ,addr)"
 					+ "VALUES(?, ?, ?, ?, ?, ?)";
 		try {
@@ -33,7 +34,10 @@ public class Userdao {
 				pstmt.setString(5, user.getPw());
 				pstmt.setString(6, user.getAddr());
 			} finally {
+				System.out.println(pstmt);
+				System.out.println(con);
 				datasource.close(pstmt, con);
+				System.out.println("addUser end");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
