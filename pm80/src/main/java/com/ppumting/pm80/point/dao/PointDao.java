@@ -2,9 +2,12 @@ package com.ppumting.pm80.point.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import com.ppumting.pm80.user.domain.User;
 
 public class PointDao {
 	private static PointDao pointdao = new PointDao();
+	private static User user = new User();
+	
 
 	public String createAccountNum() { // 계좌 생성
 		String sql = "INSERT INTO Point(point, accountNum) VALUES(?, ?)";
@@ -20,11 +23,10 @@ public class PointDao {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
 				stmt = con.prepareStatement(sql);
-				stmt.setString(1, user.getUserName());
+				stmt.setString(1, user.getName());
 				stmt.setString(2, user.getSsn());
 				stmt.setString(3, user.getUserId());
-				stmt.setString(4, user.getPasswd());
-				stmt.setString(5, user.getEmail());
+				stmt.setString(4, user.getPw());
 				stmt.setString(6, user.getAddr());
 				stmt.executeUpdate();
 				System.out.println("INSERTED...");
