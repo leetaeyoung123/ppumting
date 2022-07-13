@@ -3,18 +3,17 @@ package com.ppumting.pm80.note.domain;
 import com.ppumting.pm80.user.domain.User;
 
 public class Note {
-	User sendUser = new User();
-	User receiveUser = new User();
+	User user = new User();
 	String toMsg;
 	String fromMsg;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	long ring = 0;
 	
-	public User getReceiveUser() {
-		return receiveUser;
-	}
-	public void setReceiveUser(User receiveUser) {
-		this.receiveUser = receiveUser;
-	}
 	public String getToMsg() {
 		return toMsg;
 	}
@@ -29,12 +28,6 @@ public class Note {
 	}
 	String msg;
 
-	public User getSendUser() {
-		return sendUser;
-	}
-	public void setSendUser(User sendUser) {
-		this.sendUser = sendUser;
-	}
 	public String getMsg() {
 		return msg;
 	}
