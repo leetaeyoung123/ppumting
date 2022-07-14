@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.point.service.PointService;
 
-@WebServlet("/point/createAccount")
-public class CreateAccountServlet extends HttpServlet {
+@WebServlet("/point/checkAccountNum")
+public class CheckAccountNumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private PointService pointService;
 
 	public void init(ServletConfig config) throws ServletException {
@@ -27,46 +27,40 @@ public class CreateAccountServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("createAccount.jsp").forward(request, response);
+		request.getRequestDispatcher("checkAccountNum.jsp").forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String userId = request.getParameter("userId");
+		String userId = request.getParameter("userId"); // DB에서 조회하려고 받아온 ID
 		List<String> accountNum = new ArrayList<>();
 		
-		//실패 시 로직 //없는 아이디나 공백을 입력하고 계좌생성 한 경우
+		//실패 시 로직
 		if ( pointService.isValidUser(userId) == false ) {
-			request.getRequestDispatcher("createAccountResult/error.jsp").forward(request, response);
+			request.getRequestDispatcher("checkAccountNumResult/error.jsp").forward(request, response);
 			return;
 		}
-		//이미 계좌를 가지고있는 경우
-		if ( pointService.checkAccountNum(userId) == null) { 
-			request.getRequestDispatcher("createAccountResult/error2.jsp").forward(request, response);
-			return;
-		}else {
-			//성공 시 로직
-			accountNum.add(pointService.createAccountNum(userId)); //생성된 계좌를 배열에 담기
+		//성공 시 로직
+		if( pointService.checkAccountNum(userId) != null) {
+			accountNum.add(pointService.checkAccountNum(userId));
 			request.setAttribute("accountNum", accountNum);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("checkAccountNumResult/success.jsp");
 			dispatcher.forward(request, response);
 			
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userId", userId);
-			response.sendRedirect("createAccountResult/success.jsp");
+			response.sendRedirect("checkAccountNumResult/success.jsp");
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("checkAccountNumResult/success2.jsp");
+			dispatcher.forward(request, response);
+			
+			HttpSession session = request.getSession(true);
+			session.setAttribute("userId", userId);
+//			response.sendRedirect("checkAccountNumResult/success2.jsp");
 		}
 		
 		
 	}
 
 }
-
-
-
-
-
-
-
-
-

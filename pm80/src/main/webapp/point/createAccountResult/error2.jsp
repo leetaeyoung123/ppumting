@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공 ^0^</title>
+<title>Error</title>
 </head>
 <body>
- 성공
+	이미 계좌를 보유하고 있습니다.
 </body>
 </html>

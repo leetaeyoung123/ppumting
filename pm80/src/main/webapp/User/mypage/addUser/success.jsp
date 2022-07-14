@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Error</title>
+<title>ppumting</title>
 </head>
 <body>
-	없는 사용자로 인한, 포인트계좌 생성 실패
+	<h3>회원가입 성공</h3>
 </body>
 </html>

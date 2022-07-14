@@ -15,30 +15,39 @@ public class PointDao {
 	NamingService namingService = NamingService.getInstance();
 	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
-	
-	public String createAccountNum(String userId) { //계좌 생성 //진행중
+	// 랜덤한 숫자의 계좌 생성
+	public String createAccountNum(String userId) { 
 		String sql = "INSERT INTO Point (point, accountNum, userId) VALUES (0, ?, ?)";
-		
-		String numStr = String.valueOf((int)(Math.random()* 1000000000));
+
+		String numStr = String.valueOf((int) (Math.random() * 1000000000));
 		StringBuilder sb = new StringBuilder();
 		sb.append(numStr.substring(0, 3));
 		sb.append("-");
 		sb.append(numStr.substring(3, 5));
 		sb.append("-");
 		sb.append(numStr.substring(5));
-		
+
 		String result = sb.toString();
-		
+
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
-				if( pointdao.isValidUser(userId) ) { //userId가 존재한다면
-					System.out.println(1);
-					stmt.setString(1, result);
-					stmt.setString(2, userId);
-					stmt.executeUpdate();
-				}else {
+				System.out.println(1);
+				if (pointdao.isValidUser(userId)) { // userId가 존재한다면
+					//회원가입은 했지만 유저의 계좌가 없다면
+					System.out.println(2);
+					if( pointdao.checkAccountNum(userId) == null ) { //생성해주기
+						System.out.println(3);
+						stmt.setString(1, result);
+						stmt.setString(2, userId);
+						stmt.executeUpdate();
+					}else { //이미 계좌가 있다면 null 반환
+						System.out.println(4);
+						result = null;
+					}
+				} else {
+					System.out.println(5);
 					result = null;
 				}
 			} finally {
@@ -48,13 +57,15 @@ public class PointDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("result : " + result);
+		System.out.println("결과요 ->" + result);
 		return result;
 	}
-
-	public boolean isValidUser(String userId) { // 사용자 ID 존재 여부 확인
-		String sql = "SELECT userId FROM Users WHERE userId=?";
-		boolean result = false;
+	
+	// 사용자 아이디를 이용한 본인 계좌 조회 //구현 완료
+	public String checkAccountNum(String userId) {
+		String sql = "SELECT accountNum FROM Point p INNER JOIN " +
+				"Users u ON p.userId = u.userId WHERE u.userId = ?";
+		String result = null;
 		
 		try {
 			Connection con = datasource.getConnection();
@@ -62,10 +73,10 @@ public class PointDao {
 			stmt.setString(1, userId);
 			ResultSet rs = stmt.executeQuery();
 			try {
-				while(rs.next()) {
-					String userid = rs.getString("userId");
-					if( userid != null || userid.length() != 0 ) {
-						result = true;
+				while (rs.next()) {
+					String accountNum = rs.getString("accountNum");
+					if(accountNum != null) { // 본인에게 계좌가 있다면
+						result = accountNum;
 					}
 				}
 			} finally {
@@ -79,7 +90,61 @@ public class PointDao {
 		return result;
 	}
 	
-	public String addPoint() { // 사용자 포인트 충전 //진행중
+	// 사용자 아이디 존재 여부 확인(아이디 중복확인)
+	public boolean isValidUser(String userId) { 
+		String sql = "SELECT userId FROM Users WHERE userId=?";
+		boolean result = false;
+
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, userId);
+			ResultSet rs = stmt.executeQuery();
+			try {
+				while (rs.next()) {
+					String userid = rs.getString("userId");
+					if (userid != null || userid.length() != 0) {
+						result = true;
+					}
+				}
+			} finally {
+				stmt.close();
+				con.close();
+				rs.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	// 사용자 아이디를 이용한 보유포인트 조회
+	public String checkPoint(String userId) { 
+		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
+		String result = null;
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, userId);
+			ResultSet rs = stmt.executeQuery();
+			try {
+				while (rs.next()) {
+					String userPoint = rs.getString("point");
+					result = userPoint;
+				}
+			} finally {
+				stmt.close();
+				con.close();
+				rs.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	// 사용자 포인트 충전 //진행중
+	public String addPoint() { 
 		String sql = "INSERT INTO User(name, ssn, userid, passwd, email, addr)" + "VALUES(?, ?, ?, ?, ?, ?)";
 
 		try {
@@ -103,51 +168,34 @@ public class PointDao {
 		return null;
 	}
 
-	public void minusPoint(String userId, String passwd, String trainerPrice) { // 사용자 포인트 차감 //진행중 
-		String sql = "SELECT userId,pw FROM Point p INNER JOIN Users u ON p.userId = u.userId";
+	// 사용자 포인트 차감 (결제)
+	public boolean minusPoint(String userId, String trainerPrice) { 
+		String sql = "UPDATE Point SET point=? WHERE userId=?";
+		boolean result = false;
 
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();
 			try {
-				while(rs.next()) {
-					String userid = rs.getString("userId");
-					String pw = rs.getString("pw");
-					if ( userid.equals(userId) && pw.equals(passwd)) {
-						// 포인트 차감하는 코드 작성란
-						System.out.println(trainerPrice + " 포인트 차감");
+				if ( pointdao.isValidUser(userId) ) {
+					long x = Long.parseLong(pointdao.checkPoint(userId));
+					long y = Long.parseLong(trainerPrice);
+					if( (x-y) >= 0) {
+						System.out.println("결과: " + (x-y));
+						stmt.setLong(1, x - y );
+						stmt.setString(2, userId);
+						stmt.executeUpdate();
+						result = true;
 					}else {
-						System.out.println("아이디 또는 비밀번호를 다시 입력해 주세요.");
+						System.out.println("포인트 부족");
+						result = false;
 					}
+				}else {
+					System.out.println("없는 아이디");
 				}
 			} finally {
 				stmt.close();
 				con.close();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public String checkPoint(String userId) { // 사용자 아이디를 이용한 포인트 조회
-		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
-		String result = null;
-		try {
-			Connection con = datasource.getConnection();
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, userId);
-			ResultSet rs = stmt.executeQuery();
-			try {
-				while(rs.next()) {
-					String userPoint = rs.getString("point");
-					result = userPoint;
-				}
-			} finally {
-				stmt.close();
-				con.close();
-				rs.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,9 +203,9 @@ public class PointDao {
 		return result;
 	}
 
-	public static PointDao getInstance() { // 싱글톤 받아주기
+	// 싱글톤 받아주기
+	public static PointDao getInstance() { 
 		return pointdao;
 	}
-
 	
 }
