@@ -34,11 +34,12 @@ public class TrainerDao {
             try {
                con = datasource.getConnection();
                pstmt = con.prepareStatement(sql);
-               pstmt.setString(1, trainer.getName());
-               pstmt.setString(2, trainer.getSsn());
-               pstmt.setString(3, trainer.getTrainerId());
-               pstmt.setString(4, trainer.getPasswd());
-               pstmt.setString(5, trainer.getAddr());
+               pstmt.setString(1, trainer.getTrainerId());
+               pstmt.setString(2, trainer.getName());
+               pstmt.setString(3, trainer.getSsn());
+               pstmt.setString(4, trainer.getPhone());
+               pstmt.setString(5, trainer.getPasswd());
+               pstmt.setString(6, trainer.getAddr());
                pstmt.executeUpdate();
                System.out.println("addTrainer!");
             } finally{
