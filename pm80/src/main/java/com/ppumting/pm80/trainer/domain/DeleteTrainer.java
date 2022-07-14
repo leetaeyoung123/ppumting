@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class AddTrainer {
+public class DeleteTrainer {
 	public static void main(String[] args) {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/ppumting?serverTimezone=Asia/Seoul";
@@ -19,7 +19,7 @@ public class AddTrainer {
 	         Connection con = DriverManager.getConnection(url, id, passwd);
 	         System.out.println("CONNECTED TO ---> " + url);
 	         
-	         String sql = "SELECT * FROM Trainer WHERE name=?";
+	         String sql = "DELETE * FROM Trainer WHERE name=?";
 	         PreparedStatement stmt = con.prepareStatement(sql);
 	         stmt.setString(1, "홍길동");
 	         ResultSet rs = stmt.executeQuery(); //ResultSet -> 실행해서 받아온 결과 //executeQuery -> 쿼리 실행

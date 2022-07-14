@@ -52,6 +52,35 @@ public class TrainerDao {
             e.printStackTrace();
          }
       }
+     
+     public void delTrainer(Trainer trainer) {
+    	 System.out.println("START deleteTrainer!");
+         String sql = "DELET INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
+                  + "VALUES(?, ?, ?, ?, ?, ?)";
+
+         try {
+            Connection con = null;
+            PreparedStatement  pstmt = null;
+            try {
+               con = datasource.getConnection();
+               pstmt = con.prepareStatement(sql);
+               pstmt.setString(1, trainer.getTrainerId());
+               pstmt.setString(2, trainer.getName());
+               pstmt.setString(3, trainer.getSsn());
+               pstmt.setString(4, trainer.getPhone());
+               pstmt.setString(5, trainer.getPasswd());
+               pstmt.setString(6, trainer.getAddr());
+               pstmt.executeUpdate();
+               System.out.println("END deleteTrainer!");
+            } finally{
+            	datasource.close(pstmt,con);
+            	System.out.println("Trainer Delete");
+            }
+
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+     }
 
      public List<Trainer> findAllTrainers() {
          String sql = "SELECT * FROM Trainer";
