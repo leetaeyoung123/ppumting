@@ -103,18 +103,6 @@ public class QnaDao {
 			}
 			return qna;
 	}
-
-	
-	
-	// 게시물 수정 메소드
-
-	
-	
-	// 게시물 삭제 메소드
-
-
-	
-	// 댓글
 	
 	// 댓글 생성
 	public void insertReplay(Replay replay) {
@@ -137,8 +125,6 @@ public class QnaDao {
 			e.printStackTrace();
 		}
 	}
-	
-	// 전체 게시물 조회
 	
 
 }
