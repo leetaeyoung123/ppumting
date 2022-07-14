@@ -20,7 +20,7 @@ ${userId}님이 받으신 쪽지<br>
 쪽지 제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보내신분&nbsp;&nbsp;받은날짜
 <div>
 <c:forEach var="receivetitle" items="${receiveTitles}">
-	<a href="notemsg">${receivetitle}</a><br><br>
+	<a href="notemsg?no=${2}">${receivetitle}</a><br><br>
 </c:forEach>
 </div>
 </body>
