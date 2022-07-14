@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>포인트 조회 성공</title>
+<title>계좌번호 조회</title>
 </head>
 <body>
-	<c:forEach var="x" items="${successPrice}"> 
-		현재 사용가능한 포인트 : ${x} point
+	<c:forEach var="x" items="${accountNum}"> 
+		사용자의 계좌번호 : ${x}
   	</c:forEach>
 </body>
 </html>

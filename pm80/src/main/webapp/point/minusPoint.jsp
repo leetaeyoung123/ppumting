@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  	<form action="minusPoint">
+  	<form action="minusPoint" method="post">
 	<fieldset>
     <legend>PT를 함께 하실 트레이너를 선택해 주세요.</legend>
     <input type="radio" name="contact" value="박상규">박상규</input>
@@ -30,9 +30,7 @@
     <fieldset>
     <legend>결제하기</legend>
 		아이디 : <input type="text" name="userId"/><br>
-		비밀번호 : <input type="password" name="passwd"/><br>
     	<button type="submit">결제하기</button>
-  </div>
   </fieldset>
 	</form>
 	
