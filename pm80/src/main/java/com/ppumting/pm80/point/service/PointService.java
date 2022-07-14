@@ -13,12 +13,17 @@ public class PointService {
 		return pointdao.isValidUser(userId);
 	}
 	
-	public String addPoint() { //사용자 포인트 충전
-		return pointdao.addPoint();
+	public boolean minusPoint(String userId, String trainerPrice) { //사용자 포인트 차감
+		return pointdao.minusPoint(userId, trainerPrice);
 	}
 	
-	public void minusPoint(String userId, String passwd, String trainerPrice) { //사용자 포인트 차감
-		pointdao.minusPoint(userId, passwd, trainerPrice);
+	// 사용자 아이디를 이용한 본인 계좌 조회
+	public String checkAccountNum(String userId) {
+		return pointdao.checkAccountNum(userId);
+	}
+	
+	public String addPoint() { //사용자 포인트 충전
+		return pointdao.addPoint();
 	}
 	
 	public String checkPoint(String userId) { //포인트 조회

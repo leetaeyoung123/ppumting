@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%-- 커스텀태그 --%>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,6 @@
 <title>Error</title>
 </head>
 <body>
-	없는 사용자로 인한, 포인트계좌 생성 실패
+	결제 실패	
 </body>
 </html>
