@@ -28,7 +28,7 @@
       <h3>회원가입되었습니다.</h3>
       <jsp:useBean id="trainer" class="com.ppumting.pm80.trainer.domain.Trainer" scope="request"/>
       아이디 : <jsp:getProperty property="trainerId" name="trainer"/><br>
-      이름 : <jsp:getProperty property="trainerName" name="trainer"/><br>
+      이름 : <jsp:getProperty property="Name" name="trainer"/><br>
    </div>
 
 </div>
