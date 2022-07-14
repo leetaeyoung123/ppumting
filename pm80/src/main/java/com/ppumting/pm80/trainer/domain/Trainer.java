@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class Trainer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	String trainerId;
 	String name;
 	String ssn;
 	String phone;
-	String trainerId;
 	String passwd;
 	String addr;
 
