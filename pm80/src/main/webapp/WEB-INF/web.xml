@@ -9,9 +9,23 @@
 		<description></description>
 		<servlet-class>com.ppumting.pm80.point.servlet.CreateAccountServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>QnaFindServlet</servlet-name>
+		<display-name>QnaFindServlet</display-name>
+		<description></description>
+		<servlet-class>com.ppumting.pm80.qna.servlet.QnaFindServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateAccountServlet</servlet-name>
 		<url-pattern>/CreateAccountServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QnaFindServlet</servlet-name>
+		<url-pattern>/QnaFindServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QnaFindServlet</servlet-name>
+		<url-pattern>/Qna/qnaFind.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

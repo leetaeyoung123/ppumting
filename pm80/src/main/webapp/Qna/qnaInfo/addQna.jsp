@@ -14,5 +14,8 @@
 		<input type="submit" value="등록">
 		<input type="submit" value="취소">
 		</form>
+  		<form action="find.do" method="post"><br>
+  		<input type="submit" value="게시글 조회">
+  	</form>
 </body>
 </html>
