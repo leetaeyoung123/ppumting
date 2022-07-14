@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +17,6 @@ import com.ppumting.pm80.trainer.service.TrainerService;
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService = TrainerService.getInstance();
-
-	   public void init(ServletConfig config) throws ServletException {
-		      super.init();
-		   }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -60,7 +55,6 @@ public class TrainerServlet extends HttpServlet {
 		}
 
 		Trainer trainer = new Trainer();
-
 		trainer.setTrainerId(userId);
 		trainer.setPasswd(pw);
 		trainer.setName(name);
