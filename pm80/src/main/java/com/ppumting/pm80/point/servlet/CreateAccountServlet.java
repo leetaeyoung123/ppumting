@@ -42,7 +42,7 @@ public class CreateAccountServlet extends HttpServlet {
 			return;
 		}
 		//이미 계좌를 가지고있는 경우
-		if ( pointService.checkAccountNum(userId) == null) { 
+		if ( pointService.checkAccountNum(userId) != null) { 
 			request.getRequestDispatcher("createAccountResult/error2.jsp").forward(request, response);
 			return;
 		}else {

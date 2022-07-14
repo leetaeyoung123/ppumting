@@ -10,7 +10,7 @@ CREATE TABLE Point(
 SELECT * FROM Point;
 SELECT * FROM Users;
 
-UPDATE Point SET point=1000000 WHERE userId='htw';
+UPDATE Point SET point=1000000 WHERE userId='asd';
 
 SELECT userId,pw FROM Users ;
 
@@ -52,7 +52,7 @@ DROP TABLE Users;
 DELETE FROM Users WHERE name = '박상규';
 
 INSERT INTO Users (name, ssn, phone, userId, pw, addr)
-VALUES('계좌생성실험용666', '980618', '010-3490-3180', 'qwer2224', '1234', 'daegu');
+VALUES('마지막실험', '980618', '010-3490-3180', 'asd', '1234', 'daegu');
 
 
 
