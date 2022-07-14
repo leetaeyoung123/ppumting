@@ -60,7 +60,7 @@ public class DataSource {
 
 
 	public void close(PreparedStatement pstmt, Connection con) throws SQLException {
-		close (null, null, pstmt, null, con);
+		close (null, null, pstmt, pstmt, con);
 	}
 	
 }

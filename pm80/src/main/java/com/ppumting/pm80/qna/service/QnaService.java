@@ -8,15 +8,16 @@ import com.ppumting.pm80.replay.Dao.ReplayDao;
 import com.ppumting.pm80.replay.domain.Replay;
 
 public class QnaService {
-	private QnaDao qnaDao = QnaDao.getInstance();
-	
 	private static QnaService instance = new QnaService();
+	
+	private QnaDao qnaDao = QnaDao.getInstance();
+
 	
 	private QnaService() {
 		
 	}
 	
-	public static QnaService getInsQnaService() {
+	public static QnaService getInstance() {
 		return instance;
 	}
 	
@@ -42,5 +43,6 @@ public class QnaService {
 	public void addReplay(Replay replay) {
 		qnaDao.insertReplay(replay);
 	}
+
 	
 }
