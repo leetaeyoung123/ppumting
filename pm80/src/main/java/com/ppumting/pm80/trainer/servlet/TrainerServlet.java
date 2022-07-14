@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/trainer")
+@WebServlet("/Trainer/addTrainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService;
