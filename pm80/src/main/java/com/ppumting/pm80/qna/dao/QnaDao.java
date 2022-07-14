@@ -28,18 +28,17 @@ public class QnaDao {
 	
 	// 게시물 생성 메소드
 	public void insertQna(Qna qna) {
-		String sql = "INSERT INTO QNA (user_number, qna_title, qna_content, qna_visible)"
-					+ "VALUES(?, ?, ?, ?)";
+		String sql = "INSERT INTO QNA (qna_title, qna_content)"
+					+ "VALUES(?, ?)";
 		try {
 			Connection con = null; 
 			PreparedStatement pstmt = null;
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setLong(1, qna.getUserNumber());
-				pstmt.setString(2, qna.getQnaTitle());
-				pstmt.setString(3, qna.getQnaContent());
-				pstmt.setInt(4, qna.getQnaVisible());
+//				pstmt.setLong(1, qna.getUserNumber());
+				pstmt.setString(1, qna.getQnaTitle());
+				pstmt.setString(2, qna.getQnaContent());
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt,con);
@@ -52,7 +51,7 @@ public class QnaDao {
 	
 	//게시글 조회 메소드
 	public Qna getQnaByNo(int qnaNo) {
-		String sql = "SELECT (qna_no, user_number, qna_title, qna_content, qna_reg_date, qna_visible"
+		String sql = "SELECT (qna_no, user_number, qna_title, qna_content, qna_reg_date"
 				+ " FROM QNA" 
 				+ " WHERE QNA_NO = ?";
 		
@@ -77,7 +76,6 @@ public class QnaDao {
 						qna.setQnaTitle(rs.getString("qna_title"));
 						qna.setQnaContent(rs.getString("qna_content"));
 						qna.setQnaRegDate(rs.getDate("qna_reg_date"));
-						qna.setQnaVisible(rs.getInt("qna_visible"));
 						
 					// 댓글
 					pstmt2 = con.prepareStatement(sql2);
