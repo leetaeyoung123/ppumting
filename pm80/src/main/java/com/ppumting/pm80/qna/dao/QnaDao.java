@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
-//import com.ppumting.pm80.point.data.DataSource;
 import com.ppumting.pm80.qna.domain.Qna;
 import com.ppumting.pm80.qna.service.DataSource;
 import com.ppumting.pm80.qna.service.NamingService;
-import com.ppumting.pm80.replay.Dao.ReplayDao;
+//import com.ppumting.pm80.point.data.DataSource;
+//import com.ppumting.pm80.point.data.NamingService;
 import com.ppumting.pm80.replay.domain.Replay;
 
 public class QnaDao {
@@ -94,7 +93,8 @@ public class QnaDao {
 					qna.setReplays(replays);
 					}
 				} finally {
-					datasource.close(rs, rs2, pstmt, pstmt2, con);
+					datasource.close(rs, pstmt, con); 
+					datasource.close2(rs2, pstmt2, con); 
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -117,7 +117,7 @@ public class QnaDao {
 				pstmt.setInt(3, replay.getUserNumber());
 				pstmt.executeUpdate();
 			} finally {
-				datasource.close(pstmt, con);
+				datasource.close(null, pstmt, con);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

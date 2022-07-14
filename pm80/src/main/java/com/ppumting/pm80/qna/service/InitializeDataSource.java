@@ -5,9 +5,12 @@ import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
-
-public class InitializeDataSource {
+// db연결에 필요한 값을 불러옴
+@WebListener
+public class InitializeDataSource implements ServletContextListener {
 	private static final String JDBC_FILE_PATH = "/WEB-INF/classes/ppumting.properties";
 	   public void contextInitialized(ServletContextEvent event)  { 
 	        ServletContext context = event.getServletContext();
@@ -32,4 +35,10 @@ public class InitializeDataSource {
 	         e.printStackTrace();
 	      }
 	   }
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+
+		
+	}
 }
