@@ -1,37 +1,35 @@
 package com.ppumting.pm80.note.domain;
 
-import com.ppumting.pm80.user.domain.User;
-
 public class Note {
-	String userId;
-	String toMsg;
-	String fromMsg;
+	String recevieUserId;
+	String sendUserId;
 	String msg;
+	String title;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	long ring = 0;
-	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUser(String userId) {
-		this.userId = userId;
-	}
-	
-	public String getToMsg() {
-		return toMsg;
-	}
-	public void setToMsg(String toMsg) {
-		this.toMsg = toMsg;
-	}
-	public String getFromMsg() {
-		return fromMsg;
-	}
-	public void setFromMsg(String fromMsg) {
-		this.fromMsg = fromMsg;
-	}
 
 	public String getMsg() {
 		return msg;
 	}
+	public String getRecevieUserId() {
+		return recevieUserId;
+	}
+	public void setRecevieUserId(String recevieUserId) {
+		this.recevieUserId = recevieUserId;
+	}
+	public String getSendUserId() {
+		return sendUserId;
+	}
+	public void setSendUserId(String sendUserId) {
+		this.sendUserId = sendUserId;
+	}
+
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}

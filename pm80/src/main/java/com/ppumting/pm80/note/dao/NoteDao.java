@@ -20,23 +20,18 @@ public class NoteDao {
 	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
 
 	public void addNote(Note note) {
-//		String receiveSql = "INSERT INTO Receiveuser(ring, fromMsg, userNumber, msg)"
-//				+ "VALUES(?, ?, ?, ?)";
-		String sendSql = "INSERT INTO Senduser(msg, toMsg, userId)"
-				+ "VALUES(?, ?, ?)";
-		System.out.println(note.getMsg());
-		System.out.println(note.getToMsg());
-		System.out.println(note.getUserId());
+		String sql = "INSERT INTO Notes(sent_id, recv_id, title, msg)"
+				+ "VALUES(?, ?, ?, ?)";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			try {
-				System.out.println(1);
 				con = datasource.getConnection();
-				pstmt = con.prepareStatement(sendSql);
-				pstmt.setString(1, note.getMsg());
-				pstmt.setString(2, note.getToMsg());
-				pstmt.setString(3, note.getUserId());
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, note.getSendUserId());
+				pstmt.setString(2, note.getRecevieUserId());
+				pstmt.setString(3, note.getTitle());
+				pstmt.setString(4, note.getMsg());
 				pstmt.executeUpdate();
 				System.out.println("addMsgComplete!");
 			}finally {
@@ -45,6 +40,5 @@ public class NoteDao {
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
