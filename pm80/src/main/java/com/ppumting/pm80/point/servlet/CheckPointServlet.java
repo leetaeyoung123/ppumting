@@ -23,10 +23,12 @@ public class CheckPointServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("checkPoint.jsp").forward(request, response);
-		String userId = request.getParameter("userId");
-		System.out.println("조회하려고 받아온 아이디 : " + userId);
+		String userId = request.getParameter("userId"); //DB에서 조회하려고 받아온 ID
 		
-		pointService.checkPoint(userId);
+		if(pointService.checkPoint(userId) != null) {
+			request.getRequestDispatcher("result/success.jsp").forward(request, response);
+			return;
+		}
 		System.out.println("성공");
 	}
 

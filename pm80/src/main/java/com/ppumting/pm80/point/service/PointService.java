@@ -17,8 +17,8 @@ public class PointService {
 		pointdao.minusPoint(userId, passwd, trainerPrice);
 	}
 	
-	public void checkPoint(String userId) { //포인트 조회
-		pointdao.checkPoint(userId);
+	public String checkPoint(String userId) { //포인트 조회
+		return pointdao.checkPoint(userId);
 	}
 
 	
