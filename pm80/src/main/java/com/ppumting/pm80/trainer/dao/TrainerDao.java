@@ -13,15 +13,11 @@ import com.ppumting.pm80.trainer.domain.Trainer;
 public class TrainerDao {
 	private static TrainerDao instance = new TrainerDao();
 
+	NamingService namingService = NamingService.getInstance();
+	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
+
 	public static TrainerDao getInstance() {
 		return instance;
-	}
-
-	static NamingService namingService = NamingService.getInstance();
-	static DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
-
-	public TrainerDao() {
-
 	}
 
      public void addTrainer(Trainer trainer) {
@@ -44,9 +40,9 @@ public class TrainerDao {
                System.out.println("addTrainer!");
             } finally{
             	datasource.close(pstmt,con);
+            	System.out.println("NEW Trainer in Trainer");
             }
 
-            System.out.println("NEW Trainer in Trainer");
          } catch (Exception e) {
             e.printStackTrace();
          }
