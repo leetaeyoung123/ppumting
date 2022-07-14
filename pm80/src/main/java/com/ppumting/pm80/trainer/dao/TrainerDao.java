@@ -130,7 +130,6 @@ public class TrainerDao {
               Trainer trainerInfo = new Trainer();
               while(rs.next()) {
            	   trainerInfo.setTrainerId(rs.getString("trainerId"));
-           	   trainerInfo.setName(rs.getString("trainername"));
            	   trainerInfo.setPasswd(rs.getString("passwd"));
               }
               if(trainerId.equals(trainerInfo.getTrainerId()) && passwd.equals(trainerInfo.getPasswd())) {

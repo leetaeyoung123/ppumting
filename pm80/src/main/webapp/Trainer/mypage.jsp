@@ -10,8 +10,8 @@
 <body>
 
 	<h3>My Page</h3>
-	<a href='<c:url value="/logout" />'>로그아웃</a>
-	<a href='<c:url value="/deleteTrainer" />'>회원탈퇴</a>
+	<a href='<c:url value="login" />'>로그아웃</a>
+	<a href='<c:url value="deleteTrainer" />'>회원탈퇴</a>
 	
 </body>
 </html>
