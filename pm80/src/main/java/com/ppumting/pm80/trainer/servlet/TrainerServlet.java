@@ -18,8 +18,7 @@ import com.ppumting.pm80.trainer.service.TrainerService;
 @WebServlet("/Trainer/addTrainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private TrainerService trainerService = TrainerService.getInstance();
+	private TrainerService trainerservice = TrainerService.getInstance();
 	
 	   public void init(ServletConfig config) throws ServletException {
 		      super.init();
@@ -29,8 +28,6 @@ public class TrainerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		trainerService = new TrainerService();
 		
 		String trainerId = request.getParameter("trainerId");
 		String name = request.getParameter("name");
