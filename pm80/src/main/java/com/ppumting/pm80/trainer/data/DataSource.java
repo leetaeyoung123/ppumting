@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 public class DataSource {
 	private String jdbcDriver;
-	private static String jdbcUrl;
-	private static String jdbcUserName;
-	private static String jdbcPassWord;
+	private String jdbcUrl;
+	private String jdbcUserName;
+	private String jdbcPassWord;
 	
 	public DataSource(String jdbcDriver,String jdbcUrl, String jdbcUserName, String jdbcPassWord) {
 		super();
