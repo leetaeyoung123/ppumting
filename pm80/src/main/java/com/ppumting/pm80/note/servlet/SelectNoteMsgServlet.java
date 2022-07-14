@@ -18,7 +18,7 @@ public class SelectNoteMsgServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		System.out.println(request.getAttribute("<a>"));
+		System.out.println(request.getParameter("no"));
 	}
 
 }
