@@ -54,7 +54,7 @@ public class TrainerServlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = null;
 		if(errorMsgs.size() > 0) {
-			dispatcher = request.getRequestDispatcher("result/error.jsp");
+			dispatcher = request.getRequestDispatcher("error.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
