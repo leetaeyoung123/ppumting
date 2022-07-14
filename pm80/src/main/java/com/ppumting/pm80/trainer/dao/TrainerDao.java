@@ -16,29 +16,30 @@ public class TrainerDao {
 	public static TrainerDao getInstance() {
 		return instance;
 	}
-	
+
 	static NamingService namingService = NamingService.getInstance();
 	static DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
-   
+
 	public TrainerDao() {
-		
+
 	}
-	
+
      public void addTrainer(Trainer trainer) {
          String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
                   + "VALUES(?, ?, ?, ?, ?, ?)";
-         
+
          try {
             Connection con = null;
             PreparedStatement  pstmt = null;
             try {
                con = datasource.getConnection();
                pstmt = con.prepareStatement(sql);
-               pstmt.setString(1, trainer.getName());
-               pstmt.setString(2, trainer.getSsn());
-               pstmt.setString(3, trainer.getTrainerId());
-               pstmt.setString(4, trainer.getPasswd());
-               pstmt.setString(5, trainer.getAddr());
+               pstmt.setString(1, trainer.getTrainerId());
+               pstmt.setString(2, trainer.getName());
+               pstmt.setString(3, trainer.getSsn());
+               pstmt.setString(4, trainer.getPhone());
+               pstmt.setString(5, trainer.getPasswd());
+               pstmt.setString(6, trainer.getAddr());
                pstmt.executeUpdate();
                System.out.println("addTrainer!");
             } finally{
@@ -53,9 +54,9 @@ public class TrainerDao {
 
      public List<Trainer> findAllTrainers() {
          String sql = "SELECT * FROM Trainer";
-         
+
          List<Trainer> trainerList = new ArrayList<>();
-         
+
          try {
             Connection con = null;
             PreparedStatement  pstmt = null;
@@ -85,7 +86,7 @@ public class TrainerDao {
 
 	public boolean isValidTrainers(String trainerId, String passwd) {
 	    String sql = "SELECT trainerId, passwd FROM Trainer WHERE trainerId = ?";
-        
+
         try {
            Connection con = null;
            PreparedStatement  pstmt = null;
@@ -95,7 +96,7 @@ public class TrainerDao {
               pstmt = con.prepareStatement(sql);
               pstmt.setString(1, trainerId);
               rs = pstmt.executeQuery();
-              
+
               Trainer trainerInfo = new Trainer();
               while(rs.next()) {
            	   trainerInfo.setTrainerId(rs.getString("trainerId"));
@@ -115,5 +116,5 @@ public class TrainerDao {
 		return false;
 	}
 
-     
+
    }
