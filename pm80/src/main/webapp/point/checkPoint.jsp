@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>포인트 조회</title>
+<title>Checking Point</title>
 </head>
 <body>
-	<form action="checkPoint">
+	<form action="checkPoint" method="post">
 	<fieldset>
 	<legend>포인트 조회</legend>
 		아이디 : <input type="text" name="userId"/>

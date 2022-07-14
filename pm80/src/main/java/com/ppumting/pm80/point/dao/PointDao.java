@@ -15,11 +15,71 @@ public class PointDao {
 	NamingService namingService = NamingService.getInstance();
 	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
-	public String createAccountNum() { // 계좌 생성
-		return null;
+	
+	public String createAccountNum(String userId) { //계좌 생성 //진행중
+		String sql = "INSERT INTO Point (point, accountNum, userId) VALUES (0, ?, ?)";
+		
+		String numStr = String.valueOf((int)(Math.random()* 1000000000));
+		StringBuilder sb = new StringBuilder();
+		sb.append(numStr.substring(0, 3));
+		sb.append("-");
+		sb.append(numStr.substring(3, 5));
+		sb.append("-");
+		sb.append(numStr.substring(5));
+		
+		String result = sb.toString();
+		
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			try {
+				if( pointdao.isValidUser(userId) ) { //userId가 존재한다면
+					System.out.println(1);
+					stmt.setString(1, result);
+					stmt.setString(2, userId);
+					stmt.executeUpdate();
+				}else {
+					result = null;
+				}
+			} finally {
+				stmt.close();
+				con.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("result : " + result);
+		return result;
 	}
 
-	public String addPoint() { // 사용자 포인트 충전
+	public boolean isValidUser(String userId) { // 사용자 ID 존재 여부 확인
+		String sql = "SELECT userId FROM Users WHERE userId=?";
+		boolean result = false;
+		
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, userId);
+			ResultSet rs = stmt.executeQuery();
+			try {
+				while(rs.next()) {
+					String userid = rs.getString("userId");
+					if( userid != null || userid.length() != 0 ) {
+						result = true;
+					}
+				}
+			} finally {
+				stmt.close();
+				con.close();
+				rs.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public String addPoint() { // 사용자 포인트 충전 //진행중
 		String sql = "INSERT INTO User(name, ssn, userid, passwd, email, addr)" + "VALUES(?, ?, ?, ?, ?, ?)";
 
 		try {
@@ -43,7 +103,7 @@ public class PointDao {
 		return null;
 	}
 
-	public void minusPoint(String userId, String passwd, String trainerPrice) { // 사용자 포인트 차감
+	public void minusPoint(String userId, String passwd, String trainerPrice) { // 사용자 포인트 차감 //진행중 
 		String sql = "SELECT userId,pw FROM Point p INNER JOIN Users u ON p.userId = u.userId";
 
 		try {
@@ -98,4 +158,6 @@ public class PointDao {
 	public static PointDao getInstance() { // 싱글톤 받아주기
 		return pointdao;
 	}
+
+	
 }

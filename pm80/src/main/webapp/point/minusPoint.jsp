@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PT 트레이너 결제</title>
+<title>Buy PT Trainer</title>
 </head>
 <body>
 

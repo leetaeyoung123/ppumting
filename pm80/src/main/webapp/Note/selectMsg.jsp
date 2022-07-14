@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>쪽지 조회</title>
 </head>
 <body>
-	성공
+test
 </body>
 </html>

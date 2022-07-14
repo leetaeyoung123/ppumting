@@ -2,7 +2,6 @@ package com.ppumting.pm80.note.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
 
-@WebServlet("/Note/sendMsg.do")
-public class NoteServlet extends HttpServlet {
+@WebServlet("/Note/sendMsg")
+public class SendNoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	private NoteService service = NoteService.getInstance();
@@ -26,23 +25,23 @@ public class NoteServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
-		String toMsg = request.getParameter("toMsg");
-		String userId = request.getParameter("userId");
-		
-		RequestDispatcher dispatcher = null;
+		String recevieUserId = request.getParameter("recevieUserId");
+		String sendUserId = request.getParameter("sendUserId");;
 		
 		Note note = new Note();
+		note.setTitle(title);
 		note.setMsg(msg);
-		note.setToMsg(toMsg);
-		note.setUser(userId);
-		
+		note.setRecevieUserId(recevieUserId);
+		note.setSendUserId(sendUserId);
+		long ring = 0;
+		ring ++;
+		note.setRing(ring);
 		service.sendNote(note);
 		System.out.println("성공");
-		
 		request.setAttribute("note", note);
-		dispatcher = request.getRequestDispatcher("success.jsp");
-		dispatcher.forward(request, response);
+		request.getRequestDispatcher("success.jsp").forward(request, response);
 	}
 
 }

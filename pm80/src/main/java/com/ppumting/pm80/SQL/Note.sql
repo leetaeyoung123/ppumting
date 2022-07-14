@@ -1,31 +1,20 @@
 SHOW TABLES;
 
-CREATE TABLE Senduser (
-	msg			VARCHAR(200) 	PRIMARY KEY,
-	toMsg		VARCHAR(20)		NOT NULL,
-	userId 		VARCHAR(20) 	NOT NULL,
-	sendDate 	TIMESTAMP		NOT NULL 		DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE Notes (
+	sent_id 	VARCHAR(20) 	NOT NULL	DEFAULT	'',
+	recv_id		VARCHAR(20)		NOT NULL	DEFAULT	'',
+	title		VARCHAR(100)	NOT NULL 	DEFAULT '',
+	msg			VARCHAR(200)	NOT NULL 	DEFAULT '',
+	sentDate 	TIMESTAMP		NOT NULL 	DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE Senduser ADD CONSTRAINT FK_SendUser_Users_userId FOREIGN KEY (userId) REFERENCES Users(userId);
-
-CREATE TABLE Receiveuser (
-	ring		BIGINT			PRIMARY KEY DEFAULT 0,
-	fromMsg		VARCHAR(20)		NOT NULL,
-	userId		VARCHAR(20)		NOT NULL,
-	msg			VARCHAR(200)	NOT NULL,
-	CONSTRAINT FK_ReceiveUser_Users_userId FOREIGN KEY(userId) REFERENCES Users(userId),
-	CONSTRAINT FK_Receiveuser_SendUser_msg FOREIGN KEY(msg) REFERENCES Senduser(msg)
-);
-
-INSERT INTO Senduser (msg, toMsg, userId) 
+INSERT INTO SendNotes (msg, toMsg, userId) 
 VALUES("hi", "한태우", "lty");
 
-DELETE FROM SendUser WHERE toMsg = '한태우';
+DELETE FROM	Notes WHERE sent_id = 'htw';
 
-SELECT * FROM senduser;
-SELECT * FROM Receiveuser;
+SELECT * FROM Notes;
+SELECT * FROM USERS;
 
-DROP TABLE Receiveuser;
-DROP TABLE senduser;
+DROP TABLE Notes;
 
