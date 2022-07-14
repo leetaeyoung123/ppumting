@@ -10,7 +10,9 @@ CREATE TABLE Point(
 SELECT * FROM Point;
 SELECT * FROM Users;
 
-SELECT userId FROM Users WHERE userId='qwer1ds';
+UPDATE Point SET point=1000000 WHERE userId='htw';
+
+SELECT userId,pw FROM Users ;
 
 DROP TABLE Point;
 
@@ -29,7 +31,7 @@ VALUES('박상규', '980618', '010-3490-3180', 'psg', '1234', 'daegu', '2');
 SELECT * FROM Point p INNER JOIN Users u ON p.userId = u.userId;
 SELECT userId FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = 'sssssg06';
 
-DELETE FROM Point WHERE name = '이태영';
+DELETE FROM Point WHERE userId = 'qwer2';
 
 
 
@@ -47,8 +49,10 @@ SELECT * FROM Users;
 
 DROP TABLE Users;
 
+DELETE FROM Users WHERE name = '박상규';
+
 INSERT INTO Users (name, ssn, phone, userId, pw, addr)
-VALUES('test2', '970312', '010-2881-2498', 'qwer1', '1234', 'daegu');
+VALUES('계좌생성실험용666', '980618', '010-3490-3180', 'qwer2224', '1234', 'daegu');
 
 
 

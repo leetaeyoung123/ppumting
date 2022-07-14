@@ -7,6 +7,6 @@
 <title>Error</title>
 </head>
 <body>
-	없는 사용자로 인한, 포인트계좌 생성 실패
+	이미 계좌를 보유하고 있습니다.
 </body>
 </html>
