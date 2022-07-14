@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
@@ -23,16 +24,16 @@ public class TrainerServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String userId = request.getParameter("userId");
-		String pw = request.getParameter("pw");
+		String trainerId = request.getParameter("trainerId");
 		String name = request.getParameter("name");
 		String ssn = request.getParameter("ssn");
+		String pw = request.getParameter("pw");
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
 
 		List<String> errorMsgs = new ArrayList<>();
-		if(userId == null || userId.length() == 0) {
+		if(trainerId == null || trainerId.length() == 0) {
 			errorMsgs.add("id를 입력해주세요,");
 		}else if(pw == null || pw.length() == 0) {
 			errorMsgs.add("비밀번호를 입력해주세요");
@@ -56,7 +57,7 @@ public class TrainerServlet extends HttpServlet {
 		}
 
 		Trainer trainer = new Trainer();
-		trainer.setTrainerId(userId);
+		trainer.setTrainerId(trainerId);
 		trainer.setPasswd(pw);
 		trainer.setName(name);
 		trainer.setSsn(ssn);
