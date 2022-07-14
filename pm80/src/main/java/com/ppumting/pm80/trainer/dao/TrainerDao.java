@@ -13,11 +13,15 @@ import com.ppumting.pm80.trainer.domain.Trainer;
 public class TrainerDao {
 	private static TrainerDao instance = new TrainerDao();
 
-	NamingService namingService = NamingService.getInstance();
-	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
-
 	public static TrainerDao getInstance() {
 		return instance;
+	}
+
+	NamingService namingService = NamingService.getInstance();
+	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
+	
+	public TrainerDao() {
+		
 	}
 
      public void addTrainer(Trainer trainer) {
@@ -64,7 +68,7 @@ public class TrainerDao {
                rs = pstmt.executeQuery();
                while(rs.next()) {
             	   Trainer t = new Trainer();
-            	   t.setTrainerId(rs.getString("trainerid"));
+            	   t.setTrainerId(rs.getString("trainerId"));
             	   t.setName(rs.getString("trainername"));
             	   t.setPasswd(rs.getString("passwd"));
             	   t.setSsn(rs.getString("ssn"));
@@ -74,7 +78,7 @@ public class TrainerDao {
             	datasource.close(rs, pstmt,con);
             }
 
-            System.out.println("NEW Trainer in Trainer");
+            System.out.println("NEW Trainer in Trainer2");
          } catch (Exception e) {
             e.printStackTrace();
          }
@@ -97,6 +101,7 @@ public class TrainerDao {
               Trainer trainerInfo = new Trainer();
               while(rs.next()) {
            	   trainerInfo.setTrainerId(rs.getString("trainerId"));
+//           	   trainerInfo.setName(rs.getString("trainername"));
            	   trainerInfo.setPasswd(rs.getString("passwd"));
               }
               if(trainerId.equals(trainerInfo.getTrainerId()) && passwd.equals(trainerInfo.getPasswd())) {

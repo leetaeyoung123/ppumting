@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<br>
 	<form action="addTrainer" method="post">
 		트레이너 아이디: <input type="text" name="trainerId"><br>
 		이름: <input type="text" name="name"><br>
@@ -28,5 +30,11 @@
 		<input type = "text" name="addr2" placeholder="상세 주소를 입력하세요"><br><br>
 		<input type="submit" value="회원가입">
 	 </form>
+	 
+<br>
+	 <form action="findTrainer" method="post">
+			<input type="submit" value="트레이너 조회"><br>
+	 </form>
+	 
 </body>
 </html>

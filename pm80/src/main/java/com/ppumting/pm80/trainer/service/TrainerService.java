@@ -8,10 +8,6 @@ import com.ppumting.pm80.trainer.domain.Trainer;
 public class TrainerService {
 	private static TrainerService instance = new TrainerService(); //싱글톤
 	private TrainerDao trainerDao = TrainerDao.getInstance();
-
-	public TrainerService() {
-		
-	}
 	
 	public static TrainerService getInstance() {
 		return instance;
