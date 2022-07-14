@@ -34,3 +34,4 @@ DELETE FROM Point WHERE name = '이태영';
 
 
 
+
