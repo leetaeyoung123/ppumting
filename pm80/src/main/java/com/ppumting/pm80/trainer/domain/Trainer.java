@@ -3,7 +3,7 @@ package com.ppumting.pm80.trainer.domain;
 import java.io.Serializable;
 
 public class Trainer implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	String name;
 	String ssn;
@@ -11,11 +11,11 @@ public class Trainer implements Serializable {
 	String trainerId;
 	String passwd;
 	String addr;
-	
+
 	public Trainer() {
-		
+
 	}
-	
+
 	public String getName() {
 		return name;
 	}

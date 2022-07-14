@@ -8,36 +8,36 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-
 @WebListener
 public class InitializeDataSource implements ServletContextListener {
-   private static final String JDBC_FILE_PATH = "/WEB-INF/classes/ppumting.properties";
-   public void contextInitialized(ServletContextEvent event)  { 
-        ServletContext context = event.getServletContext();
-        InputStream is = null;
-        try {
-         is = context.getResourceAsStream(JDBC_FILE_PATH);
-         Properties prop = new Properties();
-         prop.load(is);
-         
-         String jdbcDriver = prop.getProperty("driver");
-         String jdbcUrl = prop.getProperty("url");
-         String userName = prop.getProperty("username");
-         String password = prop.getProperty("password");
-         
-         DataSource dataSource = new DataSource(jdbcDriver, jdbcUrl, userName, password);   // 데이터 소스 생성
-         
-         NamingService namingService = NamingService.getInstance();
-         namingService.setAttribute("dataSource", dataSource);
 
-         System.out.println("DataSource has been initilized.");
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+    private static final String JDBC_FILE_PATH = "/WEB-INF/classes/ppumting.properties";
 
-    public void contextDestroyed(ServletContextEvent event)  { 
-         
+    public void contextInitialized(ServletContextEvent event)  { 
+    	ServletContext context = event.getServletContext();
+    	InputStream is = null;
+    	try {
+    		is = context.getResourceAsStream(JDBC_FILE_PATH);
+    		Properties prop = new Properties();
+    		prop.load(is);
+    		
+    		String driver = prop.getProperty("driver");
+    		String url = prop.getProperty("url");
+    		String username = prop.getProperty("username");
+    		String password = prop.getProperty("password");
+    		
+    		DataSource dataSource = new DataSource(driver, url,
+    				username, password);
+    		
+    		NamingService namingService = NamingService.getInstance();
+    		namingService.setAttribute("dataSource", dataSource);
+    		System.out.println("DataSource has been initilized.");
+    		
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
     }
-    
+    public void contextDestroyed(ServletContextEvent sce)  { 
+    	
+    }
 }
