@@ -21,6 +21,8 @@ CREATE TABLE Receiveuser (
 INSERT INTO Senduser (msg, toMsg, userId) 
 VALUES("hi", "한태우", "lty");
 
+DELETE FROM SendUser WHERE toMsg = '한태우';
+
 SELECT * FROM senduser;
 SELECT * FROM Receiveuser;
 

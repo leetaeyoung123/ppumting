@@ -71,9 +71,9 @@ public class PointDao {
 
 	}
 
-	public void checkPoint(String userId) { // 사용자 아이디를 이용한 포인트 조회
-		String sql = "SELECT point,name FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
-
+	public String checkPoint(String userId) { // 사용자 아이디를 이용한 포인트 조회
+		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
+		String result = null;
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -81,9 +81,8 @@ public class PointDao {
 			ResultSet rs = stmt.executeQuery();
 			try {
 				while(rs.next()) {
-					String userName = rs.getString("name");
 					String userPoint = rs.getString("point");
-					System.out.println(userName + "님의 현재 잔여 포인트 : " + userPoint);
+					result = userPoint;
 				}
 			} finally {
 				stmt.close();
@@ -93,6 +92,7 @@ public class PointDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 
 	public static PointDao getInstance() { // 싱글톤 받아주기
