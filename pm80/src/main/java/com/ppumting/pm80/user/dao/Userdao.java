@@ -33,6 +33,7 @@ public class Userdao {
 				pstmt.setString(4, user.getUserId());
 				pstmt.setString(5, user.getPw());
 				pstmt.setString(6, user.getAddr());
+				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt, con);
 				System.out.println("addUser end");
