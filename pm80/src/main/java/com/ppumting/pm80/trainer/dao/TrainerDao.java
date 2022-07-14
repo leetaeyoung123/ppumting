@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ppumting.pm80.trainer.data.DataSource;
-import com.ppumting.pm80.trainer.data.NamingService;
+import com.ppumting.pm80.point.data.DataSource;
+import com.ppumting.pm80.point.data.NamingService;
 import com.ppumting.pm80.trainer.domain.Trainer;
 
 public class TrainerDao {
