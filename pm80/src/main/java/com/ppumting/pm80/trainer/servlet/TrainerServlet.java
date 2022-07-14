@@ -34,9 +34,9 @@ public class TrainerServlet extends HttpServlet {
 
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
-			errorMsgs.add("id를 입력해주세요,");
+			errorMsgs.add("ID를 입력해주세요,");
 		}else if(pw == null || pw.length() == 0) {
-			errorMsgs.add("비밀번호를 입력해주세요");
+			errorMsgs.add("PW를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
 		}else if(ssn == null || ssn.length() == 0) {
