@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.point.service.PointService;
 
-@WebServlet("/point/checkPoint")
-public class CheckPointServlet extends HttpServlet {
+@WebServlet("/point/createAccount")
+public class CreateAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	private PointService pointService;
 
 	public void init(ServletConfig config) throws ServletException {
@@ -27,29 +27,30 @@ public class CheckPointServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("checkPoint.jsp").forward(request, response);
+		request.getRequestDispatcher("createAccount.jsp").forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String userId = request.getParameter("userId"); // DB에서 조회하려고 받아온 ID
-		List<String> successPrice = new ArrayList<>();
+		String userId = request.getParameter("userId");
+		List<String> accountNum = new ArrayList<>();
 		
-		//실패 시 로직
+		//실패 시 로직 //없는 아이디나 공백을 입력하고 계좌생성 한 경우
 		if ( pointService.checkPoint(userId) == null || pointService.checkPoint(userId).length() == 0) {
-			request.getRequestDispatcher("checkPointResult/error.jsp").forward(request, response);
+			request.getRequestDispatcher("createAccountResult/error.jsp").forward(request, response);
 			return;
 		}
 		//성공 시 로직
-		successPrice.add(pointService.checkPoint(userId));
-		request.setAttribute("successPrice", successPrice);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("checkPointResult/success.jsp");
+		accountNum.add(pointService.createAccountNum(userId)); //생성된 계좌를 배열에 담기
+		request.setAttribute("accountNum", accountNum);
+		request.setAttribute("userId", userId);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
 		dispatcher.forward(request, response);
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("userId", userId);
-		response.sendRedirect("checkPointResult/success.jsp");
+		response.sendRedirect("createAccountResult/success.jsp");
 		
 	}
 

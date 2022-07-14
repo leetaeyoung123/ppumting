@@ -5,10 +5,14 @@ import com.ppumting.pm80.point.dao.PointDao;
 public class PointService {
 	private PointDao pointdao = PointDao.getInstance();
 	
-	public String createAccountNum() { //계좌 생성
-		return pointdao.createAccountNum();
+	public String createAccountNum(String userId) { //랜덤한 계좌 생성
+		return pointdao.createAccountNum(userId);
 	}
-
+	
+	public boolean isValidUser(String userId) {
+		return pointdao.isValidUser(userId);
+	}
+	
 	public String addPoint() { //사용자 포인트 충전
 		return pointdao.addPoint();
 	}

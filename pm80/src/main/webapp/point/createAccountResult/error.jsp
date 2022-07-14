@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>Error</title>
 </head>
 <body>
-	성공
+	없는 사용자로 인한, 가상계좌 생성 실패
 </body>
 </html>
