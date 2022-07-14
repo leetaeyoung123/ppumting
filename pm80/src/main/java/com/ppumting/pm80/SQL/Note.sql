@@ -1,6 +1,7 @@
 SHOW TABLES;
 
 CREATE TABLE Notes (
+	no			BIGINT		 	PRIMARY KEY	AUTO_INCREMENT,
 	sent_id 	VARCHAR(20) 	NOT NULL	DEFAULT	'',
 	recv_id		VARCHAR(20)		NOT NULL	DEFAULT	'',
 	title		VARCHAR(100)	NOT NULL 	DEFAULT '',
@@ -12,7 +13,7 @@ INSERT INTO SendNotes (msg, toMsg, userId)
 VALUES("hi", "한태우", "lty");
 
 DELETE FROM	Notes WHERE sent_id = 'htw';
-
+SELECT title From Notes WHERE sent_id = 'htw';
 SELECT * FROM Notes;
 SELECT * FROM USERS;
 

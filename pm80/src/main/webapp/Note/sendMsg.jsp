@@ -37,6 +37,11 @@ textarea {
 본인 ID : <input type="text" name="sendUserId"><br>
 <input type="submit" value="전송">
 </form>
+
+<form action="selectTitleMsg" method="post">
+아이디 입력 <input type="text" name="sendUid"><br>
+<input type="submit" value="조회">
+</form>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $('.text_box textarea').keyup(function(){

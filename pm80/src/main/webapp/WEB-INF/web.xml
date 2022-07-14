@@ -9,6 +9,12 @@
 		<description></description>
 		<servlet-class>com.ppumting.pm80.point.servlet.CreateAccountServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>SelectNoteMsgServlet</servlet-name>
+		<display-name>SelectNoteMsgServlet</display-name>
+		<description></description>
+		<servlet-class>com.ppumting.pm80.note.servlet.SelectNoteMsgServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateAccountServlet</servlet-name>
 		<url-pattern>/CreateAccountServlet</url-pattern>

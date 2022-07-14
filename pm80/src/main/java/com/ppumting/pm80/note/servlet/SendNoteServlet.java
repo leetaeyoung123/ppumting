@@ -28,7 +28,7 @@ public class SendNoteServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
 		String recevieUserId = request.getParameter("recevieUserId");
-		String sendUserId = request.getParameter("sendUserId");;
+		String sendUserId = request.getParameter("sendUserId");
 		
 		Note note = new Note();
 		note.setTitle(title);
