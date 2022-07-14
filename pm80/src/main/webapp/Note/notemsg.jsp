@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쪽지 조회</title>
+<title>Insert title here</title>
 </head>
 <body>
-test
+notemsg
 </body>
 </html>

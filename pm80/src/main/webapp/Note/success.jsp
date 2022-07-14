@@ -10,8 +10,7 @@
 <body>
 success!
 <div>
-${note.sendUserId}님 환영해요<br>
-메세지<br>
+${note.recevieUserId}님께 성공적으로 쪽지를 보냈습니다<br>
 </div>
 </body> 
 </html>
