@@ -18,12 +18,16 @@ import com.ppumting.pm80.trainer.service.Trainerservice;
 public class Trainerservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Trainerservice trainerService;
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+
+	   public void init(ServletConfig config) throws ServletException {
+		      super.init();
+		   }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
@@ -31,10 +35,10 @@ public class Trainerservlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
-		
+
 		List<String> errorMsgs = new ArrayList<>();
 		if(userId == null || userId.length() == 0) {
-			errorMsgs.add("id를 입력해주세요,");		
+			errorMsgs.add("id를 입력해주세요,");
 		}else if(pw == null || pw.length() == 0) {
 			errorMsgs.add("비밀번호를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
@@ -43,19 +47,19 @@ public class Trainerservlet extends HttpServlet {
 			errorMsgs.add("주민번호를 입력해주세요");
 		}else if(phone == null || phone.length() == 0) {
 			errorMsgs.add("전화번호를 입력해주세요");
-		}else if(addr1 == null || addr1.length() == 0 || 
+		}else if(addr1 == null || addr1.length() == 0 ||
 				addr2 == null || addr2.length() == 0) {
 			errorMsgs.add("주소를 입력해주세요");
 		}
-		
+
 		RequestDispatcher dispatcher = null;
 		if(errorMsgs.size() > 0) {
 			dispatcher = request.getRequestDispatcher("result/error.jsp");
 			dispatcher.forward(request, response);
 		}
-		
+
 		Trainer trainer = new Trainer();
-		
+
 		trainer.setTrainerId(userId);
 		trainer.setPasswd(pw);
 		trainer.setName(name);
@@ -64,9 +68,9 @@ public class Trainerservlet extends HttpServlet {
 		trainer.setAddr(addr1+ " " + addr2);
 
 		trainerService.addTrainer(trainer);
-		request.setAttribute("name", name);
-		
-		dispatcher = request.getRequestDispatcher("result/success.jsp");
+		request.setAttribute("trainer", trainer);
+
+		dispatcher = request.getRequestDispatcher("success.jsp");
 		dispatcher.forward(request, response);
 	}
 
