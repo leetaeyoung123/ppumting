@@ -8,6 +8,7 @@ import javax.servlet.ServletContextEvent;
 
 public class InitializeDataSource {
 	private static final String JDBC_FILE_PATH = "/WEB-INF/classes/ppumting.properties";
+	
 	   public void contextInitialized(ServletContextEvent event)  { 
 	        ServletContext context = event.getServletContext();
 	        InputStream is = null;
@@ -18,10 +19,10 @@ public class InitializeDataSource {
 	         
 	         String Driver = prop.getProperty("driver");
 	         String Url = prop.getProperty("url");
-	         String trainerName = prop.getProperty("trainername");
+	         String userName = prop.getProperty("userrname");
 	         String password = prop.getProperty("password");
 	         
-	         DataSource dataSource = new DataSource(Driver, Url, trainerName, password);   
+	         DataSource dataSource = new DataSource(Driver, Url, userName, password);   
 	         
 	         NamingService namingService = NamingService.getInstance();
 	         namingService.setAttribute("dataSource", dataSource);
@@ -31,4 +32,8 @@ public class InitializeDataSource {
 	         e.printStackTrace();
 	      }
 	   }
+	   
+	   public void contextDestroyed(ServletContextEvent event)  { 
+	         
+	    }
 }
