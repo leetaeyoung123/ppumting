@@ -1,12 +1,15 @@
 package com.ppumting.pm80.trainer.service;
 
+import java.util.List;
+
+import com.ppumting.pm80.trainer.dao.TrainerDao;
 import com.ppumting.pm80.trainer.domain.Trainer;
 
 public class TrainerService {
 	private TrainerDao trainerDao = TrainerDao.getInstance();
 	private static TrainerService instance = new TrainerService(); //싱글톤
 
-	public Trainerservice getInstance() {
+	public TrainerService getInstance() {
 		return instance;
 	}
 
