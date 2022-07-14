@@ -31,5 +31,6 @@
 		</select>
 		<input type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
 		<input type="submit" value="회원가입">
+		</form>
 </body>
 </html>

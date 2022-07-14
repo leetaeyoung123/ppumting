@@ -8,13 +8,20 @@
 <title>실패 ㅠㅠ</title>
 </head>
 <body>
-<h4>회원가입 실패</h4>
 <div>
-<ul>
-<c:forEach var="message" items="${errorMsgs}"> 
-<li>${message}</li>
-</c:forEach>
-</ul>
+<h4>회원가입 실패</h4>
+   <%
+   List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
+   %>
+   <%
+      for(String x : errorMsgs){
+   %>
+   <%=
+      x
+   %><br>
+   <%
+   } 
+   %>
 </div>
 </body>
 </html>

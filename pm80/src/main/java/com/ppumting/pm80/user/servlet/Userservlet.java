@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
-@WebServlet("/User/user")
+@WebServlet("/User/mypage/user")
 public class Userservlet extends HttpServlet {	
 	private static final long serialVersionUID = 1L;
 	private Userservice userService = Userservice.getInstance();
