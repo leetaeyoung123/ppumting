@@ -10,9 +10,11 @@
 <body>
       <h3>다음과 같은 에러가 발생했습니다.</h3>
 
+      	<ul>
          <c:forEach var="errorMsg" items="${errorMsgs}">
          <li>${errorMsg}</li>
          </c:forEach>      
+      	</ul>
 
 </body>
 </html>

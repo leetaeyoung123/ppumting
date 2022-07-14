@@ -12,6 +12,7 @@
 		이름: <input type="text" name="name"><br>
 		비밀번호: <input type="password" name="passwd"><br>
 		주민번호: <input type="text" name="ssn" placeholder="앞자리 6자리 입력해주세요"><br>
+		전화번호: <input type="text" name="phone" placeholder="-를 제외한 전화번호"><br>
 		주소: <select name = "addr1">
 			<option>서울</option>
 			<option>대구</option>

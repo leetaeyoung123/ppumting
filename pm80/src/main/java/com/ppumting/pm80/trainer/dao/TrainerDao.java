@@ -21,6 +21,7 @@ public class TrainerDao {
 	}
 
      public void addTrainer(Trainer trainer) {
+    	 System.out.println("START addTrainer");
          String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
                   + "VALUES(?, ?, ?, ?, ?, ?)";
 
@@ -37,7 +38,7 @@ public class TrainerDao {
                pstmt.setString(5, trainer.getPasswd());
                pstmt.setString(6, trainer.getAddr());
                pstmt.executeUpdate();
-               System.out.println("addTrainer!");
+               System.out.println("END addTrainer!");
             } finally{
             	datasource.close(pstmt,con);
             	System.out.println("NEW Trainer in Trainer");
