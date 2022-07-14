@@ -25,7 +25,7 @@ public class TrainerDao {
 	}
 
      public void addTrainer(Trainer trainer) {
-    	 System.out.println("START addTrainer");
+    	 System.out.println("START addTrainer!");
          String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
                   + "VALUES(?, ?, ?, ?, ?, ?)";
 
@@ -45,7 +45,7 @@ public class TrainerDao {
                System.out.println("END addTrainer!");
             } finally{
             	datasource.close(pstmt,con);
-            	System.out.println("NEW Trainer in Trainer");
+            	System.out.println("NEW Trainer Registration");
             }
 
          } catch (Exception e) {
@@ -69,7 +69,7 @@ public class TrainerDao {
                while(rs.next()) {
             	   Trainer t = new Trainer();
             	   t.setTrainerId(rs.getString("trainerId"));
-            	   t.setName(rs.getString("trainername"));
+            	   t.setName(rs.getString("name"));
             	   t.setPasswd(rs.getString("passwd"));
             	   t.setSsn(rs.getString("ssn"));
             	   trainerList.add(t);
@@ -78,7 +78,7 @@ public class TrainerDao {
             	datasource.close(rs, pstmt,con);
             }
 
-            System.out.println("NEW Trainer in Trainer2");
+            System.out.println("Find Trainer");
          } catch (Exception e) {
             e.printStackTrace();
          }
@@ -101,7 +101,7 @@ public class TrainerDao {
               Trainer trainerInfo = new Trainer();
               while(rs.next()) {
            	   trainerInfo.setTrainerId(rs.getString("trainerId"));
-//           	   trainerInfo.setName(rs.getString("trainername"));
+           	   trainerInfo.setName(rs.getString("trainername"));
            	   trainerInfo.setPasswd(rs.getString("passwd"));
               }
               if(trainerId.equals(trainerInfo.getTrainerId()) && passwd.equals(trainerInfo.getPasswd())) {
