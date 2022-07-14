@@ -27,7 +27,7 @@ public class TrainerServlet extends HttpServlet {
 		String trainerId = request.getParameter("trainerId");
 		String name = request.getParameter("name");
 		String ssn = request.getParameter("ssn");
-		String pw = request.getParameter("pw");
+		String passwd = request.getParameter("passwd");
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
@@ -35,7 +35,7 @@ public class TrainerServlet extends HttpServlet {
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
 			errorMsgs.add("ID를 입력해주세요,");
-		}else if(pw == null || pw.length() == 0) {
+		}else if(passwd == null || passwd.length() == 0) {
 			errorMsgs.add("PW를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
@@ -58,7 +58,7 @@ public class TrainerServlet extends HttpServlet {
 
 		Trainer trainer = new Trainer();
 		trainer.setTrainerId(trainerId);
-		trainer.setPasswd(pw);
+		trainer.setPasswd(passwd);
 		trainer.setName(name);
 		trainer.setSsn(ssn);
 		trainer.setPhone(phone);
