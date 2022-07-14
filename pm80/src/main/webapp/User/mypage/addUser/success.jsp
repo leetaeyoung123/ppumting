@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공 ^0^</title>
+<title>ppumting</title>
 </head>
 <body>
- 성공
+	<h3>회원가입 성공</h3>
 </body>
 </html>
