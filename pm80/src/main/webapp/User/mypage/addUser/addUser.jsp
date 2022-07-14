@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="user" method="post">
+	<form action="addUser" method="post">
 	회원 아이디: <input type="text" name="userId"><br>
 	비밀번호: <input type="password" name="pw"><br>
 	이름: <input type="text" name="name"><br>
