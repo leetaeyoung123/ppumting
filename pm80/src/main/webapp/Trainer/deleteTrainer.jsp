@@ -8,9 +8,13 @@
 </head>
 <body>
 
-<h2>회원탈퇴 하시겠습니까?</h2>
-		<input type="submit" value="트레이너 탈퇴">
-	 
+<h1>*회원탈퇴*</h1>
+<h2>회원탈퇴 하시려면 ID와 PW를 입력해주세요.</h2>
+	<form action="deleteTrainer" method="post">
+	아이디: <input type="text" name="id"><br>
+	패스워드: <input type="password" name="passwd"><br>
+	<input type="submit" value="회원탈퇴"><br>
+	</form>
 
 </body>
 </html>

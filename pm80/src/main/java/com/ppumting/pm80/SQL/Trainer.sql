@@ -16,3 +16,5 @@ DELETE FROM Trainer WHERE name = '홍길동';
 
 INSERT INTO Trainer (name, ssn, phone, trainerId, pw, addr)
 VALUES('백기열', '950512', '010-8538-8436', 'bky', '1234', 'daegu');
+
+UPDATE Trainer SET ssn='961025', phone='01077777777' WHERE trainerId='pt1';
