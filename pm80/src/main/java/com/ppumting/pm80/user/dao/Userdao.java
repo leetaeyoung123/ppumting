@@ -76,15 +76,14 @@ public class Userdao {
 	}
 	
 	public void delete(String userId, String name, String ssn) {
-		String sql = "DELETE FROM Users WHERE name =? ,ssn = ?";
+		String sql = "DELETE FROM Users WHERE ssn = ?";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, name);
-				pstmt.setString(2, ssn);
+				pstmt.setString(1, ssn);
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt, con);
