@@ -9,12 +9,10 @@
 </head>
 <body>
       <h3>다음과 같은 에러가 발생했습니다.</h3>
-	 <c:if test="${not empty errorMsgs}">
-      <ul>
+
          <c:forEach var="errorMsg" items="${errorMsgs}">
          <li>${errorMsg}</li>
          </c:forEach>      
-      </ul>
-      </c:if>
+
 </body>
 </html>
