@@ -30,7 +30,8 @@
       아이디 : <jsp:getProperty property="trainerId" name="trainer"/><br>
       이름 : <jsp:getProperty property="name" name="trainer"/><br>
    </div>
-
+   
+<input type="button" value="회원정보" onclick="location.href='http://localhost:8080/pm80/Trainer/mypage.jsp'"/>
 </div>
  
 </body>

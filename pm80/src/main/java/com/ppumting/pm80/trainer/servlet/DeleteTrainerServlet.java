@@ -28,16 +28,13 @@ public class DeleteTrainerServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String trainerId = request.getParameter("trainerId");
-		String name = request.getParameter("name");
-		String ssn = request.getParameter("ssn");
+		String passwd = request.getParameter("passwd");
 
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
 			errorMsgs.add("ID를 입력해주세요");
-		}else if(ssn == null || ssn.length() == 0) {
-			errorMsgs.add("주민번호를 입력해주세요");
-		}else if(name == null || name.length() == 0) {
-			errorMsgs.add("이름을 입력해주세요");
+		}else if(passwd == null || passwd.length() == 0) {
+			errorMsgs.add("PW를 입력해주세요");
 		}
 		
 		RequestDispatcher dispatcher = null;
@@ -51,9 +48,8 @@ public class DeleteTrainerServlet extends HttpServlet {
 		
 		Trainer trainer = new Trainer();
 		trainer.setTrainerId(trainerId);
-		trainer.setName(name);
-		trainer.setSsn(ssn);
-		trainerService.delete(trainerId, name, ssn);
+		trainer.setSsn(passwd);
+		trainerService.delete(trainerId, passwd);
 		request.setAttribute("trainer", trainer);
 		
 		dispatcher = request.getRequestDispatcher("deletesuccess.jsp");

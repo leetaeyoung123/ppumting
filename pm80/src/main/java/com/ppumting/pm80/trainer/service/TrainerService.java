@@ -29,7 +29,7 @@ public class TrainerService {
 		return trainerDao.login(trainerId, passwd);
 	}
 	
-	public void delete(String trainerId, String name, String ssn) {
-		trainerDao.delete(trainerId, name, ssn);
+	public void delete(String trainerId, String passwd) {
+		trainerDao.delete(trainerId, passwd);
 	}
 }

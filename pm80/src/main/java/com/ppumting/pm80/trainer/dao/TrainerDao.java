@@ -148,15 +148,15 @@ public class TrainerDao {
 		return loginResult;	
 	}
 
-	public void delete(String trainerId, String name, String ssn) {
-		String sql = "DELETE FROM Trainer WHERE ssn = ?";
+	public void delete(String trainerId, String passwd) {
+		String sql = "DELETE FROM Trainer WHERE trainerId = ?";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, ssn);
+				pstmt.setString(1, trainerId);
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt, con);

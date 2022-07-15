@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴 완료</title>
+<title>회원 삭제 완료</title>
 </head>
 <body>
 
-      <h3>회원탈퇴 완료되었습니다.</h3>
+      <h3>회원 삭제되었습니다.</h3>
  
 </body>
 </html>

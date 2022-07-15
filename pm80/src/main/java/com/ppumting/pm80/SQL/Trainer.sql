@@ -12,7 +12,7 @@ CREATE TABLE Trainer (
 
 SELECT * FROM Trainer;
 DROP TABLE Trainer;
-DELETE FROM Trainer WHERE name = '홍길동';
+DELETE FROM Trainer WHERE name = '아무개';
 
 INSERT INTO Trainer (name, ssn, phone, trainerId, pw, addr)
 VALUES('백기열', '950512', '010-8538-8436', 'bky', '1234', 'daegu');
