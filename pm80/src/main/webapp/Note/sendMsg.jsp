@@ -35,7 +35,7 @@ textarea {
 </div>
 보내실 분 ID : <input type="text" name="receiveUserId"><br>
 본인 ID : <input type="text" name="sendUserId"><br>
-<input type="submit" value="전송">
+<input onclick="alert('쪽지 전송완료')" type="submit" value="전송">
 </form>
 
 <form action="selectTitleMsg" method="post">

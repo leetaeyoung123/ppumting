@@ -17,7 +17,10 @@
 	          alert("삭제를 취소했습니다.");
 	        }
 	      }
-	
+	function toReply() {
+		window.opener.location.href="sendMsg.jsp";
+		window.close();
+	}
 	function reload(){
     window.opener.location.reload();
     window.close();
@@ -34,6 +37,8 @@
 ${notes.msg}
 <div>
 <button onclick="toDelete()" id="Delete">삭제</button>
+<button onclick="toReply()" id="Reply">답장</button>
+<!-- 보낸 메세지에는 로그인 세션 유효성 검사로 답장 없애기 -->
 </div>
 </body>
 </html>

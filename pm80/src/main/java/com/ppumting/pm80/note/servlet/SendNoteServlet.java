@@ -38,9 +38,7 @@ public class SendNoteServlet extends HttpServlet {
 		note.setReceiveUserId(receiveUserId);
 		note.setSendUserId(sendUserId);
 		service.sendNote(note);
-		System.out.println("성공");
-		request.setAttribute("note", note);
-		request.getRequestDispatcher("success.jsp").forward(request, response);
+		request.getRequestDispatcher("sendMsg.jsp").forward(request, response);
 	}
 
 }
