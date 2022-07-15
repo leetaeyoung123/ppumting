@@ -35,7 +35,7 @@ public class SendNoteServlet extends HttpServlet {
 		
 		note.setTitle(title);
 		note.setMsg(msg);
-		note.setRecevieUserId(recevieUserId);
+		note.setReceiveUserId(recevieUserId);
 		note.setSendUserId(sendUserId);
 		service.sendNote(note);
 		System.out.println("성공");

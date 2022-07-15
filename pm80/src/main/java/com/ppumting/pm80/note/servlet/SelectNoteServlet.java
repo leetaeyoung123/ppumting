@@ -1,6 +1,8 @@
 package com.ppumting.pm80.note.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +25,8 @@ public class SelectNoteServlet extends HttpServlet {
 		
 		String sendUserId = request.getParameter("sendUid");
 		
-		Note sendTitles = new Note();
-		Note receiveTitles = new Note();
+		List<Note> sendTitles = new ArrayList<>();
+		List<Note> receiveTitles = new ArrayList<>();
 		
 		sendTitles = service.findSendNote(sendUserId);
 		receiveTitles = service.findReceiveNote(sendUserId);

@@ -1,11 +1,10 @@
 package com.ppumting.pm80.note.domain;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
 public class Note {
 	long	no;
-	String recevieUserId;
+	String receiveUserId;
 	String sendUserId;
 	String msg;
 	String title;
@@ -33,11 +32,11 @@ public class Note {
 	public String getMsg() {
 		return msg;
 	}
-	public String getRecevieUserId() {
-		return recevieUserId;
+	public String getReceiveUserId() {
+		return receiveUserId;
 	}
-	public void setRecevieUserId(String recevieUserId) {
-		this.recevieUserId = recevieUserId;
+	public void setReceiveUserId(String receiveUserId) {
+		this.receiveUserId = receiveUserId;
 	}
 	public String getSendUserId() {
 		return sendUserId;
