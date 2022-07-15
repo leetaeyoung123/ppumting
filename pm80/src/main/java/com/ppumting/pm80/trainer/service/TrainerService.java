@@ -24,4 +24,8 @@ public class TrainerService {
 	public boolean isValidTrainers(String trainerId, String passwd) {
 		return trainerDao.isValidTrainers(trainerId, passwd);
 	}
+
+	public boolean login(String trainerId, String passwd) {
+		return trainerDao.login(trainerId, passwd);
+	}
 }

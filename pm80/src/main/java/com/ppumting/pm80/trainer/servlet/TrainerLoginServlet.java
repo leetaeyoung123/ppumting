@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/login")
+@WebServlet("/Trainer/loginout/login")
 public class TrainerLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -21,24 +21,25 @@ public class TrainerLoginServlet extends HttpServlet {
 		trainerService = new TrainerService();
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		request.getRequestDispatcher("login.jsp").forward(request,  response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
 		String trainerId = request.getParameter("trainerId");
 		String passwd = request.getParameter("passwd");
 		
-		//요청 파라메터 검증
-		if(!trainerService.isValidTrainers(trainerId, passwd)) {
+		if(trainerService.login(trainerId, passwd)) {
+			HttpSession session = request.getSession(true);
+			session.setAttribute("trainerId", trainerId);
+			response.sendRedirect("../mypage.jsp");
+		}else {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
-		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("trainerId", trainerId);
-		response.sendRedirect("mypage");
 		
 	}
 
