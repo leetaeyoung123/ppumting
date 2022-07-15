@@ -11,8 +11,9 @@
 <body>
 	<h3>게시글 조회</h3>
 	<c:forEach var="qna" items="${qnaList}">
-		${qna.qnaNo}.
-		${qna.qnaTitle}<br>
+		<a href="selectNoQna?qnaTitle=${qna.qnaTitle}"><br>
+		${qna.qnaNo}. ${qna.qnaTitle}
+		</a>
 	</c:forEach>
 </body>
 </html>
