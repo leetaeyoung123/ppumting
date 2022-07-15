@@ -146,5 +146,54 @@ public class TrainerDao {
 		return false;
 	}
 
+	public boolean login(String trainerId, String passwd) {
+		String sql = "SELECT trainerId, passwd FROM Trainer WHERE trainerId = ?";
+		boolean loginResult = false;
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainerId);
+				rs = pstmt.executeQuery();
+				Trainer trainer= new Trainer();
+				while(rs.next()) {
+					trainer.setTrainerId(rs.getString("trainerId"));
+					trainer.setPasswd(rs.getString("passwd"));
+					if(trainerId.equals(trainer.getTrainerId()) && passwd.equals(trainer.getPasswd())) {
+						loginResult = true;
+					}else {
+						loginResult = false;
+					}
+				}
+			} finally {
+				datasource.close(rs, pstmt, con); 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return loginResult;	
+	}
 
+
+	public void delete(String trainerId, String name, String ssn) {
+		String sql = "DELETE FROM Trainer WHERE ssn = ?";
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, ssn);
+				pstmt.executeUpdate();
+			} finally {
+				datasource.close(pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
    }
