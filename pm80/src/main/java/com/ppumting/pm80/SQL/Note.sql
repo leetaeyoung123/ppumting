@@ -12,7 +12,7 @@ CREATE TABLE Notes (
 INSERT INTO SendNotes (msg, toMsg, userId) 
 VALUES("hi", "한태우", "lty");
 
-DELETE FROM	Notes WHERE sent_id = 'lty';
+DELETE FROM	Notes WHERE sent_id = 'test2';
 SELECT title From Notes WHERE sent_id = 'htw';
 SELECT * FROM Notes;
 SELECT * FROM USERS;

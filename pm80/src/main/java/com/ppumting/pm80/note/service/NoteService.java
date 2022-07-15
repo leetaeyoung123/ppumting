@@ -33,5 +33,10 @@ public class NoteService {
 		return noteDao.veiwMsg(getNo);
 		
 	}
+
+	public void deleteNote(String no) {
+		noteDao.delNote(no);
+		
+	}
 	
 }
