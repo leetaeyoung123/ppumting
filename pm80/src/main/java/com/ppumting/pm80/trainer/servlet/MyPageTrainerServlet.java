@@ -26,7 +26,6 @@ public class MyPageTrainerServlet extends HttpServlet {
 			request.getRequestDispatcher("/loginout/login.jsp").forward(request, response);
 			return;
 		}
-		
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}
 }

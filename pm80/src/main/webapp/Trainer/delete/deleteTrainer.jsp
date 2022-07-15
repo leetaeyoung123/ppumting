@@ -13,7 +13,7 @@
 	<form action="deleteTrainer" method="post">
 	아이디: <input type="text" name="id"><br>
 	패스워드: <input type="password" name="passwd"><br>
-	<input type="button" value="취소" onclick="location='mypage.jsp'"/>
+	<input type="button" value="취소" onclick="location.href='http://localhost:8080/pm80/Trainer/mypage.jsp'"/>
 	<input type="submit" value="회원삭제"><br>
 	</form>
 
