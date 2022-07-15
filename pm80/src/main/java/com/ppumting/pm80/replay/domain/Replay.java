@@ -31,7 +31,7 @@ public class Replay {
 
 	public void setReplayContent(String replayContent) {
 		this.replayContent = replayContent;
-	}
+	} 
 
 	public int getQnaNo() {
 		return qnaNo;
