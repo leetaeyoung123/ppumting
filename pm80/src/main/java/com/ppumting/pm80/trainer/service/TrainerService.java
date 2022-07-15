@@ -28,4 +28,8 @@ public class TrainerService {
 	public boolean login(String trainerId, String passwd) {
 		return trainerDao.login(trainerId, passwd);
 	}
+	
+	public void delete(String trainerId, String name, String ssn) {
+		trainerDao.delete(trainerId, name, ssn);
+	}
 }
