@@ -21,26 +21,43 @@ public class NoteDao {
 	
 	NamingService namingService = NamingService.getInstance();
 	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
+	DataSource datasource2 = (DataSource)namingService.getAttribute("dataSource");
 	
 	
 	//쪽지 보내기 기능
 	public void addNote(Note note) {
-		String sql = "INSERT INTO Notes(sent_id, recv_id, title, msg)"
+		String sql = "INSERT INTO RcvNotes(sentid, userid, title, msg)"
+				+ "VALUES(?, ?, ?, ?)";
+		String sql2 = "INSERT INTO SendNotes(userid, recvid, title, msg)"
 				+ "VALUES(?, ?, ?, ?)";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
+			Connection con2 = null;
+			PreparedStatement pstmt2 = null;
 			try {
 				con = datasource.getConnection();
+				con2 = datasource2.getConnection();
+				
 				pstmt = con.prepareStatement(sql);
+				pstmt2 = con.prepareStatement(sql2);
+				
 				pstmt.setString(1, note.getSendUserId());
 				pstmt.setString(2, note.getReceiveUserId());
 				pstmt.setString(3, note.getTitle());
 				pstmt.setString(4, note.getMsg());
+				
+				pstmt2.setString(1, note.getSendUserId());
+				pstmt2.setString(2, note.getReceiveUserId());
+				pstmt2.setString(3, note.getTitle());
+				pstmt2.setString(4, note.getMsg());
+				
 				pstmt.executeUpdate();
+				pstmt2.executeUpdate();
 				System.out.println("addMsgComplete!");
 			}finally {
 				datasource.close(pstmt, con);
+				datasource2.close(pstmt2, con2);
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -49,7 +66,7 @@ public class NoteDao {
 	
 	//보낸 쪽지 조회 기능
 	public List<Note> findTitleSendNote(String sendUserId) {
-		String sql = "SELECT no,title,msg,recv_id,sent_id,sentDate From Notes WHERE sent_id = ?";
+		String sql = "SELECT no,title,msg,recvid,userid,sentDate From SendNotes WHERE userid = ?";
 		ArrayList<Note> noteArray = new ArrayList<>();
 		try {
 			Connection con = null;
@@ -64,8 +81,8 @@ public class NoteDao {
 					Note title = new Note();
 					title.setNo(rs.getLong("no"));
 					title.setTitle(rs.getString("title"));
-					title.setReceiveUserId(rs.getString("recv_id"));
-					title.setSendUserId(rs.getString("sent_id"));
+					title.setReceiveUserId(rs.getString("recvid"));
+					title.setSendUserId(rs.getString("userid"));
 					title.setRegDate(rs.getDate("sentDate"));
 					noteArray.add(title);
 				}
@@ -82,7 +99,7 @@ public class NoteDao {
 	
 	//받은 쪽지 조회 기능
 	public List<Note> findTitleReceiveNote(String sendUserId) {
-		String sql = "SELECT no,title,msg,recv_id,sent_id,sentDate From Notes WHERE recv_id = ?";
+		String sql = "SELECT no,title,msg,userid,sentid,sentDate From RcvNotes WHERE userid = ?";
 		List<Note> noteArray = new ArrayList<>();
 		try {
 			Connection con = null;
@@ -97,8 +114,8 @@ public class NoteDao {
 					Note title = new Note();
 					title.setNo(rs.getLong("no"));
 					title.setTitle(rs.getString("title"));
-					title.setReceiveUserId(rs.getString("recv_id"));
-					title.setSendUserId(rs.getString("sent_id"));
+					title.setReceiveUserId(rs.getString("userid"));
+					title.setSendUserId(rs.getString("sentid"));
 					title.setRegDate(rs.getDate("sentDate"));
 					noteArray.add(title);				}
 				System.out.println("받은 쪽지 Title을 모두 불러왔습니다.");
@@ -112,9 +129,9 @@ public class NoteDao {
 		return noteArray;
 	}
 	
-	//쪽지 고유 번호로 쪽지 내용 출력
-	public Note veiwMsg(String getNo) {
-		String sql = "SELECT no, sent_id, recv_id, title, msg, sentDate FROM Notes WHERE no = ?";
+	//쪽지 고유 번호로 받은 쪽지 내용 출력
+	public Note viewRcvMsg(String getNo) {
+		String sql = "SELECT no, sentid, userid, title, msg, sentDate, sendnote FROM RcvNotes WHERE no = ?";
 		Note note = new Note();
 		try {
 			Connection con = null;
@@ -127,11 +144,12 @@ public class NoteDao {
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
 					note.setNo(rs.getLong("no"));
-					note.setSendUserId(rs.getString("sent_id"));
-					note.setReceiveUserId(rs.getString("recv_id"));
+					note.setSendUserId(rs.getString("sentid"));
+					note.setReceiveUserId(rs.getString("userid"));
 					note.setTitle(rs.getString("title"));
 					note.setMsg(rs.getString("msg"));
 					note.setRegDate(rs.getDate("sentDate"));
+					note.setSendnote(rs.getBoolean("sendnote"));
 				}
 			}finally {
 				datasource.close(rs, pstmt, con);
@@ -141,9 +159,39 @@ public class NoteDao {
 		}
 		return note;
 	}
-
-	public void delNote(String no) {
-		String sql = "DELETE FROM Notes WHERE no = ?";
+	//쪽지 고유 번호로 보낸 쪽지 내용 출력
+	public Note viewSendMsg(String getNo) {
+		String sql = "SELECT no, userid, recvid, title, msg, sentDate, sendnote FROM SendNotes WHERE no = ?";
+		Note note = new Note();
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, getNo);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					note.setNo(rs.getLong("no"));
+					note.setSendUserId(rs.getString("userid"));
+					note.setReceiveUserId(rs.getString("recvid"));
+					note.setTitle(rs.getString("title"));
+					note.setMsg(rs.getString("msg"));
+					note.setRegDate(rs.getDate("sentDate"));
+					note.setSendnote(rs.getBoolean("sendnote"));
+				}
+			}finally {
+				datasource.close(rs, pstmt, con);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return note;
+	}
+	// 보낸 쪽지 삭제 기능
+	public void deleteSendNote(String no) {
+		String sql = "DELETE FROM SendNotes WHERE no = ?";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -152,7 +200,27 @@ public class NoteDao {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, no);
 				pstmt.executeUpdate();
-				System.out.println("DeleteMsgComplete!");
+				System.out.println("DeleteSendMsgComplete!");
+			}finally {
+				datasource.close(pstmt, con);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	//받은 쪽지 삭제 기능
+	public void deleteRcvNote(String no) {
+		String sql = "DELETE FROM RcvNotes WHERE no = ?";
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, no);
+				pstmt.executeUpdate();
+				System.out.println("DeleteRcvMsgComplete!");
 			}finally {
 				datasource.close(pstmt, con);
 			}

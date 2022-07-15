@@ -29,13 +29,23 @@ public class NoteService {
 		return noteDao.findTitleReceiveNote(sendUserId);
 	}
 
-	public Note viewMsg(String getNo) {
-		return noteDao.veiwMsg(getNo);
+	public Note viewRcvMsg(String getNo) {
+		return noteDao.viewRcvMsg(getNo);
+		
+	}
+	
+	public Note viewSendMsg(String getNo) {
+		return noteDao.viewSendMsg(getNo);
 		
 	}
 
-	public void deleteNote(String no) {
-		noteDao.delNote(no);
+	public void deleteSendNote(String no) {
+		noteDao.deleteSendNote(no);
+		
+	}
+	
+	public void deleteRcvNote(String no) {
+		noteDao.deleteRcvNote(no);
 		
 	}
 	

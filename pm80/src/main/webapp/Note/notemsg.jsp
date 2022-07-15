@@ -11,8 +11,14 @@
 	function toDelete() {
 	        if(confirm("삭제 하시겠습니까?")) {
 	          alert("삭제를 완료했습니다.");
-	          window.opener.location.href="delete?no=${notes.no}";
-	  		  window.close();
+	          if(${sendNotes.sendnote}) {
+		          window.opener.location.href="deleteSend?no=${sendNotes.no}";
+		  		  window.close();
+	          }else {
+		          window.opener.location.href="deleteRcv?no=${rcvNotes.no}";
+		  		  window.close();
+	          }
+
 	        } else {
 	          alert("삭제를 취소했습니다.");
 	        }
@@ -29,12 +35,12 @@
 </script>
 </head>
 <body>
-쪽지 번호 : ${notes.no}<br>
-쪽지 제목 : ${notes.title}<br><br>
-보내신분 : ${notes.sendUserId}<br>
-받으신분 : ${notes.receiveUserId}<br><br>
+쪽지 번호 : ${rcvNotes.no}<br>
+쪽지 제목 : ${rcvNotes.title}<br><br>
+보내신분 : ${rcvNotes.sendUserId}<br>
+받으신분 : ${rcvNotes.receiveUserId}<br><br>
 쪽지 내용<br>
-${notes.msg}
+${rcvNotes.msg}
 <div>
 <button onclick="toDelete()" id="Delete">삭제</button>
 <button onclick="toReply()" id="Reply">답장</button>
