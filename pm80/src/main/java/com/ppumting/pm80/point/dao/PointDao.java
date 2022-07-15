@@ -144,28 +144,33 @@ public class PointDao {
 	}
 
 	// 사용자 포인트 충전 					//진행중
-	public String addPoint() { 
-		String sql = "INSERT INTO User(name, ssn, userid, passwd, email, addr)" + "VALUES(?, ?, ?, ?, ?, ?)";
-
+	public boolean addPoint(String userId, long point) { 
+		String sql = "UPDATE Point SET point=? WHERE userId=?";
+		boolean result = false;
+		
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, user.getName());
-				stmt.setString(2, user.getSsn());
-				stmt.setString(3, user.getUserId());
-				stmt.setString(4, user.getPw());
-				stmt.setString(6, user.getAddr());
-				stmt.executeUpdate();
-				System.out.println("INSERTED...");
+					long balance = Long.parseLong(pointdao.checkPoint(userId)); //가지고있는 point
+					if( (balance*point) >= 0) { // x,y 둘다 양수라면 
+						System.out.println("결과: " + (balance+point));
+						stmt.setLong(1, balance + point );
+						stmt.setString(2, userId);
+						stmt.executeUpdate();
+						result = true;
+					}else {
+						System.out.println("음수 입력으로 인한 실패");
+						result = false;
+					}
 			} finally {
 				stmt.close();
+				con.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return result;
 	}
 
 	// 사용자 포인트 차감 (결제) 				//구현 완료
@@ -181,17 +186,16 @@ public class PointDao {
 					long x = Long.parseLong(pointdao.checkPoint(userId));
 					long y = Long.parseLong(trainerPrice);
 					if( (x-y) >= 0) {
-						System.out.println("결과: " + (x-y));
 						stmt.setLong(1, x - y );
 						stmt.setString(2, userId);
 						stmt.executeUpdate();
 						result = true;
 					}else {
-						System.out.println("포인트 부족");
+						//포인트 부족할 때
 						result = false;
 					}
 				}else {
-					System.out.println("없는 아이디");
+					//없는 아이디 입력했을 때
 				}
 			} finally {
 				stmt.close();

@@ -11,7 +11,7 @@
 	<fieldset>
 	<legend>포인트 충전</legend>
 		아이디 : <input type="text" name="userId"/>
-		금액 : <input type="text" name="money"/>
+		포인트 : <input type="number" min="10000" max="3000000" step="10000" name="point"/>
     	<button type="submit">충전하기</button>
 	</fieldset>
 	</form>
