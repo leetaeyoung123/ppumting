@@ -23,4 +23,18 @@ public class Userservice {
 	public void delete(String userId, String name, String ssn) {
 		userdao.delete(userId, name, ssn);
 	}
+	
+	public User userSelect(String userId) {
+		return userdao.userSelect(userId);
+	}
+	
+	public boolean checkUser(String userId) {
+		return userdao.checkUser(userId);
+	}
+
+
+	public void updateUser(User user) {
+		userdao.updateUser(user);
+		
+	}
 }
