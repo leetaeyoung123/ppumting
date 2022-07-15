@@ -34,23 +34,31 @@ public class AddPointServlet extends HttpServlet {
 		String jsp_Point = request.getParameter("point");
 		long point = Long.parseLong(jsp_Point);
 		
+		// 없는 아이디 입력
 		if( pointService.isValidUser(userId) == false ) {
-			if( pointService.addPoint(userId, point) == false ) {
-				request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
-				return;
-			}
+			request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
+			return;
 		}
-		
+		//다오 ㄱㄱ
+		if( pointService.addPoint(userId, point) == false ) {
+			System.out.println("b");
+			request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
+			return;
+		}
+		System.out.println("c");
 		//성공 시 로직
 		request.setAttribute("userId", userId);
+		System.out.println("d");
 		request.setAttribute("point", point);
+		System.out.println("e");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("addPointResult/success.jsp");
+		System.out.println("f");
 		dispatcher.forward(request, response);
 		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("userId", userId);
-		session.setAttribute("point", point);
-		response.sendRedirect("addPointResult/success.jsp");
+//		HttpSession session = request.getSession(true);
+//		session.setAttribute("userId", userId);
+//		session.setAttribute("point", point);
+//		response.sendRedirect("addPointResult/success.jsp");
 	}
 
 

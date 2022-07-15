@@ -3,16 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app id="WebApp_ID">
 	<display-name>pm80</display-name>
-	<servlet>
-		<servlet-name>AddPointServlet</servlet-name>
-		<display-name>AddPointServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.point.servlet.AddPointServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddPointServlet</servlet-name>
-		<url-pattern>/AddPointServlet</url-pattern>
-	</servlet-mapping>
+	
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
