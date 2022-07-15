@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쪽지내용 확인</title>
 </head>
 <body>
 쪽지 번호 : ${notes.no}<br>
