@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
 @WebServlet("/Trainer/loginout/login")
-public class TrainerLoginServlet extends HttpServlet {
+public class LoginTrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private TrainerService trainerService;
