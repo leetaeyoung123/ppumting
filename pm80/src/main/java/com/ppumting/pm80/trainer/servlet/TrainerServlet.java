@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/addTrainer")
+@WebServlet("/Trainer/add/addTrainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService = TrainerService.getInstance();
@@ -34,7 +34,7 @@ public class TrainerServlet extends HttpServlet {
 
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
-			errorMsgs.add("ID를 입력해주세요,");
+			errorMsgs.add("ID를 입력해주세요");
 		}else if(passwd == null || passwd.length() == 0) {
 			errorMsgs.add("PW를 입력해주세요");
 		}else if(name == null || name.length() == 0) {

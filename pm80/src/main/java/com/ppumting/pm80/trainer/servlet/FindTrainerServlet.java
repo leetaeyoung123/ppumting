@@ -14,7 +14,7 @@ import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
 
-@WebServlet("/Trainer/findTrainer")
+@WebServlet("/Trainer/add/findTrainer")
 public class FindTrainerServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,7 @@ public class FindTrainerServlet extends HttpServlet {
       request.setAttribute("trainerList", trainerList);
       
       //4. NextPage
-      dispatcher = request.getRequestDispatcher("findTrainer.jsp");
+      dispatcher = request.getRequestDispatcher("/add/findTrainer.jsp");
       dispatcher.forward(request, response);
    }
 

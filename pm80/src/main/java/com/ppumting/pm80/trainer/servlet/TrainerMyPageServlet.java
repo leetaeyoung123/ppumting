@@ -23,7 +23,7 @@ public class TrainerMyPageServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String trainerId = (String)session.getAttribute("trainerId");
 		if(trainerId == null) {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("/loginout/login.jsp").forward(request, response);
 			return;
 		}
 		

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/addTrainer")
+@WebServlet("/Trainer/update/updateTrainer")
 public class UpdateTrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private TrainerService trainerService = TrainerService.getInstance();
@@ -57,7 +57,6 @@ public class UpdateTrainerServlet extends HttpServlet {
 		}
 
 		Trainer trainer = new Trainer();
-		trainer.setTrainerId(trainerId);
 		trainer.setPasswd(passwd);
 		trainer.setName(name);
 		trainer.setSsn(ssn);
@@ -67,7 +66,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 		trainerService.addTrainer(trainer);
 		request.setAttribute("trainer", trainer);
 
-		dispatcher = request.getRequestDispatcher("success.jsp");
+		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
 		dispatcher.forward(request, response);
 	}
 
