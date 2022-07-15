@@ -6,9 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>게시글 수정</title>
 </head>
 <body>
- 	성공
+	<form action="modifyQna.do" method="post">
+		제목: <input type="text" name="qna_title"><br> 내용: <input
+			type="text" name="qna_content">
+			<br>
+			<input type="submit"
+			value="수정"> <input type="submit" value="취소">
+	</form>
 </body>
 </html>

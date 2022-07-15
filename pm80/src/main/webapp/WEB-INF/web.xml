@@ -9,9 +9,19 @@
 		<description></description>
 		<servlet-class>com.ppumting.pm80.qna.servlet.SelectQnaSevlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ModifyServlet</servlet-name>
+		<display-name>ModifyServlet</display-name>
+		<description></description>
+		<servlet-class>com.ppumting.pm80.qna.servlet.ModifyServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>SelectQnaSevlet</servlet-name>
 		<url-pattern>/Qna/selectTitleQna</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifyServlet</servlet-name>
+		<url-pattern>/ModifyServlet</url-pattern>
 	</servlet-mapping>
 	
 	

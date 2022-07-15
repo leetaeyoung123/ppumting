@@ -21,12 +21,12 @@ public class SelectQnaSevlet extends HttpServlet {
 		super();
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
 		Qna qnas = new Qna();
 		qnas = service.viewQna(request.getParameter("qnaNo"));
-		request.setAttribute("qnas", qnas);
+		request.setAttribute("qnas", qnas);	// "qnas"(jsp에서 뿌려주는 이름)는 키, qnas는 값
 		request.getRequestDispatcher("selectNoQna.jsp").forward(request, response);
 		 
 	}

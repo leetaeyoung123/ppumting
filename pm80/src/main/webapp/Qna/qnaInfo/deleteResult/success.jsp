@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>글 삭제</title>
 </head>
 <body>
- 	성공
+ 	${qnaNo}번 게시글 삭제 완료
 </body>
 </html>
