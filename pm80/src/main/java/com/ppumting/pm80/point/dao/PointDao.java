@@ -143,26 +143,25 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 포인트 충전 					//진행중
-	public boolean addPoint(String userId, long point) { 
+	// 사용자 포인트 충전 					//구현 완료
+	public boolean addPoint(String userId, long point) {
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
-		
+
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
-					long balance = Long.parseLong(pointdao.checkPoint(userId)); //가지고있는 point
-					if( (balance*point) >= 0) { // x,y 둘다 양수라면 
-						System.out.println("결과: " + (balance+point));
-						stmt.setLong(1, balance + point );
-						stmt.setString(2, userId);
-						stmt.executeUpdate();
-						result = true;
-					}else {
-						System.out.println("음수 입력으로 인한 실패");
-						result = false;
-					}
+				long balance = Long.parseLong(pointdao.checkPoint(userId)); // 보유하고있는 point
+				if ((balance * point) >= 0) { // x,y 둘다 양수라면
+					stmt.setLong(1, balance + point);
+					stmt.setString(2, userId);
+					stmt.executeUpdate();
+					result = true;
+				} else {
+					System.out.println("음수 입력으로 인한 실패");
+					result = false;
+				}
 			} finally {
 				stmt.close();
 				con.close();
