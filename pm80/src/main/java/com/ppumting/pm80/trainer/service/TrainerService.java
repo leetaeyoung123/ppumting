@@ -32,4 +32,16 @@ public class TrainerService {
 	public void delete(String trainerId, String passwd) {
 		trainerDao.delete(trainerId, passwd);
 	}
+
+	public boolean checkTrainer(String trainerId) {
+		return trainerDao.checkTrainer(trainerId);
+	}
+
+	public Trainer trainerSelect(String trainerId) {
+		return trainerDao.trainerSelect(trainerId);
+	}
+	
+	public void updateTrainer(Trainer trainer) {
+		trainerDao.updateTrainer(trainer);
+	}
 }
