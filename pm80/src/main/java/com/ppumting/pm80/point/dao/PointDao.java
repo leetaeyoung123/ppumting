@@ -15,7 +15,7 @@ public class PointDao {
 	NamingService namingService = NamingService.getInstance();
 	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
-	// 랜덤한 숫자의 계좌 생성 				//구현 완료
+	// 랜덤한 숫자의 계좌 생성 				
 	public String createAccountNum(String userId) { 
 		String sql = "INSERT INTO Point (point, accountNum, userId) VALUES (0, ?, ?)";
 
@@ -61,7 +61,7 @@ public class PointDao {
 		return result;
 	}
 	
-	// 사용자 아이디를 이용한 본인 계좌 조회 		//구현 완료
+	// 사용자 아이디를 이용한 본인 계좌 조회 		
 	public String checkAccountNum(String userId) {
 		String sql = "SELECT accountNum FROM Point p INNER JOIN " +
 				"Users u ON p.userId = u.userId WHERE u.userId = ?";
@@ -90,7 +90,7 @@ public class PointDao {
 		return result;
 	}
 	
-	// 사용자 아이디 존재 여부 확인(아이디 중복확인) //구현 완료
+	// 사용자 아이디 존재 여부 확인(아이디 중복확인) 
 	public boolean isValidUser(String userId) { 
 		String sql = "SELECT userId FROM Users WHERE userId=?";
 		boolean result = false;
@@ -118,7 +118,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 아이디를 이용한 보유포인트 조회 		//구현 완료
+	// 사용자 아이디를 이용한 보유포인트 조회 		
 	public String checkPoint(String userId) { 
 		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
 		String result = null;
@@ -143,7 +143,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 포인트 충전 					//구현 완료
+	// 사용자 포인트 충전 					
 	public boolean addPoint(String userId, long point) {
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
@@ -172,7 +172,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 포인트 차감 (결제) 				//구현 완료
+	// 사용자 포인트 차감 (결제) 				
 	public boolean minusPoint(String userId, String trainerPrice) { 
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
