@@ -8,6 +8,8 @@ CREATE TABLE QNA (
 
 SELECT * FROM QNA
 
+DELETE FROM QNA WHERE qna_no = 9
+
 drop table QNA
 -- 외래키 선언 방법
 -- CONSTRAINT QNA_user_number_FK FOREIGN KEY (user_number) REFERENCES Users(userNumber)

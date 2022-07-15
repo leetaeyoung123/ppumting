@@ -8,10 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:forEach var = "selectQnaNo" items="${selectQnaNo}">
-	<a onclick = ${selectTitle.qnaTitle}>
-	${selectTitle.qnaNo} ${selectTitle.qnaTitle} ${selectTitle.qnaContent} ${selectTitle.qnaRegDate}
-	</a>
-	</c:forEach>
+	<h3>게시글 상세 내용 조회</h3>
+	<!-- qnas는 servlet에 있는 setAttribute안에 키값이랑 같아야 함 -->
+	No : ${qnas.qnaNo}<br> 
+	제목 : ${qnas.qnaTitle}<br> 
+	게시글 내용 : ${qnas.qnaContent}<br>
+	등록 일자 : ${qnas.qnaRegDate}	
+	<form method="post">
+		<a href="modifyQna.do?qnaNo=${qna.qnaNo}" >수정
+  	</form>
+	<form action="deleteQna.do" method="post"  >
+		<button type="submit" value="${qnas.qnaNo}" name="qnaNo" >삭제</button>
+  	</form>
 </body>
 </html>

@@ -36,11 +36,11 @@ public class QnaFindServlet extends HttpServlet {
 		qnaList = qnaService.getfindNoQna();
 		
 		request.setAttribute("qnaList", qnaList);
-		System.out.println("실행됨");
+//		System.out.println("실행됨");
 		
 		dispacher = request.getRequestDispatcher("findQna.jsp");
 		dispacher.forward(request, response);
-		System.out.println("성공");
+//		System.out.println("성공");
 	}
 
 }

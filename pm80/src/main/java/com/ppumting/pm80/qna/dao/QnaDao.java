@@ -82,56 +82,15 @@ public class QnaDao {
 	}
 	
 	// 게시판 수정
-//		public void modifyQna(Qna qna) {
-//			
-//		}
+	public void modifyQna(Qna qna) {
 		
-	// 게시판 삭제
-//		public void deleteQna(String userNumber) {
-//			String sql = "DELETE FROM QNA WHERE USER_NUMBER = ?";
-//				try {
-//					Connection con = null;
-//					PreparedStatement pstmt = null;
-//					try {
-//						con = datasource.getConnection();
-//						pstmt = con.prepareStatement(sql);
-//						pstmt.setString(1, userNumber);
-//					} finally {
-//						
-//					}
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//				return 
-//		}
-	
-	// 댓글 생성
-	public void insertReplay(Replay replay) {
-		String sql = "INSERT INTO REPLAY (replay_content, qna_no, user_number)"
-					+ "VALUES(?, ?, ?)";
-		try {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			try {
-				con = datasource.getConnection();
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, replay.getReplayContent());
-				pstmt.setInt(2, replay.getQnaNo());
-				pstmt.setInt(3, replay.getUserNumber());
-				pstmt.executeUpdate();
-			} finally {
-				datasource.close(null, pstmt, con);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	// 고유번호로 게시글 데이터 정보 출력
-	public Qna viewQna(String getQnaNo) {
+	public Qna viewQna(String QnaNo) {
 		String sql = "SELECT qna_no, qna_title, qna_content, qna_reg_date"
 				+ " FROM Qna"
-				+ " WHERE qnaNo = ?";
+				+ " WHERE qna_no = ?";
 		Qna qna = new Qna();
 		try {
 			Connection con = null;
@@ -140,12 +99,13 @@ public class QnaDao {
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, QnaNo);
 				rs = pstmt.executeQuery();
 				
 				while( rs.next()) {
 					qna.setQnaNo(rs.getString("qna_no"));
 					qna.setQnaTitle(rs.getString("qna_title"));
-					qna.setQnaContent(rs.getString("qna_title"));
+					qna.setQnaContent(rs.getString("qna_content"));
 					qna.setQnaRegDate(rs.getDate("qna_reg_date"));
 				}
 			} finally {
@@ -156,4 +116,40 @@ public class QnaDao {
 		}
 		return qna;
 	}
+	
+	// 게시글번호를 이용한 게시글 삭제 
+	public boolean deleteQna(String qnaNo) {
+		String sql = "DELETE FROM QNA WHERE qna_no = ?";
+		boolean result = false;
+		
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			try {
+				pstmt.setString(1, qnaNo);
+				pstmt.executeUpdate(); // 쿼리문 DELETE , INSERT 사용할때 executeUpdate() 사용
+				result = true;
+			} finally {
+				datasource.close(pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
