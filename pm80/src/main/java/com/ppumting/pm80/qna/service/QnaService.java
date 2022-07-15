@@ -13,7 +13,7 @@ public class QnaService {
 	
 	private static QnaService instance = new QnaService();
 	
-	private QnaService() {
+	public QnaService() {
 		
 	}
 	
@@ -42,7 +42,12 @@ public class QnaService {
 	}
 
 	// qna 상세 조회
-	public Qna viewQna(String getQnaTitle) {
-		return qnaDao.viewQna(getQnaTitle);
+	public Qna viewQna(String getQnaNo) {
+		return qnaDao.viewQna(getQnaNo);
+	}
+	
+	// qna 삭제
+	public boolean deleteQna(String qnaNo) {
+		return qnaDao.deleteQna(qnaNo);
 	}
 }

@@ -6,9 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>글 삭제</title>
 </head>
 <body>
- 	성공
+<div>
+<h4>글삭제 실패</h4>
+   <%
+   List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
+   %>
+   <%
+      for(String x : errorMsgs){
+   %>
+   <%=
+      x
+   %><br>
+   <%
+   } 
+   %>
+</div>
 </body>
 </html>
