@@ -9,6 +9,9 @@
 <title>포인트 충전 성공</title>
 </head>
 <body>
-	성공
+
+	<%=request.getAttribute("userId") %> 님 <br>
+	<%=request.getAttribute("point") %> 포인트 충전 완료
+  	
 </body>
 </html>

@@ -1,6 +1,8 @@
 package com.ppumting.pm80.point.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -41,18 +43,13 @@ public class AddPointServlet extends HttpServlet {
 		}
 		//다오 ㄱㄱ
 		if( pointService.addPoint(userId, point) == false ) {
-			System.out.println("b");
 			request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
 			return;
 		}
-		System.out.println("c");
 		//성공 시 로직
 		request.setAttribute("userId", userId);
-		System.out.println("d");
 		request.setAttribute("point", point);
-		System.out.println("e");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("addPointResult/success.jsp");
-		System.out.println("f");
 		dispatcher.forward(request, response);
 		
 //		HttpSession session = request.getSession(true);

@@ -5,17 +5,17 @@ import com.ppumting.pm80.point.dao.PointDao;
 public class PointService {
 	private PointDao pointdao = PointDao.getInstance();
 	
-	//랜덤한 계좌 생성
+	// 랜덤한 숫자의 계좌 생성 
 	public String createAccountNum(String userId) { 
 		return pointdao.createAccountNum(userId);
 	}
 	
-	// 사용자 아이디 존재 여부 확인
+	// 사용자 아이디 존재 여부 확인(아이디 중복확인)
 	public boolean isValidUser(String userId) {
 		return pointdao.isValidUser(userId);
 	}
 	
-	//사용자 포인트 차감
+	// 사용자 포인트 차감 (결제)
 	public boolean minusPoint(String userId, String trainerPrice) { 
 		return pointdao.minusPoint(userId, trainerPrice);
 	}
@@ -30,7 +30,7 @@ public class PointService {
 		return pointdao.addPoint(userId, point);
 	}
 	
-	//포인트 조회
+	// 사용자 아이디를 이용한 보유포인트 조회
 	public String checkPoint(String userId) { 
 		return pointdao.checkPoint(userId);
 	}
