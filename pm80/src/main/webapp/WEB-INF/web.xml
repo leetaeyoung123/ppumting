@@ -15,6 +15,12 @@
 		<description></description>
 		<servlet-class>com.ppumting.pm80.qna.servlet.QnaFindServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CheckUserServlet</servlet-name>
+		<display-name>CheckUserServlet</display-name>
+		<description></description>
+		<servlet-class>com.ppumting.pm80.user.servlet.CheckUserServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateAccountServlet</servlet-name>
 		<url-pattern>/CreateAccountServlet</url-pattern>
@@ -26,6 +32,10 @@
 	<servlet-mapping>
 		<servlet-name>QnaFindServlet</servlet-name>
 		<url-pattern>/Qna/qnaFind.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckUserServlet</servlet-name>
+		<url-pattern>/checkuser</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

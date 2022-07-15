@@ -9,6 +9,7 @@
 </head>
 <body>
 		<h3>Home</h3>
+		<button><a href='<c:url value="/User/mypage/userUpdate/userSelect.jsp"/>'>회원정보 수정</button>
 		<button><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</button>
 		<button><a href='<c:url value="/User/mypage/delete/deleteUser.jsp"/>'>회원탈퇴</button>
 </body>
