@@ -90,7 +90,7 @@ public class TrainerDao {
 
         try {
            Connection con = null;
-           PreparedStatement  pstmt = null;
+           PreparedStatement pstmt = null;
            ResultSet rs = null;
            try {
               con = datasource.getConnection();
