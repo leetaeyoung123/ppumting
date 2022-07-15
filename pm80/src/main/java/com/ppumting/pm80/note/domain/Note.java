@@ -1,18 +1,34 @@
 package com.ppumting.pm80.note.domain;
 
+import java.sql.Date;
+import java.util.ArrayList;
+
 public class Note {
+	long	no;
 	String recevieUserId;
 	String sendUserId;
 	String msg;
 	String title;
+	Date regDate;
 	
 	public String getTitle() {
 		return title;
 	}
+	public long getNo() {
+		return no;
+	}
+	public void setNo(long no) {
+		this.no = no;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	long ring = 0;
 
 	public String getMsg() {
 		return msg;
@@ -32,11 +48,5 @@ public class Note {
 
 	public void setMsg(String msg) {
 		this.msg = msg;
-	}
-	public long getRing() {
-		return ring;
-	}
-	public void setRing(long ring) {
-		this.ring = ring;
 	}
 }

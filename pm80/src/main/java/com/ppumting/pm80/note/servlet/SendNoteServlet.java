@@ -1,6 +1,7 @@
 package com.ppumting.pm80.note.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,13 +32,11 @@ public class SendNoteServlet extends HttpServlet {
 		String sendUserId = request.getParameter("sendUserId");
 		
 		Note note = new Note();
+		
 		note.setTitle(title);
 		note.setMsg(msg);
 		note.setRecevieUserId(recevieUserId);
 		note.setSendUserId(sendUserId);
-		long ring = 0;
-		ring ++;
-		note.setRing(ring);
 		service.sendNote(note);
 		System.out.println("성공");
 		request.setAttribute("note", note);

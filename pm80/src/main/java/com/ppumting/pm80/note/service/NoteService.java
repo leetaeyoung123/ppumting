@@ -1,6 +1,5 @@
 package com.ppumting.pm80.note.service;
 
-import java.util.ArrayList;
 
 import com.ppumting.pm80.note.dao.NoteDao;
 import com.ppumting.pm80.note.domain.Note;
@@ -19,12 +18,12 @@ public class NoteService {
 		noteDao.addNote(note);
 	}
 
-	public ArrayList<String> findSendNote(String sendUserId) {
+	public Note findSendNote(String sendUserId) {
 		return noteDao.findTitleSendNote(sendUserId);
 		
 	}
 
-	public ArrayList<String> findReceiveNote(String sendUserId) {
+	public Note findReceiveNote(String sendUserId) {
 		return noteDao.findTitleReceiveNote(sendUserId);
 	}
 	

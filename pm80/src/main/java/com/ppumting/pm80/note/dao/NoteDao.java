@@ -47,9 +47,9 @@ public class NoteDao {
 	}
 	
 	//보낸 쪽지 조회 기능
-	public ArrayList<String> findTitleSendNote(String sendUserId) {
-		String sql = "SELECT title,recv_id,sentDate From Notes WHERE sent_id = ?";
-		ArrayList<String> title = new ArrayList<>();
+	public Note findTitleSendNote(String sendUserId) {
+		String sql = "SELECT no,title,msg,recv_id,sent_id,sentDate From Notes WHERE sent_id = ?";
+		Note title = new Note();
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -60,8 +60,12 @@ public class NoteDao {
 				pstmt.setString(1, sendUserId);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
-					title.add(rs.getString("title") + "&nbsp;&nbsp;" + rs.getString("recv_id") 
-					+ "&nbsp;&nbsp;" + rs.getString("sentDate"));
+					title.setNo(rs.getLong("no"));
+					title.setTitle(rs.getString("title"));
+					title.setMsg(rs.getString("msg"));
+					title.setRecevieUserId(rs.getString("recv_id"));
+					title.setSendUserId(rs.getString("sent_id"));
+					title.setRegDate(rs.getDate("sentDate"));
 				}
 				System.out.println("보낸 쪽지 Title을 모두 불러왔습니다.");
 			}finally {
@@ -75,9 +79,9 @@ public class NoteDao {
 	}
 	
 	//받은 쪽지 조회 기능
-	public ArrayList<String> findTitleReceiveNote(String sendUserId) {
-		String sql = "SELECT title,sent_id,sentDate From Notes WHERE recv_id = ?";
-		ArrayList<String> title = new ArrayList<>();
+	public Note findTitleReceiveNote(String sendUserId) {
+		String sql = "SELECT no,title,msg,recv_id,sent_id,sentDate From Notes WHERE recv_id = ?";
+		Note title = new Note();
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -88,8 +92,12 @@ public class NoteDao {
 				pstmt.setString(1, sendUserId);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
-					title.add(rs.getString("title") + "&nbsp;&nbsp;" + rs.getString("sent_id") 
-					+ "&nbsp;&nbsp;" + rs.getString("sentDate"));
+					title.setNo(rs.getLong("no"));
+					title.setTitle(rs.getString("title"));
+					title.setMsg(rs.getString("msg"));
+					title.setRecevieUserId(rs.getString("recv_id"));
+					title.setSendUserId(rs.getString("sent_id"));
+					title.setRegDate(rs.getDate("sentDate"));
 				}
 				System.out.println("받은 쪽지 Title을 모두 불러왔습니다.");
 			}finally {
