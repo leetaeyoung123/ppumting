@@ -8,6 +8,15 @@ public class Note {
 	String sendUserId;
 	String msg;
 	String title;
+	boolean sendnote;
+	
+	public boolean isSendnote() {
+		return sendnote;
+	}
+	public void setSendnote(boolean sendnote) {
+		this.sendnote = sendnote;
+	}
+
 	Date regDate;
 	
 	public String getTitle() {
