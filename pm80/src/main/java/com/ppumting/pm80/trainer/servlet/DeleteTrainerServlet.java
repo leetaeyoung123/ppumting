@@ -32,12 +32,12 @@ public class DeleteTrainerServlet extends HttpServlet {
 		String ssn = request.getParameter("ssn");
 
 		List<String> errorMsgs = new ArrayList<>();
-		if(name == null || name.length() == 0) {
-			errorMsgs.add("이름을 입력해주세요");
+		if(trainerId == null || trainerId.length() == 0) {
+			errorMsgs.add("ID를 입력해주세요");
 		}else if(ssn == null || ssn.length() == 0) {
 			errorMsgs.add("주민번호를 입력해주세요");
-		}else if(trainerId == null || trainerId.length() == 0) {
-			errorMsgs.add("Id를 입력해주세요");
+		}else if(name == null || name.length() == 0) {
+			errorMsgs.add("이름을 입력해주세요");
 		}
 		
 		RequestDispatcher dispatcher = null;
