@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-쪽지 번호 : ${rcvNotes.no}<br>
+쪽지 번호 : <c:if test="${rcvNotes.no} eqalse 0">sendNotes출력</c:if> ${rcvNotes.no}<br>
 쪽지 제목 : ${rcvNotes.title}<br><br>
 보내신분 : ${rcvNotes.sendUserId}<br>
 받으신분 : ${rcvNotes.receiveUserId}<br><br>
