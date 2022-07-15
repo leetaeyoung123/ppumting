@@ -82,9 +82,9 @@ public class QnaDao {
 	}
 	
 	// 게시판 수정
-		public void modifyQna(Qna qna) {
-			
-		}
+//		public void modifyQna(Qna qna) {
+//			
+//		}
 		
 	// 게시판 삭제
 //		public void deleteQna(String userNumber) {

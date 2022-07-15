@@ -40,6 +40,7 @@ public class QnaFindServlet extends HttpServlet {
 		
 		dispacher = request.getRequestDispatcher("findQna.jsp");
 		dispacher.forward(request, response);
+		System.out.println("성공");
 	}
 
 }
