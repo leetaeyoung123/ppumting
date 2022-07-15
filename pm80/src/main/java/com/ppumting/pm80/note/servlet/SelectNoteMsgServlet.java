@@ -30,8 +30,5 @@ public class SelectNoteMsgServlet extends HttpServlet {
 		notes = service.viewMsg(request.getParameter("no"));
 		request.setAttribute("notes", notes);
 		request.getRequestDispatcher("notemsg.jsp").forward(request, response);
-		
-		
 	}
-
 }
