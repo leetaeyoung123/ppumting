@@ -28,14 +28,14 @@ public class SendNoteServlet extends HttpServlet {
 		
 		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
-		String recevieUserId = request.getParameter("recevieUserId");
+		String receiveUserId = request.getParameter("receiveUserId");
 		String sendUserId = request.getParameter("sendUserId");
 		
 		Note note = new Note();
 		
 		note.setTitle(title);
 		note.setMsg(msg);
-		note.setReceiveUserId(recevieUserId);
+		note.setReceiveUserId(receiveUserId);
 		note.setSendUserId(sendUserId);
 		service.sendNote(note);
 		System.out.println("성공");

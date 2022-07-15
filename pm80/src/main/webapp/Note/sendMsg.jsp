@@ -33,7 +33,7 @@ textarea {
 <p class="gray">쪽지 내용은 최대 200자까지만 입력가능합니다.</p>
 </div>
 </div>
-보내실 분 ID : <input type="text" name="recevieUserId"><br>
+보내실 분 ID : <input type="text" name="receiveUserId"><br>
 본인 ID : <input type="text" name="sendUserId"><br>
 <input type="submit" value="전송">
 </form>
