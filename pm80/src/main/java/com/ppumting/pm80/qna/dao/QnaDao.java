@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 import com.ppumting.pm80.qna.domain.Qna;
 import com.ppumting.pm80.qna.service.DataSource;
 import com.ppumting.pm80.qna.service.NamingService;
@@ -79,6 +80,30 @@ public class QnaDao {
 		}
 		return qnaList;
 	}
+	
+	// 게시판 수정
+		public void modifyQna(Qna qna) {
+			
+		}
+		
+	// 게시판 삭제
+//		public void deleteQna(String userNumber) {
+//			String sql = "DELETE FROM QNA WHERE USER_NUMBER = ?";
+//				try {
+//					Connection con = null;
+//					PreparedStatement pstmt = null;
+//					try {
+//						con = datasource.getConnection();
+//						pstmt = con.prepareStatement(sql);
+//						pstmt.setString(1, userNumber);
+//					} finally {
+//						
+//					}
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				return 
+//		}
 	
 	// 댓글 생성
 	public void insertReplay(Replay replay) {
