@@ -9,6 +9,7 @@ CREATE TABLE Users (
 
 SELECT * FROM Users;
 
+
 DROP TABLE Users;
 
 DELETE FROM Users WHERE userId = wed456;

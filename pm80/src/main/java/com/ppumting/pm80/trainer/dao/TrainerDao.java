@@ -165,4 +165,83 @@ public class TrainerDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public Trainer trainerSelect(String trainerId) {
+		String sql = "SELECT * FROM Trainer WHERE trainerId = ?";
+		Trainer trainer = new Trainer();
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainerId);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					trainer.setTrainerId(rs.getString("trainerId"));
+					trainer.setPasswd(rs.getString("passwd"));
+					trainer.setName(rs.getString("name"));
+					trainer.setAddr(rs.getString("addr"));
+					trainer.setSsn(rs.getString("ssn"));
+					trainer.setPhone(rs.getString("phone"));
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return trainer;
+	}
+	
+	public boolean checkTrainer(String trainerId) {
+		String sql = "SELECT trainerId FROM Trainer WHERE trainerId = ? ";
+		boolean checkResult = false;
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainerId);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					Trainer trainer = new Trainer();
+					trainer.setTrainerId(rs.getString("trainerId"));
+					if(trainerId.equals(trainer.getTrainerId())) {
+						checkResult = true;
+					}
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return checkResult;
+	}
+	
+	public void updateTrainer(Trainer trainer) {
+		String sql = "UPDATE Trainer SET passwd = ?, name = ?, phone = ?, addr = ? WHERE trainerId = ?";
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainer.getPasswd());
+				pstmt.setString(2, trainer.getName());
+				pstmt.setString(3, trainer.getPhone());
+				pstmt.setString(4, trainer.getAddr());
+				pstmt.setString(5, trainer.getTrainerId());
+				pstmt.executeUpdate();
+			} finally {
+				datasource.close(pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
