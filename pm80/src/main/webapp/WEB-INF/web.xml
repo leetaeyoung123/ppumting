@@ -3,18 +3,6 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app id="WebApp_ID">
 	<display-name>pm80</display-name>
-	<servlet>
-		<servlet-name>SelectQnaSevlet</servlet-name>
-		<display-name>SelectQnaSevlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.qna.servlet.SelectQnaSevlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>SelectQnaSevlet</servlet-name>
-		<url-pattern>/Qna/selectTitleQna</url-pattern>
-	</servlet-mapping>
-	
-	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

@@ -141,4 +141,24 @@ public class NoteDao {
 		}
 		return note;
 	}
+
+	public void delNote(String no) {
+		String sql = "DELETE FROM Notes WHERE no = ?";
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, no);
+				pstmt.executeUpdate();
+				System.out.println("DeleteMsgComplete!");
+			}finally {
+				datasource.close(pstmt, con);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
