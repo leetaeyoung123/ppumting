@@ -8,7 +8,7 @@ public class User {
 	String pw;
 	String addr;
 	
-	public String getName() {
+	public String getName() { 
 		return name;
 	}
 	public void setName(String name) {

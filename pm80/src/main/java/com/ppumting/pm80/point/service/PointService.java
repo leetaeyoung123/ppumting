@@ -34,6 +34,7 @@ public class PointService {
 	public String checkPoint(String userId) { 
 		return pointdao.checkPoint(userId);
 	}
+	
 
 	
 }
