@@ -14,7 +14,7 @@ import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
 
 
-@WebServlet("/Trainer/findTrainer")
+@WebServlet("/Trainer/add/findTrainer")
 public class FindTrainerServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
