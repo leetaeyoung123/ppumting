@@ -2,6 +2,7 @@ package com.ppumting.pm80.note.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
 
 @WebServlet("/Note/selectTitleMsg")
@@ -23,11 +25,11 @@ public class SelectNoteServlet extends HttpServlet {
 		
 		String sendUserId = request.getParameter("sendUid");
 		
-		ArrayList<String> sendTitles = new ArrayList<>();
-		ArrayList<String> receiveTitles = new ArrayList<>();
+		List<Note> sendTitles = new ArrayList<>();
+		List<Note> receiveTitles = new ArrayList<>();
 		
-		sendTitles.addAll(service.findSendNote(sendUserId));
-		receiveTitles.addAll(service.findReceiveNote(sendUserId));
+		sendTitles = service.findSendNote(sendUserId);
+		receiveTitles = service.findReceiveNote(sendUserId);
 		
 		request.setAttribute("userId", sendUserId);
 		request.setAttribute("sendTitles", sendTitles);
