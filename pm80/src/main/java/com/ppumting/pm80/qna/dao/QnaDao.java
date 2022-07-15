@@ -126,5 +126,34 @@ public class QnaDao {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// 고유번호로 게시글 데이터 정보 출력
+	public Qna viewQna(String getQnaNo) {
+		String sql = "SELECT qna_no, qna_title, qna_content, qna_reg_date"
+				+ " FROM Qna"
+				+ " WHERE qnaNo = ?";
+		Qna qna = new Qna();
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while( rs.next()) {
+					qna.setQnaNo(rs.getString("qna_no"));
+					qna.setQnaTitle(rs.getString("qna_title"));
+					qna.setQnaContent(rs.getString("qna_title"));
+					qna.setQnaRegDate(rs.getDate("qna_reg_date"));
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return qna;
+	}
 }

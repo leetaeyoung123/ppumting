@@ -31,7 +31,7 @@ public class QnaService {
 		
 	}
 	
-	// qna 상세 페이지 조회
+	// qna 안에 정보리스트 
 	public List<Qna> getfindNoQna() {
 		return qnaDao.findNoQna();
 	}
@@ -41,4 +41,8 @@ public class QnaService {
 		qnaDao.insertReplay(replay);
 	}
 
+	// qna 상세 조회
+	public Qna viewQna(String getQnaTitle) {
+		return qnaDao.viewQna(getQnaTitle);
+	}
 }
