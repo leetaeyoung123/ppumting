@@ -8,12 +8,10 @@
 </head>
 <body>
 
-<br>
+<h3>회원정보수정</h3>
 	<form action="updateTrainer" method="post">
-		트레이너 아이디: <input type="text" name="trainerId"><br>
 		이름: <input type="text" name="name"><br>
 		비밀번호: <input type="password" name="passwd"><br>
-		주민번호: <input type="text" name="ssn" placeholder="앞자리 6자리 입력해주세요"><br>
 		전화번호: <input type="text" name="phone" placeholder="-를 제외한 전화번호"><br>
 		주소: <select name = "addr1">
 			<option>서울</option>
@@ -28,12 +26,7 @@
 			<option>강원도</option>
 		</select>
 		<input type = "text" name="addr2" placeholder="상세 주소를 입력하세요"><br><br>
-		<input type="submit" value="회원가입">
-	 </form>
-	 
-<br>
-	 <form action="findTrainer" method="post">
-			<input type="submit" value="트레이너 조회"><br>
+		<input type="submit" value="정보수정">
 	 </form>
 	 
 </body>

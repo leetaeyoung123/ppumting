@@ -11,7 +11,7 @@
 
 	<h3>My Page</h3>
 	<a href='<c:url value="login" />'>로그아웃</a>
-	<a href='<c:url value="deleteTrainer.jsp" />'>회원탈퇴</a>
+	<a href='<c:url value="deleteTrainer.jsp" />'>회원삭제</a>
 	<a href='<c:url value="updateTrainer.jsp" />'>회원정보수정</a>
 	
 </body>
