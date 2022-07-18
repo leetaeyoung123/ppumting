@@ -49,4 +49,7 @@ SELECT * FROM RcvNotes;
 SELECT * FROM SendNotes;
 SELECT * FROM USERS;
 
+SELECT COUNT(userId) as cnt
+FROM RcvNotes WHERE userId = 'htw';
+
 

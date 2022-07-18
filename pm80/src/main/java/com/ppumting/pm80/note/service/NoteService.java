@@ -48,5 +48,10 @@ public class NoteService {
 		noteDao.deleteRcvNote(no);
 		
 	}
+
+	public long countNote(String userId) {
+		return noteDao.countNote(userId);
+		
+	}
 	
 }

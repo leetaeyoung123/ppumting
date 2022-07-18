@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
@@ -19,19 +20,18 @@ public class SelectNoteServlet extends HttpServlet {
 	
 	private NoteService service = NoteService.getInstance();
        
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
-		String sendUserId = request.getParameter("sendUid");
-		
+		HttpSession session = request.getSession(false);
+		String userId = (String) session.getAttribute("userId");
 		List<Note> sendTitles = new ArrayList<>();
 		List<Note> receiveTitles = new ArrayList<>();
 		
-		sendTitles = service.findSendNote(sendUserId);
-		receiveTitles = service.findReceiveNote(sendUserId);
+		sendTitles = service.findSendNote(userId);
+		receiveTitles = service.findReceiveNote(userId);
 		
-		request.setAttribute("userId", sendUserId);
+		request.setAttribute("userId", userId);
 		request.setAttribute("sendTitles", sendTitles);
 		request.setAttribute("receiveTitles", receiveTitles);
 		request.getRequestDispatcher("selectTitleMsg.jsp").forward(request, response);

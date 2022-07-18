@@ -9,7 +9,14 @@ public class Note {
 	String msg;
 	String title;
 	boolean sendnote;
+	long count = 0;
 	
+	public long getCount() {
+		return count;
+	}
+	public void setCount(long count) {
+		this.count = count;
+	}
 	public boolean isSendnote() {
 		return sendnote;
 	}

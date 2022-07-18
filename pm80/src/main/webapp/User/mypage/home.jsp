@@ -63,7 +63,7 @@
         </ul>
         <div class="login_info">
           쪽지함 :
-          {쪽지 수}
+          <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
           {아이디}
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
           <% String point = (String)request.getAttribute("checkPoint"); %>
