@@ -1,27 +1,27 @@
 package com.ppumting.pm80.replay.domain;
 
 public class Replay {
-	private int replayNo;
+	private String replayNo;
 	private String replayContent;
-	private int qnaNo;
-	private int userNumber;
+	private String qnaNo;
+	private String userNumber;
 	
 	public Replay() {
 		
 	}
 	
-	public Replay(int replayNo, String replayContent, int qanNo, int userNumber) {
+	public Replay(String replayNo, String replayContent, String qanNo, String userNumber, String qnaNo) {
 		this.replayNo = replayNo;
 		this.replayContent = replayContent;
 		this.qnaNo = qnaNo;
 		this.userNumber = userNumber;
 	}
 
-	public int getReplayNo() {
+	public String getReplayNo() {
 		return replayNo;
 	}
 
-	public void setReplayNo(int replayNo) {
+	public void setReplayNo(String replayNo) {
 		this.replayNo = replayNo;
 	}
 
@@ -33,19 +33,19 @@ public class Replay {
 		this.replayContent = replayContent;
 	} 
 
-	public int getQnaNo() {
+	public String getQnaNo() {
 		return qnaNo;
 	}
 
-	public void setQnaNo(int qnaNo) {
+	public void setQnaNo(String qnaNo) {
 		this.qnaNo = qnaNo;
 	}
 
-	public int getUserNumber() {
+	public String getUserNumber() {
 		return userNumber;
 	}
 
-	public void setUserNumber(int userNumber) {
+	public void setUserNumber(String userNumber) {
 		this.userNumber = userNumber;
 	}
 	
