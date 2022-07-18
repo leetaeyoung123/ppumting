@@ -21,12 +21,6 @@
 		<description></description>
 		<servlet-class>com.ppumting.pm80.qna.servlet.ModifyServlet</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>UpdateServlet</servlet-name>
-		<display-name>UpdateServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.qna.servlet.UpdateServlet</servlet-class>
-	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateAccountServlet</servlet-name>
 		<url-pattern>/CreateAccountServlet</url-pattern>
