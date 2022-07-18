@@ -47,7 +47,6 @@ public class QnaServlet extends HttpServlet {
 		}
 		
 		Qna qna = new Qna();
-//		User.setUserId(userId);
 		qna.setQnaTitle(qnaTitle);
 		qna.setQnaContent(qnaContent);
 		qnaService.addQna(qna);

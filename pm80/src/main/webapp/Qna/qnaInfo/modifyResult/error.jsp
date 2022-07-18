@@ -6,14 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 수정</title>
+<title>글 수정</title>
 </head>
 <body>
-	<form action="modifyQna.do" method="post">
-		제목: <input type="text" name="qna_title"><br> 내용: 
-		<input type="text" name="qna_content"><br>
-		<input type="submit" value="수정"> <input type="submit" value="취소">
-	</form>
-수정 성공
+<div>
+<h4>글수정 실패</h4>
+   <%
+   List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
+   %>
+   <%
+      for(String x : errorMsgs){
+   %>
+   <%=
+      x
+   %><br>
+   <%
+   } 
+   %>
+</div>
 </body>
 </html>

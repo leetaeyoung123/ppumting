@@ -9,6 +9,7 @@
 <title>글 삭제</title>
 </head>
 <body>
- 	${qnaNo}번 게시글 삭제 완료
+ 	${qnaNo}번 게시글 삭제 완료<br>
+ 	<button><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>확인</button>
 </body>
 </html>
