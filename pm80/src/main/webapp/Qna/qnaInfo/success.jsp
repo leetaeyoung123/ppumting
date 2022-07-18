@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>성공</title>
+<title>게시글 등록</title>
 </head>
 <body>
- 	성공
+ 	게시글 등록이 완료 되었습니다.<br>
+ 	<button><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>확인</button>
 </body>
 </html>
