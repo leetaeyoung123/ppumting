@@ -32,13 +32,12 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
 		
-		if(userService.login(userId, pw)) {
-			HttpSession session = request.getSession(true);
-			session.setAttribute("userId", userId);
-			response.sendRedirect("../home.jsp");
-		}else {
+		if(!userService.login(userId, pw)) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
+		HttpSession session = request.getSession(true);
+		session.setAttribute("userId", userId);
+		response.sendRedirect("../home.jsp");
 	}
 }
