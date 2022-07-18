@@ -133,7 +133,7 @@ public class QnaDao {
 				}
 			}
 	
-	// 게시글번호를 이용한 게시글 삭제 
+	// 게시글번호를 이용한 게시글 삭제
 	public boolean deleteQna(String qnaNo) {
 		String sql = "DELETE FROM QNA WHERE qna_no = ?";
 		boolean result = false;

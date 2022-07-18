@@ -10,6 +10,8 @@
 </head>
 <body>
  	게시글 등록이 완료 되었습니다.<br>
- 	<button><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>확인</button>
+ 	<form action="find.do" method="post"><br>
+  		<button><a href='<c:url value="/Qna/qnaInfo/findQna.jsp"/>'>확인</button>
+  	</form>
 </body>
 </html>
