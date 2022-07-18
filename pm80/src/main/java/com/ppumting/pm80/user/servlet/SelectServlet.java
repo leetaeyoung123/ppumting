@@ -1,14 +1,17 @@
 package com.ppumting.pm80.user.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
 @WebServlet("/User/mypage/userUpdate/userSelect")
@@ -20,23 +23,25 @@ public class SelectServlet extends HttpServlet {
 		userService = new Userservice();
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession(false);
+		String userId = (String) session.getAttribute("userId");
+
 		
-		String userId = request.getParameter("userId");
-		RequestDispatcher dispatcher = null;
 		if(userService.checkUser(userId)) {
 			request.setAttribute("user", userService.userSelect(userId));
-			dispatcher = request.getRequestDispatcher("userUpdate.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
 		}
-		else {
-			String nullid = ("올바른 id를 입력해주세요,");
-			dispatcher = request.getRequestDispatcher("error.jsp");
-			request.setAttribute("nullid", nullid);
-			dispatcher.forward(request, response);
-			return;
-		}	
+			
 	}
+		
+	
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+}
 }

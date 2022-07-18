@@ -75,7 +75,7 @@ public class Userdao {
 		return loginResult;	
 	}
 	
-	public void delete(String userId, String name, String ssn) {
+	public void delete(String name, String ssn) {
 		String sql = "DELETE FROM Users WHERE ssn = ?";
 		try {
 			Connection con = null;
@@ -112,6 +112,7 @@ public class Userdao {
 					user.setAddr(rs.getString("addr"));
 					user.setSsn(rs.getString("ssn"));
 					user.setPhone(rs.getString("phone"));
+					
 				}
 			} finally {
 				datasource.close(rs, pstmt, con);

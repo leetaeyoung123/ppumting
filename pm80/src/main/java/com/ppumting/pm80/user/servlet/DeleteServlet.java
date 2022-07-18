@@ -27,7 +27,6 @@ public class DeleteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		String userId = request.getParameter("userId");
 		String name = request.getParameter("name");
 		String ssn = request.getParameter("ssn");
 
@@ -36,10 +35,7 @@ public class DeleteServlet extends HttpServlet {
 			errorMsgs.add("이름을 입력해주세요");
 		}else if(ssn == null || ssn.length() == 0) {
 			errorMsgs.add("주민번호를 입력해주세요");
-		}else if(userId == null || userId.length() == 0) {
-			errorMsgs.add("Id를 입력해주세요");
 		}
-		
 
 		RequestDispatcher dispatcher = null;
 
@@ -50,10 +46,9 @@ public class DeleteServlet extends HttpServlet {
 			return;
 		}
 		User user = new User();
-		user.setUserId(userId);
 		user.setName(name);
 		user.setSsn(ssn);
-		userService.delete(userId, name, ssn);
+		userService.delete(name, ssn);
 		request.setAttribute("user", user);
 		
 		dispatcher = request.getRequestDispatcher("success.jsp");
