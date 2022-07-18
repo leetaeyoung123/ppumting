@@ -32,8 +32,9 @@ public class userUpdateServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String name = request.getParameter("name");
 		String addr = request.getParameter("addr");
-		System.out.println(1);
+
 		List<String> errorMsgs = new ArrayList<>();
+		
 		if(pw == null || pw.length() == 0) {
 			errorMsgs.add("비밀번호를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
