@@ -20,7 +20,7 @@ public class ReplayDao {
 	
 	// 댓글 생성
 	public void insertReplay(Replay replay) {
-		String sql = "INSERT INTO REPLAY (replay_content, qna_no, user_number)"
+		String sql = "INSERT INTO REPLAY (qna_no, replay_no ,replay_content)"
 					+ "VALUES(?, ?, ?)";
 		try {
 			Connection con = null;
@@ -28,9 +28,9 @@ public class ReplayDao {
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, replay.getReplayContent());
-				pstmt.setInt(2, replay.getQnaNo());
-				pstmt.setInt(3, replay.getUserNumber());
+				pstmt.setString(1, replay.getQnaNo());
+				pstmt.setString(2, replay.getReplayNo());
+				pstmt.setString(3, replay.getReplayContent());
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt, con);
