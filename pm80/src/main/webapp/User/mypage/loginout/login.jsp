@@ -21,7 +21,7 @@
           <input type="text" name="userId" placeholder="아이디"/>
         </div>
         <div class="pw_input">
-          <input type="password" name="pw" pl aceholder="비밀번호"/>
+          <input type="password" name="pw" placeholder="비밀번호"/>
         </div>
         <input class="login" type="submit" value="로그인"/>
         </form>
