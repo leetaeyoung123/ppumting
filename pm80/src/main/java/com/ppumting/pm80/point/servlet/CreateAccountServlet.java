@@ -45,17 +45,17 @@ public class CreateAccountServlet extends HttpServlet {
 		if ( pointService.checkAccountNum(userId) != null) { 
 			request.getRequestDispatcher("createAccountResult/error2.jsp").forward(request, response);
 			return;
-		}else {
-			//성공 시 로직
-			accountNum.add(pointService.createAccountNum(userId)); //생성된 계좌를 배열에 담기
-			request.setAttribute("accountNum", accountNum);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
-			dispatcher.forward(request, response);
-			
-			HttpSession session = request.getSession(true);
-			session.setAttribute("userId", userId);
-			response.sendRedirect("createAccountResult/success.jsp");
 		}
+		//성공 시 로직
+		accountNum.add(pointService.createAccountNum(userId)); 
+		request.setAttribute("accountNum", accountNum);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
+		dispatcher.forward(request, response);
+		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("userId", userId);
+		response.sendRedirect("createAccountResult/success.jsp");
+		
 		
 		
 	}
