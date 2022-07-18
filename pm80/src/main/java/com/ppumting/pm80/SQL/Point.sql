@@ -31,7 +31,7 @@ VALUES('박상규', '980618', '010-3490-3180', 'psg', '1234', 'daegu', '2');
 SELECT * FROM Point p INNER JOIN Users u ON p.userId = u.userId;
 SELECT userId FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = 'sssssg06';
 
-DELETE FROM Point WHERE userId = 'qwer2';
+DELETE FROM Point WHERE userId = 'lty';
 
 
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
 @WebServlet("/User/mypage/loginout/login")
@@ -38,6 +39,6 @@ public class LoginServlet extends HttpServlet {
 		}
 		HttpSession session = request.getSession(true);
 		session.setAttribute("userId", userId);
-		response.sendRedirect("../home.jsp");
+		response.sendRedirect("../home");
 	}
 }
