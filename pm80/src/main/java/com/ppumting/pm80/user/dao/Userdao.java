@@ -75,15 +75,15 @@ public class Userdao {
 		return loginResult;	
 	}
 	
-	public void delete(String name, String ssn) {
-		String sql = "DELETE FROM Users WHERE ssn = ?";
+	public void delete(String userId, String name, String ssn) {
+		String sql = "DELETE FROM Users WHERE userId = ?";
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, ssn);
+				pstmt.setString(1, userId);
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt, con);

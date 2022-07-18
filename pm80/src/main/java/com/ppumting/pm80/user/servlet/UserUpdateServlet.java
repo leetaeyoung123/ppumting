@@ -16,7 +16,7 @@ import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
 @WebServlet("/User/mypage/userUpdate/userUpdate")
-public class UpdateServlet extends HttpServlet {
+public class UserUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Userservice userService;
 	

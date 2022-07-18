@@ -12,7 +12,7 @@
 		아이디: <input type="text" name= "userId"/><br>
 		비밀번호 : <input type="password" name="pw"/><br>
 		<input type="submit" value="로그인"/>
-		<button><a  href='<c:url value="../addUser/addUser.jsp"/>'>회원가입</a></button>
+		<button ><a  href='<c:url value="../addUser/addUser.jsp"/>'>회원가입</a></button>
 	</form>
 </body>
 </html>

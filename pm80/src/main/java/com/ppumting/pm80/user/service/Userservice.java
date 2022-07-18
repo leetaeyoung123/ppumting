@@ -20,8 +20,8 @@ public class Userservice {
 		return userdao.login(userId, pw);
 	}
 	
-	public void delete(String name, String ssn) {
-		userdao.delete(name, ssn);
+	public void delete(String userId, String name, String ssn) {
+		userdao.delete(userId, name, ssn);
 	}
 	
 	public User userSelect(String userId) {
