@@ -12,8 +12,10 @@
 		<h3>Home</h3>
 		<button><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>회원정보 수정</button>
 		<button><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</button>
-		<button><a href='<c:url value="/User/mypage/delete/deleteUser.jsp"/>'>회원탈퇴</button>
-		<button><a href='<c:url value="/point/createAccount.jsp"/>'>계좌생성</button>
+		<!-- 클릭시 Delete서블릿으로 감 -->
+		<button><a href='<c:url value="/User/mypage/delete/deleteUser"/>'>회원탈퇴</button> 
+		
+		<button><a href='<c:url value="/point/createAccount"/>'>계좌생성</button>
 		<label>Last Access Time : </label> ${lastAccessTime}
 		
 </body>
