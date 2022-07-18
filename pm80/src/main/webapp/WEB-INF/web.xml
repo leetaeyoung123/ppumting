@@ -4,45 +4,16 @@
 <web-app id="WebApp_ID">
 	<display-name>pm80</display-name>
 	<servlet>
-		<servlet-name>CreateAccountServlet</servlet-name>
-		<display-name>CreateAccountServlet</display-name>
+		<servlet-name>DeleteAccountServlet</servlet-name>
+		<display-name>DeleteAccountServlet</display-name>
 		<description></description>
-		<servlet-class>com.ppumting.pm80.point.servlet.CreateAccountServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>QnaFindServlet</servlet-name>
-		<display-name>QnaFindServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.qna.servlet.QnaFindServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>ModifyServlet</servlet-name>
-		<display-name>ModifyServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.qna.servlet.ModifyServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>UpdateServlet</servlet-name>
-		<display-name>UpdateServlet</display-name>
-		<description></description>
-		<servlet-class>com.ppumting.pm80.qna.servlet.UpdateServlet</servlet-class>
+		<servlet-class>com.ppumting.pm80.point.servlet.DeleteAccountServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>CreateAccountServlet</servlet-name>
-		<url-pattern>/CreateAccountServlet</url-pattern>
+		<servlet-name>DeleteAccountServlet</servlet-name>
+		<url-pattern>/DeleteAccountServlet</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>QnaFindServlet</servlet-name>
-		<url-pattern>/QnaFindServlet</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>QnaFindServlet</servlet-name>
-		<url-pattern>/Qna/qnaFind.do</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>UpdateServlet</servlet-name>
-		<url-pattern>/Qna/qnaInfo/add_qna.do</url-pattern>
-	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

@@ -55,7 +55,33 @@ public class PointDao {
 		return result;
 	}
 	
-	// 사용자 아이디를 이용한 본인 계좌 조회 		
+	// 계좌 삭제
+	public boolean deleteAccount(String userId) {
+		String sql = "DELETE FROM Point WHERE userId = ? ";
+		boolean result = false;
+
+		try {
+			Connection con = datasource.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			try {
+				if (pointdao.isValidUser(userId)) { 
+					if( pointdao.checkAccountNum(userId) == null ) { 
+						stmt.setString(1, userId);
+						stmt.executeUpdate();
+						result = true;
+					}
+				}
+			} finally {
+				stmt.close();
+				con.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	// 계좌 조회 		
 	public String checkAccountNum(String userId) {
 		String sql = "SELECT accountNum FROM Point p INNER JOIN " +
 				"Users u ON p.userId = u.userId WHERE u.userId = ?";
@@ -112,7 +138,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 아이디를 이용한 보유포인트 조회 		
+	// 보유포인트 조회 		
 	public String checkPoint(String userId) { 
 		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
 		String result = null;
@@ -137,7 +163,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 포인트 충전 					
+	// 포인트 충전 					
 	public boolean addPoint(String userId, long point) {
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
@@ -166,7 +192,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 사용자 포인트 차감 (결제) 				
+	// 포인트 차감 (결제) 				
 	public boolean minusPoint(String userId, String trainerPrice) { 
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
