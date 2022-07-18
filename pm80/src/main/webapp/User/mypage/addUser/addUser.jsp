@@ -3,19 +3,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="addUser" method="post">
-	회원 아이디: <input type="text" name="userId"><br>
-	비밀번호: <input type="password" name="pw"><br>
-	이름: <input type="text" name="name"><br>
-	주민번호: <input type="text" name="ssn" placeholder="앞자리 6자리만 입력해주세요"><br>
-	전화번호: <input type="text" name="phone" placeholder="-를 포함한 전화번호를 입력해주세요"><br>
-	주소: <select name = "addr1">
+<html lang="ko" dir="ltr">
+  <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="signupcss/style.css">
+    <title>회원가입 | ppumting</title>
+  </head>
+  
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <h1 class="logo">PPUMTING | 회원가입<h1>
+      </header>
+      
+      
+      <div id="login_wrap">
+        <form class="login_form" action="addUser" method="post">
+        <div class="name_input">
+          <input type="text" name="name" placeholder="이름">
+        </div>
+        
+        
+        <div class="ssn_input">
+          <input type="text" name="ssn" maxlength="6" placeholder="주민번호 앞자리">
+        </div>
+        
+        
+        <div class="phone_input">
+          <input type="tel" name="phone" maxlength="13" placeholder="휴대전화">
+        </div>
+        
+        
+        <div class="id_input">
+          <input type="text" name="userId" maxlength="13" placeholder="아이디">
+        </div>
+        
+        
+        <div class="pw_input">
+          <input type="password" name="pw" maxlength="13" placeholder="비밀번호">
+        </div>
+        
+        <div class="addr_input">
+          <select name = "addr1">
 			<option>지역 선택</option>
 			<option>서울</option>
 			<option>대구</option>
@@ -32,7 +63,21 @@
 			<option>전라 남도</option>
 		</select>
 		<input type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
-		<input type="submit" value="회원가입">
-		</form>
-</body>
+        </div>
+        
+        
+        <input class="login" type="submit" value="회원가입">
+        </form>
+        
+        
+      </div>
+      
+      
+      <footer id="footer">
+        <span class="text">Copyright</span>
+        <span class="corp">© PPUMTING Corp.</span>
+        <span class="text">All Rights Reserved.</span>
+      </footer>
+    </div>
+  </body>
 </html>

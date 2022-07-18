@@ -16,7 +16,7 @@
 이름: <input type="text" name="name" value="${user.name}"><br>
 전화번호: <input type="text" name="phone" value="${user.phone}"><br>
 주소: <input type = "text" name="addr" value="${user.addr}"><br>
-<input type="submit" value="회원정보 수정 완료">
+<input type="submit" value="회원정보 수정 완료"><button><a href='<c:url value="/User/mypage/delete/deleteUser"/>'>회원탈퇴</button>
 </form>
 </body>
 </html>
