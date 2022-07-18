@@ -11,10 +11,9 @@
 <body>
 <h4>원하는 항목을 변경해주세요</h4>
 <form action="updateTrainer" method="post">
-아이디: <input type="text" name="trainerId" value="${trainer.trainerId}" readonly><span>아이디 변경은 불가능 합니다.</span><br>
+아이디: <input type="text" name="trainerId" value="${trainer.trainerId}" readonly><span> *아이디 변경은 불가능합니다.</span><br>
 비밀번호: <input type="text" name="passwd" value="${trainer.passwd}"><br>
 이름: <input type="text" name="name" value="${trainer.name}"><br>
-주민번호: <input type="text" name="ssn" value="${trainer.ssn}" readonly><span>주민번호 변경은 불가능 합니다.</span><br>
 전화번호: <input type="text" name="phone" value="${trainer.phone}"><br>
 주소: <input type = "text" name="addr" value="${trainer.addr}"><br>
 <input type="submit" value="회원정보 수정 완료">
