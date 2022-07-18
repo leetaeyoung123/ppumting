@@ -140,8 +140,8 @@ public class PointDao {
 
 	// 보유포인트 조회 		
 	public String checkPoint(String userId) { 
-		String sql = "SELECT point FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
-		String result = null;
+		String sql = "SELECT point,accountNum FROM Point p INNER JOIN Users u ON p.userId = u.userId WHERE u.userId = ?";
+		String result = "0";
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);

@@ -10,7 +10,7 @@ CREATE TABLE Point(
 SELECT * FROM Point;
 SELECT * FROM Users;
 
-UPDATE Point SET point=1000000 WHERE userId='asd';
+UPDATE Point SET point=1000000 WHERE userId='sssssg06';
 
 SELECT userId,pw FROM Users ;
 
@@ -19,7 +19,7 @@ DROP TABLE Point;
 
 --test
 INSERT INTO Point (point, accountNum, userId)
-VALUES (0, '103-25-6485', 'qwer')
+VALUES (10000, '103-25-6485', 'sssssg06')
 
 -- inner join
 SELECT * FROM Account, Customer WHERE Account.customerId = Customer.cid

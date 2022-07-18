@@ -30,27 +30,26 @@ public class CheckPointServlet extends HttpServlet {
 		request.getRequestDispatcher("checkPoint.jsp").forward(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String userId = request.getParameter("userId"); // DB에서 조회하려고 받아온 ID
 		List<String> successPrice = new ArrayList<>();
-		
-		//실패 시 로직
-		if ( pointService.checkPoint(userId) == null || pointService.checkPoint(userId).length() == 0) {
+
+		// 실패 시 로직
+		if (pointService.checkPoint(userId) == null || pointService.checkPoint(userId).length() == 0) {
 			request.getRequestDispatcher("checkPointResult/error.jsp").forward(request, response);
 			return;
 		}
-		//성공 시 로직
+		// 성공 시 로직
 		successPrice.add(pointService.checkPoint(userId));
 		request.setAttribute("successPrice", successPrice);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("checkPointResult/success.jsp");
 		dispatcher.forward(request, response);
-		
+
 		HttpSession session = request.getSession(true);
 		session.setAttribute("userId", userId);
 		response.sendRedirect("checkPointResult/success.jsp");
-		
+
 	}
 
 }
