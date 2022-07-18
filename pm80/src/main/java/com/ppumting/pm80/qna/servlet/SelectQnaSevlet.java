@@ -28,7 +28,6 @@ public class SelectQnaSevlet extends HttpServlet {
 		qnas = service.viewQna(request.getParameter("qnaNo"));
 		request.setAttribute("qnas", qnas);	// "qnas"(jsp에서 뿌려주는 이름)는 키, qnas는 값
 		request.getRequestDispatcher("selectNoQna.jsp").forward(request, response);
-		 
 	}
 
 }
