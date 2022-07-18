@@ -9,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.ppumting.pm80.qna.domain.Qna;
 import com.ppumting.pm80.qna.service.QnaService;
 
@@ -30,7 +28,9 @@ public class UpdateQnaServlet extends HttpServlet {
 		String qnaNo = request.getParameter("qna_no");
 		String qnaTitle = request.getParameter("qna_title");
 		String qnaContent = request.getParameter("qna_content");
-
+		System.out.println(qnaNo);
+		System.out.println(qnaTitle);
+		System.out.println(qnaContent);
 		List<String> errorMsgs = new ArrayList<>();
 		
 		if(qnaTitle == null || qnaTitle.length() == 0) {

@@ -11,7 +11,7 @@
 <body>
 	<h3>게시글 조회</h3>
 	<c:forEach var="qna" items="${qnaList}">&nbsp;&nbsp;
-		<a href="selectNoQna?qnaNo=${qna.qnaNo}" ><br>
+		<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" ><br>
 		${qna.qnaNo}.&nbsp;
 		제목 : <input type="text" value="${qna.qnaTitle}">
 		</a>

@@ -11,7 +11,7 @@
 <body>
 <h4>제목 or 내용을 변경해 주세요</h4>
 	<form action="update.do" method="post">
-	게시글 번호: ${qnas.qnaNo}<br>
+	게시글 번호: <input type="text" name="qna_no" value="${qnas.qnaNo}" readonly><br>
 	제목: <input type="text" name="qna_title" value="${qnas.qnaTitle}"><br>
 	내용: <input type="text" name="qna_content" value="${qnas.qnaContent}"><br>
 	게시일자: <input type="text" name="qna_reg_date" value="${qnas.qnaRegDate}"><br>

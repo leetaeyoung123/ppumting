@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ppumting.pm80.qna.domain.Qna;
 import com.ppumting.pm80.qna.service.QnaService;
 
-@WebServlet("/Qna/qnaInfo/selectNoQna")
+@WebServlet("/Qna/qnaInfo/selectNoQna.do")
 public class SelectQnaSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

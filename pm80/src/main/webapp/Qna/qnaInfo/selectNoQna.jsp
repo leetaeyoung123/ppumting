@@ -14,7 +14,7 @@
 	제목 : ${qnas.qnaTitle}<br> 
 	게시글 내용 : ${qnas.qnaContent}<br>
 	등록 일자 : ${qnas.qnaRegDate}	
-	<form action="modifyQna.do?" method="get">
+	<form action="modifyQna.do" method="post">
 		<!--  <button type="submit" value="${qnas.qnaNo}" name="qnaNo">수정</button> -->
 		<button type="submit" value="${qnas.qnaNo}" name="qnaNo" onclick="location.href='modifyQna.jsp'">수정</button>
   	</form>

@@ -118,7 +118,6 @@ public class QnaDao {
 				try {
 					Connection con = null;
 					PreparedStatement pstmt = null;
-					System.out.println(1);
 					try {
 						con = datasource.getConnection();
 						pstmt = con.prepareStatement(sql);
@@ -126,7 +125,6 @@ public class QnaDao {
 						pstmt.setString(2, qna.getQnaContent());
 						pstmt.setString(3, qna.getQnaNo());
 						pstmt.executeUpdate();
-						System.out.println(2);
 					} finally {
 						datasource.close(pstmt, con);
 					}
