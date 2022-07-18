@@ -1,11 +1,9 @@
 package com.ppumting.pm80.qna.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ppumting.pm80.qna.dao.QnaDao;
 import com.ppumting.pm80.qna.domain.Qna;
-import com.ppumting.pm80.replay.Dao.ReplayDao;
 import com.ppumting.pm80.replay.domain.Replay;
 
 public class QnaService {
@@ -36,14 +34,14 @@ public class QnaService {
 		return qnaDao.findNoQna();
 	}
 
-	// replay 생성
-	public void addReplay(Replay replay) {
-		qnaDao.insertReplay(replay);
-	}
-
 	// qna 상세 조회
 	public Qna viewQna(String getQnaNo) {
 		return qnaDao.viewQna(getQnaNo);
+	}
+	
+	// qna수정
+	public void updateQna(Qna qna) {
+		qnaDao.findModifyQna(qna);
 	}
 	
 	// qna 삭제

@@ -80,11 +80,6 @@ public class QnaDao {
 		}
 		return qnaList;
 	}
-	
-	// 게시판 수정
-	public void modifyQna(Qna qna) {
-		
-	}
 
 	// 고유번호로 게시글 데이터 정보 출력
 	public Qna viewQna(String QnaNo) {
@@ -117,6 +112,29 @@ public class QnaDao {
 		return qna;
 	}
 	
+	// 게시판 수정
+		public void findModifyQna(Qna qna) {
+			String sql = "UPDATE QNA SET qna_title = ?, qna_content = ? WHERE qna_no = ?";
+				try {
+					Connection con = null;
+					PreparedStatement pstmt = null;
+					System.out.println(1);
+					try {
+						con = datasource.getConnection();
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, qna.getQnaTitle());
+						pstmt.setString(2, qna.getQnaContent());
+						pstmt.setString(3, qna.getQnaNo());
+						pstmt.executeUpdate();
+						System.out.println(2);
+					} finally {
+						datasource.close(pstmt, con);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+	
 	// 게시글번호를 이용한 게시글 삭제 
 	public boolean deleteQna(String qnaNo) {
 		String sql = "DELETE FROM QNA WHERE qna_no = ?";
@@ -137,19 +155,5 @@ public class QnaDao {
 		}
 		return result;
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
