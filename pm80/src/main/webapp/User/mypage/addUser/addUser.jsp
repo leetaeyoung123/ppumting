@@ -25,11 +25,11 @@
 			<option>제주</option>
 			<option>울산</option>
 			<option>경기도</option>
+			<option>강원도</option>
 			<option>경상 북도</option>
 			<option>경상 남도</option>
-			<option>강원도</option>
-			<option>전라 남도</option>
 			<option>전라 북도</option>
+			<option>전라 남도</option>
 		</select>
 		<input type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
 		<input type="submit" value="회원가입">
