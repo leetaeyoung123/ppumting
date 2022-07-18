@@ -18,7 +18,7 @@ ${userId}님이 보내신 쪽지<br>
 <div>
 <c:forEach var = "sendTitle" items="${sendTitles}">
 	<a onclick="window.open('notemsg?no=${sendTitle.no}', '_blank', 'width=600 height=600')">
-	${sendTitle.no} ${sendTitle.title} ${sendTitle.sendUserId} ${sendTitle.regDate}
+	${sendTitle.title} ${sendTitle.sendUserId} ${sendTitle.regDate}
 	</a>
 	<br>
 </c:forEach>
@@ -29,7 +29,7 @@ ${userId}님이 받으신 쪽지<br>
 <div>
 <c:forEach var = "receiveTitle" items="${receiveTitles}">
 	<a onclick="window.open('notemsg?no=${receiveTitle.no}', '_blank', 'width=600 height=600')">
-	${receiveTitle.no} ${receiveTitle.title} ${receiveTitle.sendUserId} ${receiveTitle.regDate}
+	${receiveTitle.title} ${receiveTitle.sendUserId} ${receiveTitle.regDate}
 	</a>
 	<br>
 </c:forEach>
