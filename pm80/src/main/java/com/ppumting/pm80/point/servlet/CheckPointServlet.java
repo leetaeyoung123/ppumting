@@ -32,7 +32,7 @@ public class CheckPointServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String userId = request.getParameter("userId"); // DB에서 조회하려고 받아온 ID
+		String userId = request.getParameter("userId"); 
 		List<String> successPrice = new ArrayList<>();
 
 		// 실패 시 로직

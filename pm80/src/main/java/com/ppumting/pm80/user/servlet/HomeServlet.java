@@ -33,10 +33,9 @@ public class HomeServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null) {
-			request.getRequestDispatcher("longin.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
-		System.out.println(pointService.checkPoint(userId));
 		request.setAttribute("checkPoint", pointService.checkPoint(userId));
 		
 		Cookie[] cookies = request.getCookies();
@@ -75,6 +74,7 @@ public class HomeServlet extends HttpServlet {
 		session.setAttribute("user", userService.userSelect(userId));
 		response.sendRedirect("userUpdate");
 		response.sendRedirect("checkPoint");
+		response.sendRedirect("addPoint");
 		
 	}
 }
