@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.point.service.PointService;
 import com.ppumting.pm80.user.service.Userservice;
@@ -25,11 +26,16 @@ public class DeleteServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher dispatcher = null;
-			dispatcher = request.getRequestDispatcher("deleteUser.jsp");
-			dispatcher.forward(request, response);
-			
-		//pointService.deleteAccount(아이디값);
+
+			String userId = request.getParameter("userId");
+
+			String pw = request.getParameter("pw");
+			String ssn = request.getParameter("ssn");
+			pointService.deleteAccount(userId);
+			userService.delete(userId, pw, ssn);
+			HttpSession session = request.getSession(false);
+			session.setAttribute("userId", userId);
+			response.sendRedirect("../loginout/login");
 	}
 	
 }

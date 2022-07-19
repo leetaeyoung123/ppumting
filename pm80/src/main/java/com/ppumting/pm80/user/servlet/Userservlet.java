@@ -75,8 +75,7 @@ public class Userservlet extends HttpServlet {
 		userService.addUser(user);
 		pointService.createAccountNum(userId);
 		request.setAttribute("user", user);
-		
-		dispatcher = request.getRequestDispatcher("success.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("../loginout/login");
+		return;
 	}
 }

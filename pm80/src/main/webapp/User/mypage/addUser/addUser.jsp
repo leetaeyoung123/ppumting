@@ -22,31 +22,31 @@
       <div id="login_wrap">
         <form class="login_form" action="addUser" method="post">
         <div class="name_input">
-          <input type="text" name="name" placeholder="이름">
+          <input type="text" name="name" placeholder="이름" required>
         </div>
         
         
         <div class="ssn_input">
-          <input type="text" name="ssn" maxlength="6" placeholder="주민번호 앞자리">
+          <input type="text" name="ssn" maxlength="6" placeholder="주민번호 앞자리" required>
         </div>
         
         
         <div class="phone_input">
-          <input type="tel" name="phone" maxlength="13" placeholder="휴대전화">
+          <input type="tel" name="phone" maxlength="13" placeholder="휴대전화" required>
         </div>
         
         
         <div class="id_input">
-          <input type="text" name="userId" maxlength="13" placeholder="아이디">
+          <input type="text" name="userId" maxlength="13" placeholder="아이디" required>
         </div>
         
         
         <div class="pw_input">
-          <input type="password" name="pw" maxlength="13" placeholder="비밀번호">
+          <input type="password" name="pw" maxlength="13" placeholder="비밀번호" required>
         </div>
         
         <div class="addr_input">
-          <select name = "addr1">
+          <select name = "addr1" required>
 			<option>지역 선택</option>
 			<option>서울</option>
 			<option>대구</option>
@@ -62,11 +62,9 @@
 			<option>전라 북도</option>
 			<option>전라 남도</option>
 		</select>
-		<input class="addr_input_1"type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
+		<input class="addr_input_1"type = "text" name="addr2" placeholder="상세 주소를 적어주세요" required><br>
         </div>
-        
-        
-        <input class="login" type="submit" value="회원가입">
+        <button class="login" type="submit">회원가입</button> 
         </form>
         
         
@@ -79,5 +77,13 @@
         <span class="text">All Rights Reserved.</span>
       </footer>
     </div>
+<!--     <script>
+    	function btn(){
+    	   	if(true){
+        		alert();
+        	}
+    	}
+ 
+    </script> -->
   </body>
 </html>

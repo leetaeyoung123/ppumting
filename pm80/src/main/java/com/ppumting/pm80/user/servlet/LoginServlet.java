@@ -83,6 +83,6 @@ public class LoginServlet extends HttpServlet {
 		// 쪽지갯수 출력
 		session.setAttribute("countNote", countNote);
 		response.sendRedirect("../home");
-		
+		return;
 	}
 }
