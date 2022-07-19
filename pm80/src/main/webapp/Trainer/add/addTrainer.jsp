@@ -28,6 +28,9 @@
 			<option>강원도</option>
 		</select>
 		<input type="text" name="addr2" placeholder="상세 주소를 입력하세요"><br>
+		가격: <select name = "price">
+			<option>1개월 300,000원</option>
+		</select><br>
 		<input type="submit" value="회원가입">
 	 </form>
 	 

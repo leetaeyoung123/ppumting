@@ -27,14 +27,14 @@ img {
 
 .paymentBtn {
 	padding-bottom: 30px;
-	margin: auto 50%;
+	margin: auto 43%;
 	align-items: center;
 	justify-content: center;
 	position: relative;
 }
 	
 .payment_btn {
-	width: 200px;
+	width: 400px;
 	height: 80px;
 	background: #f1f1f1;
     border: 1px solid gray;
@@ -98,15 +98,18 @@ img {
 .col-md-7 {
   float: left;
   position: relative;
-  margin-left: 5%;
+  margin-left: 7%;
   width: 48%;
   max-height: 48%;
 }
 
-.col-md-7 h2 {
+.col-md-7 h2, .col-md-7-2 h2 {
   font-weight: 700;
 }
 
+.col-md-7-2 {
+	margin-left: 1%;
+}
 
 .text-muted {
   font-size: 30px;
@@ -115,9 +118,14 @@ img {
 .col-md-5 {
   float: left;
   position: relative;
-  margin-left: 5%;
+  margin-left: 8%;
   width: 48%;
   max-height: 48%;
+}
+
+.lead {
+	max-width: 85%;
+	padding-top: 20px;
 }
 
 /*footer*/

@@ -11,7 +11,7 @@ public class Trainer implements Serializable {
 	String phone;
 	String passwd;
 	String addr;
-	Double price;
+	String price;
 
 	public Trainer() {
 
@@ -54,10 +54,10 @@ public class Trainer implements Serializable {
 		this.addr = addr;
 	}
 
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
