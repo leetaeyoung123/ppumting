@@ -15,8 +15,8 @@ drop table QNA
 -- 외래키 선언 방법
 -- CONSTRAINT QNA_user_number_FK FOREIGN KEY (user_number) REFERENCES Users(userId)
 
-INSERT INTO QNA (qna_no, user_number, qna_title, qna_content)
-VALUES (1, '제목', '내용')
+INSERT INTO QNA (qna_title, qna_content)
+VALUES ('제목', '내용')
 
 DELETE FROM QNA WHERE qna_no = 1
 
