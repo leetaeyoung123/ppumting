@@ -9,7 +9,7 @@
 <title>게시판</title>
 </head>
 <body>
-	<h3>게시글 조회</h3>
+	<h3>게시글</h3>
 	<form action="find.do" method="post"><br>
 	<c:forEach var="qna" items="${qnaList}">&nbsp;&nbsp;
 		<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" ><br>
