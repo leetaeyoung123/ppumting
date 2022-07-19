@@ -57,7 +57,7 @@ public class PointDao {
 	
 	// 계좌 삭제
 	public boolean deleteAccount(String userId) {
-		String sql = "DELETE FROM Point WHERE userId = ? ";
+		String sql = "DELETE FROM Point WHERE userId = ?";
 		boolean result = false;
 
 		try {
@@ -65,9 +65,10 @@ public class PointDao {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
 				if (pointdao.isValidUser(userId)) { 
-					if( pointdao.checkAccountNum(userId) == null ) { 
+					if( pointdao.checkAccountNum(userId) != null ) { 
 						stmt.setString(1, userId);
 						stmt.executeUpdate();
+						System.out.println("계좌 삭제 완료");
 						result = true;
 					}
 				}

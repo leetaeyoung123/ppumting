@@ -35,6 +35,8 @@ public class PointService {
 		return pointdao.checkPoint(userId);
 	}
 	
-
+	public boolean deleteAccount(String userId) {
+		return pointdao.deleteAccount(userId);
+	}
 	
 }
