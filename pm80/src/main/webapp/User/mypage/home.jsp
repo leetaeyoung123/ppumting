@@ -55,7 +55,7 @@
             <a class="nav-link" aria-current="page" href="#">게시판</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">P.P.T</a>
+            <a class="nav-link" href="../../Trainer/mypage.jsp">P.P.T</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Info</a>
@@ -91,7 +91,7 @@
             <p>오직 회원님만을 위한 프리미엄 개인 운동 교습 P.P.T!<br>
             전문가 트레이너님들이 회원님을 기다리고 계십니다!
             </p>
-            <p><a class="btn btn-lg btn-primary" href="#">P.P.T 알아보기</a></p>
+            <p><a class="btn btn-lg btn-primary" href="../../Trainer/mypage.jsp">P.P.T 알아보기</a></p>
           </div>
         </div>
       </div>
@@ -139,19 +139,19 @@
         <img class="radius_img" src="../../img/radius_img01.jpg" alt="">
         <h2>김종국</h2>
         <p>"포기란 없다"</p>
-        <p><a class="btn btn-secondary" href="#">선생님 자세히 알아보기</a></p>
+        <p><a class="btn btn-secondary" href="../../Trainer/mypage.jsp">선생님 자세히 알아보기</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="radius_img" src="../../img/radius_img02.jpg" alt="">
         <h2>마동석</h2>
         <p>"좋은 몸은 하루아침에 만들어지지 않는다."</p>
-        <p><a class="btn btn-secondary" href="#">선생님 자세히 알아보기</a></p>
+        <p><a class="btn btn-secondary" href="../../Trainer/mypage.jsp">선생님 자세히 알아보기</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
       <img class="radius_img" src="../../img/radius_img03.jpg" alt="">
         <h2>양치승</h2>
         <p>'한계'라고 느낄 때 '한 개'를 더 해야 성장한다.</p>
-        <p><a class="btn btn-secondary" href="#">선생님 자세히 알아보기</a></p>
+        <p><a class="btn btn-secondary" href="../../Trainer/mypage.jsp">선생님 자세히 알아보기</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
    </div>

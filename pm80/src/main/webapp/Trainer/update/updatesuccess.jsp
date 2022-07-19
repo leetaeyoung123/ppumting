@@ -10,6 +10,6 @@
 <body>
 
       <h3>회원정보수정 완료되었습니다.</h3>
- 
+ <input type="button" value="MYPAGE" onclick="location.href='http://localhost:8080/pm80/Trainer/mypage.jsp'"/>
 </body>
 </html>
