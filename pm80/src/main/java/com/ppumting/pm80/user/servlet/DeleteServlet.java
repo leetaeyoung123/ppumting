@@ -26,14 +26,14 @@ public class DeleteServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
-			String userId = request.getParameter("userId");
+			HttpSession session = request.getSession(false);
+			String userId = (String) session.getAttribute("userId");
 
 			String pw = request.getParameter("pw");
 			String ssn = request.getParameter("ssn");
 			pointService.deleteAccount(userId);
 			userService.delete(userId, pw, ssn);
-			HttpSession session = request.getSession(false);
+			
 			session.setAttribute("userId", userId);
 			response.sendRedirect("../loginout/login");
 	}
