@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ppumting.pm80.note.service.NoteService;
 import com.ppumting.pm80.point.service.PointService;
 import com.ppumting.pm80.user.service.Userservice;
 
@@ -22,6 +23,7 @@ public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Userservice userService;
 	private PointService pointService;
+	private NoteService service = NoteService.getInstance();
 
 	public void init() {
 		userService = new Userservice();
@@ -32,6 +34,9 @@ public class HomeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");
+		
+		long countNote = service.countNote(userId);
+		
 		if (userId == null) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
@@ -46,6 +51,8 @@ public class HomeServlet extends HttpServlet {
 			}
 		}
 		response.addCookie(lastAccessTime());
+		
+		request.setAttribute("countNote", countNote);
 
 		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}

@@ -11,6 +11,17 @@
 <title>쪽지보내기 | PPUMTING</title>
 </head>
 
+<script type="text/javascript">
+function sendComplete() {
+	alert('쪽지 전송 완료');
+	window.opner.location.href="/Note/sendMsg";
+    window.close();
+    window.close();
+    opener.location.reload();
+    opener.location.reload();
+}
+</script>
+
   <body>
     <div id="smWrap">
       <form action="sendMsg" method="post">
@@ -24,7 +35,7 @@
       <p class="gray">쪽지 내용은 최대 200자까지만 입력가능합니다.</p>
       </div>
       </div>
-      <input class="submit_btn" onclick="alert('쪽지 전송완료')" type="submit" value="전송">
+      <input class="submit_btn" type="submit" onclick="sendComplete()" value="전송">
       </form>
     </div>
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

@@ -16,6 +16,15 @@ body {
   padding-top : 0;
 }
 
+.notes {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.notes:link { color: #0078AA; }
+
+.notes:visited { color: #f1f1f1; }
+
 .navbar {
   top: 0;
   position: relative;
@@ -45,13 +54,14 @@ body {
   width: 1320px;
   height: 300px;
   overflow: auto;
+  background-color: #f1f1f1;
 }
 
 .sendnote_btn {
   width: 130px;
   height: 40px;
   position: absolute;
-  bottom: 30px;
+  bottom: -50px;
   right: 0;
   border: 2px solid #F6F6F6;
   border-radius: 5px;
@@ -66,6 +76,34 @@ body {
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+.user, .title, .date {
+	position:absolute;
+	width: 440px;
+	margin-top: 30px;
+}
+
+.user {
+	left: 0;
+}
+
+.users {
+	position: absolute;
+	left: 200px;
+}
+
+.title {
+	left: 480px;
+}
+
+.date {
+	right: 0;
+}
+
+.dates {
+	position: absolute;
+	right: 200px;
 }
 
 @keyframes rotate_btn {
