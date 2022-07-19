@@ -45,7 +45,7 @@
 <header>
   <nav class="navbar navbar-expand-md fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PPUMTING</a>
+      <a class="navbar-brand" href="#" onClick="top.location='javascript:location.reload()'">PPUMTING</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
