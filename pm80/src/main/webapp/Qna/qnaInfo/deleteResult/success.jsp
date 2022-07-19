@@ -10,6 +10,8 @@
 </head>
 <body>
  	${qnaNo}번 게시글 삭제 완료<br>
- 	<button><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>확인</button>
+ 	<form action="find.do" method="post"><br>
+ 	<button <c:url value="/Qna/qnaInfo/find.do"/>>확인</button>
+ 	</form>
 </body>
 </html>
