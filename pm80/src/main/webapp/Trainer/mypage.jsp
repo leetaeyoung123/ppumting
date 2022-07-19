@@ -39,7 +39,7 @@
 <header>
   <nav class="navbar navbar-expand-md fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PPUMTING</a>
+      <a class="navbar-brand" href="../../pm80/User/mypage/home.jsp">PPUMTING</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,7 +49,7 @@
             <a class="nav-link" aria-current="page" href="#">게시판</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Trainer/mypage.jsp">P.P.T</a>
+            <a class="nav-link" href="/pm80/Trainer/mypage.jsp">P.P.T</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Info</a>
