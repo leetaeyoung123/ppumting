@@ -66,8 +66,7 @@
           <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
           ${userId}님
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
-          <% String point = (String)request.getAttribute("checkPoint"); %>
-          포인트 : <%=point%>p
+          포인트 : ${checkPoint}p
           <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
           <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
         </div>

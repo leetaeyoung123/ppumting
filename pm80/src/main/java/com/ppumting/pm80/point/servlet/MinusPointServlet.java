@@ -40,10 +40,7 @@ public class MinusPointServlet extends HttpServlet {
 			return;
 		}
 		//성공 시 로직
-		request.setAttribute("userId", userId);
-		request.setAttribute("trainerPrice", trainerPrice);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("minusPointResult/success.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("../User/mypage/home");
 		
 	}
 

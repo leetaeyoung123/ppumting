@@ -75,6 +75,7 @@ public class LoginServlet extends HttpServlet {
 		
 //		받아온 세션의 유저아이디로 받은쪽지의 갯수를 알려주는 서비스 호출
 		long countNote = service.countNote(userId);
+		String checkPoint = pointService.checkPoint(userId);
 		
 		if(!userService.login(userId, pw)) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -85,7 +86,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("userId", userId);
 		// 쪽지갯수 출력
 		session.setAttribute("countNote", countNote);
-		session.setAttribute("checkPoint", pointService.checkPoint(userId));
+		session.setAttribute("checkPoint", checkPoint);
 		response.sendRedirect("../home");
 		
 	}
