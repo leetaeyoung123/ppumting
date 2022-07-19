@@ -64,7 +64,7 @@
         <div class="login_info">
           쪽지함 :
           <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
-          {아이디}
+          ${userId}님
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
           <% String point = (String)request.getAttribute("checkPoint"); %>
           포인트 : <%=point%>p

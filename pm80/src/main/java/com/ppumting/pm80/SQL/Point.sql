@@ -19,7 +19,7 @@ DROP TABLE Point;
 
 --test
 INSERT INTO Point (point, accountNum, userId)
-VALUES (10000, '103-25-6485', 'sssssg06')
+VALUES (10000, '103-25-6485', 'htw')
 
 -- inner join
 SELECT * FROM Account, Customer WHERE Account.customerId = Customer.cid
