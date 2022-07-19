@@ -142,6 +142,24 @@
     <div class="top-wrap">
     <a href="#" class="top">Top</a>
     </div>
+    <script>
+    $( document ).ready( function() {
+      $(".top").hide();
+      $(window).scroll(function(){
+        if(	$(this).scrollTop() > 200){	
+          $(".top").fadeIn();	
+        }
+        else{	
+          $(".top").fadeOut();	
+        }			
+      });
+      $(".top").click(function(){
+        $('body,html').animate({
+          scrollTop:0 
+        },400 );
+        return false;
+      });
+    });</script>
     <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 </main>
