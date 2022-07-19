@@ -9,12 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <link href="../User/mypage/homecss/carousel.css" rel="stylesheet">
     <link href="mypagecss/style.css" rel="stylesheet">
+    <link href="../User/mypage/homecss/carousel.css" rel="stylesheet">
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    
 <title>TRAINER | PPUMTING</title>
-
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
     .login_btn a {
     	text-decoration: none;
@@ -138,10 +139,11 @@
     <!-- /END THE FEATURETTES -->
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
+    <div class="top-wrap">
+    <a href="#" class="top">Top</a>
+    </div>
     <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 </main>
-	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
