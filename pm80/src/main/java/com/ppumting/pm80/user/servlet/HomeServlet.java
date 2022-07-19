@@ -75,6 +75,7 @@ public class HomeServlet extends HttpServlet {
 		response.sendRedirect("userUpdate");
 		response.sendRedirect("checkPoint");
 		response.sendRedirect("addPoint");
+		response.sendRedirect("mypage");
 		
 	}
 }
