@@ -13,9 +13,10 @@
   	<form action="minusPoint" method="post">
 	<fieldset>
     <legend>PT를 함께 하실 트레이너를 선택해 주세요.</legend>
-    <input type="radio" name="contact" value="박상규">박상규
-    <input type="radio" name="contact" value="이태영">이태영
-    <input type="radio" name="contact" value="이성호">이성호
+    <input type="radio" name="contact" value="김종국">김종국
+    <input type="radio" name="contact" value="양치승">양치승
+    <input type="radio" name="contact" value="마동석">마동석
+    <input type="radio" name="contact" value="권상우">권상우
     <br>
     </fieldset>
     <br>
@@ -29,7 +30,6 @@
     <br>
     <fieldset>
     <legend>결제하기</legend>
-		아이디 : <input type="text" name="userId"/><br>
     	<button type="submit">결제하기</button>
   </fieldset>
 	</form>

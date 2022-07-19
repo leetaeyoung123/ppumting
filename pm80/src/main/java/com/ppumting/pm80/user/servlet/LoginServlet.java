@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.note.service.NoteService;
+import com.ppumting.pm80.point.service.PointService;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
@@ -22,9 +23,11 @@ public class LoginServlet extends HttpServlet {
 	private Userservice userService;
 //	받은 쪽지의 갯수를 확인하기위해 노트서비스 추가
 	private NoteService service = NoteService.getInstance();
+	private PointService pointService;
 	
 	public void init() {
 		userService = new Userservice();
+		pointService = new PointService();
 	}
 
 
@@ -72,6 +75,7 @@ public class LoginServlet extends HttpServlet {
 		
 //		받아온 세션의 유저아이디로 받은쪽지의 갯수를 알려주는 서비스 호출
 		long countNote = service.countNote(userId);
+		String checkPoint = pointService.checkPoint(userId);
 		
 		if(!userService.login(userId, pw)) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -82,6 +86,7 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("userId", userId);
 		// 쪽지갯수 출력
 		session.setAttribute("countNote", countNote);
+		session.setAttribute("checkPoint", checkPoint);
 		response.sendRedirect("../home");
 		
 	}

@@ -30,24 +30,18 @@ public class MinusPointServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String userId = request.getParameter("userId");
+		HttpSession session = request.getSession(false);
+		String userId = (String)session.getAttribute("userId");
 		String trainerPrice = request.getParameter("price");
 		
-		//ID, PW 를 잘못 입력하고 결제버튼 누를 시
+		//ID 를 잘못 입력하고 결제버튼 누를 시
 		if( pointService.minusPoint(userId, trainerPrice) == false) {
 			request.getRequestDispatcher("minusPointResult/error.jsp").forward(request, response);
 			return;
 		}
 		//성공 시 로직
-		request.setAttribute("userId", userId);
-		request.setAttribute("trainerPrice", trainerPrice);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("minusPointResult/success.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("../User/mypage/home");
 		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("userId", userId);
-		session.setAttribute("trainerPrice", trainerPrice);
-		response.sendRedirect("minusPointResult/success.jsp");
 	}
 
 }

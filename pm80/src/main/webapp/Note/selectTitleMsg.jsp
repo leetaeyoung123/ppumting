@@ -4,35 +4,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>쪽지 조회</title>
-<style type="text/css">
-a {
-	cursor: pointer;
-}
-</style>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="../User/mypage/homecss/carousel.css?after" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/selectMsg2.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png">
+ 	<meta charset="utf-8">
+<title>쪽지함 | PPUMTING</title>
 </head>
-<body>
-${userId}님이 보내신 쪽지<br>
-쪽지 제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;받으신분&nbsp;&nbsp;보낸날짜
-<div>
-<c:forEach var = "sendTitle" items="${sendTitles}">
-	<a onclick="window.open('notemsg?no=${sendTitle.no}', '_blank', 'width=600 height=600')">
-	${sendTitle.title} ${sendTitle.sendUserId} ${sendTitle.regDate}
-	</a>
-	<br>
-</c:forEach>
-</div>
-<br>
-${userId}님이 받으신 쪽지<br>
-쪽지 제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보내신분&nbsp;&nbsp;받은날짜
-<div>
-<c:forEach var = "receiveTitle" items="${receiveTitles}">
-	<a onclick="window.open('notemsg?no=${receiveTitle.no}', '_blank', 'width=600 height=600')">
-	${receiveTitle.title} ${receiveTitle.sendUserId} ${receiveTitle.regDate}
-	</a>
-	<br>
-</c:forEach>
-</div>
-</body>
+
+ <body>
+<header>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../User/mypage/home">PPUMTING</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">게시판</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">P.P.T</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Info</a>
+          </li>
+        </ul>
+        <div class="login_info">
+          쪽지함 :
+          <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
+          ${userId}님
+          <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
+          <% String point = (String)request.getAttribute("checkPoint"); %>
+          포인트 : <%=point%>p
+          <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
+          <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div id="note_wrap">
+
+      <h1>받은 쪽지함</h1>
+      <div class="note_area rcv_note">
+       <c:forEach var = "receiveTitle" items="${receiveTitles}">
+		<a class="notes" onclick="window.open('notemsg?no=${receiveTitle.no}', '_blank', 'width=600 height=600')">
+		${receiveTitle.title} ${receiveTitle.sendUserId} ${receiveTitle.regDate}
+		</a>
+		<br>
+		</c:forEach>
+      </div>
+      <h1>보낸 쪽지함</h1>
+      <div class="note_area send_note">
+       <c:forEach var = "sendTitle" items="${sendTitles}">
+		<a class="notes" onclick="window.open('notemsg?no=${sendTitle.no}', '_blank', 'width=600 height=600')">
+		${sendTitle.title} ${sendTitle.sendUserId} ${sendTitle.regDate}
+		</a>
+		<br>
+		</c:forEach>
+      </div>
+      <button class="sendnote_btn" onclick="window.open('sendMsg.jsp', '_blank', 'width=600, height=600')" type="button">쪽지 쓰기</button>
+    </div>
+  </body>
 </html>

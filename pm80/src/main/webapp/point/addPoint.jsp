@@ -54,10 +54,9 @@
         <div class="login_info">
           쪽지함 :
           <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
-          {아이디}
+          ${userId}
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
-          <% String point = (String)request.getAttribute("checkPoint"); %>
-          포인트 : <%=point%>p
+          포인트 : ${checkPoint}p
           <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
           <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
         </div>
@@ -80,7 +79,7 @@
         	</div>
         </div>
         <div class="pw_input">
-        <input type="number" min="10000" max="30000000" step="10000" name="point" placeholder=" 입금 할 포인트                              단위 : 10,000" />
+        <input type="number" min="10000" step="10000" name="point" placeholder=" 입금 할 포인트                              단위 : 10,000" />
         </div>
         <button class="login" type="submit">충전하기</button>
         </form>
