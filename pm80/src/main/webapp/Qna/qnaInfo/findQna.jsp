@@ -84,10 +84,10 @@
       <button style="width: 50px;height: 30px;margin: 0 auto;position: relative;display: flex;left: 600px; border-color: red;"><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>' 
       style="text-align: center; text-decoration: none; font-weight: bold;" >등록</button>
       </div>
-      <div class="form">
+      <div class="form" style="text-decoration: none;text-align: center;display: flex;justify-content: center; border: 1px solid black;">
 	<form action="find.do" method="post" style="text-align: center;"><br>
 	<c:forEach var="qna" items="${qnaList}">&nbsp;
-		<div style="font-size: 20px; font-weight: bold; border:1px solid black;">
+		<div style="font-size: 20px; font-weight: bold;">
 		<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none;text-align: center;display: flex;justify-content: center;"><br>
 		<!-- ${qna.qnaNo}.&nbsp; -->
 		<span>제목 :</span> <input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 30px;">
