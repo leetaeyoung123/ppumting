@@ -228,7 +228,7 @@ public class PointDao {
 		return result;
 	}
 
-	// 싱글톤 받아주기
+	// 싱글톤
 	public static PointDao getInstance() { 
 		return pointdao;
 	}
