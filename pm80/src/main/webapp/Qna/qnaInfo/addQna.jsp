@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>글 등록</title>
 </head>
 <body>
-	<form action="find.do" method="post"><br>
-  		<input type="submit" value="게시판">
-  	</form>
+	<form action="add_qna.do" method="post">
+	제목: <input type="text" name="qna_title"><br>
+	내용: <input type="text" name="qna_content"><br>
+		<input type="submit" value="등록">
+	</form>
 </body>
 </html>

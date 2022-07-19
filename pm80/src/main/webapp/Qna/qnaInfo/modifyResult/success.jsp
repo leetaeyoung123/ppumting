@@ -14,6 +14,6 @@
 		<input type="text" name="qna_content"><br>
 		<input type="submit" value="수정"> <input type="submit" value="취소">
 	</form>
-수정 성공
+게시글 수정 완료
 </body>
 </html>

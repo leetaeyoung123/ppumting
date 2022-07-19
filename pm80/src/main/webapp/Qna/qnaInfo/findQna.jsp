@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>게시글</title>
 </head>
 <body>
 	<h3>게시글</h3>
@@ -17,14 +17,9 @@
 		제목 : <input type="text" value="${qna.qnaTitle}">
 		</a>
 	</c:forEach>
-		</form>
-	<br>
-	<br>
-	
-	<form action="add_qna.do" method="post">
-	제목: <input type="text" name="qna_title"><br>
-	내용: <input type="text" name="qna_content"><br>
-		<input type="submit" value="등록">
 	</form>
+	<br>
+	<br>
+	<button><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>등록</button>
 </body>
 </html>
