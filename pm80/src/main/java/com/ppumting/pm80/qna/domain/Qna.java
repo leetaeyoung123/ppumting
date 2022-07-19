@@ -7,7 +7,7 @@ import com.ppumting.pm80.replay.domain.Replay;
 
 public class Qna {
 	private String qnaNo;
-	private String userNumber;
+	private String userId;
 	private String qnaTitle;
 	private String qnaContent;
 	private Date qnaRegDate;
@@ -17,10 +17,10 @@ public class Qna {
 		
 	}
 
-	public Qna(String qnaNo, String userNumber, String qnaTitle, String qnaContent, Date qnaRegDate) {
+	public Qna(String qnaNo, String userId, String qnaTitle, String qnaContent, Date qnaRegDate) {
 		super();
 		this.qnaNo = qnaNo;
-		this.userNumber = userNumber;
+		this.userId = userId;
 		this.qnaTitle = qnaTitle;
 		this.qnaContent = qnaContent;
 		this.qnaRegDate = qnaRegDate;
@@ -34,12 +34,12 @@ public class Qna {
 		this.qnaNo = qnaNo;
 	}
 	
-	public String getUserNumber() {
-		return userNumber;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserNumber(String userNumber) {
-		this.userNumber = userNumber;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getQnaTitle() {
@@ -77,7 +77,7 @@ public class Qna {
 	@Override
 	// toString 메소드 만들어서 스트링으로 출력
 	public String toString() {
-		return "Qna [qnaNo=" + qnaNo + "userNumber=" + userNumber + ", qnaTitle=" + qnaTitle 
+		return "Qna [qnaNo=" + qnaNo + "userId=" + userId + ", qnaTitle=" + qnaTitle 
 				+ ", qnaContent=" + qnaContent + "qnaRegDate=" + qnaRegDate + "]";
 	}
 	

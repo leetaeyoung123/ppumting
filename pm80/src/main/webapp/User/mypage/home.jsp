@@ -52,7 +52,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href='<c:url value="/Qna/qnaInfo/inquiryQna.jsp"/>'>게시판</a>
+            <a class="nav-link" aria-current="page" href='<c:url value="/Qna/qnaInfo/find.do"/>'>게시판</a> 
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../../Trainer/mypage.jsp">P.P.T</a>
@@ -102,7 +102,7 @@
             <p>그런 분들을 위해 저희 PPUMTING에서 게시판을 OPEN 했습니다!<br>
             지금 바로 함께 운동할 친구를 찾아보세요!
             </p>
-            <p><a class="btn btn-lg btn-primary" href="#">게시판 글쓰러가기</a></p>
+            <p><a class="btn btn-lg btn-primary" href="<c:url value="/Qna/qnaInfo/find.do"/>">게시판 글쓰러가기</a></p>
           </div>
         </div>
       </div>

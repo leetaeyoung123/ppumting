@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="find.do" method="post"><br>
-  		<input type="submit" value="게시판">
+  		<input type="submit" value="게시글 목록">
   	</form>
 </body>
 </html>
