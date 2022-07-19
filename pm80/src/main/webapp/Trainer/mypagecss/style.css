@@ -90,22 +90,37 @@ img {
 }
 
 /* trainer-list introduce*/
-
 .row {
   display:flex;
+  margin: 0 auto;
 }
+
 .col-md-7 {
-  width: 45%;
-  /* margin-left: 10px; */
+  float: left;
+  position: relative;
+  margin-left: 5%;
+  width: 48%;
+  max-height: 48%;
 }
+
 .col-md-7 h2 {
   font-weight: 700;
 }
+
 
 .text-muted {
   font-size: 30px;
 }
 
+.col-md-5 {
+  float: left;
+  position: relative;
+  margin-left: 5%;
+  width: 48%;
+  max-height: 48%;
+}
+
+/*footer*/
 .top {
   position: fixed;
   right: 40px;

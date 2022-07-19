@@ -84,8 +84,8 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7">
+    <div class="row featurette" style="flex-wrap:nowrap;">
+      <div class="col-md-7" style="width: 48%;">
         <h2 class="featurette-heading">김종국 <br> <span class="text-muted">"먹는 것까지 운동이다."</span></h2>
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
       </div>
@@ -96,8 +96,8 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
+    <div class="row featurette" style="flex-wrap:nowrap;">
+      <div class="col-md-7 order-md-2" style="width: 48%;">
         <h2 class="featurette-heading">양치승 <br> <span class="text-muted">"아직도 운동 안 하고 먹기만 하냐?!"</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
@@ -108,8 +108,8 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7">
+    <div class="row featurette" style="flex-wrap:nowrap;">
+      <div class="col-md-7" style="width: 48%;">
         <h2 class="featurette-heading">마동석 <br> <span class="text-muted">"병아리 만지기 무서워.. 터질까봐.."</span></h2>
         <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
       </div>
@@ -120,8 +120,8 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
+    <div class="row featurette" style="flex-wrap:nowrap;">
+      <div class="col-md-7 order-md-2" style="width: 48%;">
         <h2 class="featurette-heading">권상우 <br> <span class="text-muted">"니가 그렇게 운동을 잘해? 헬스장으로 따라와.."</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
