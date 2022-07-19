@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
-    <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../ico/favicon-32x32.png">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="signupcss/style.css">
+    <link rel="stylesheet" href="signupcss/normalize.css">
+    <link rel="stylesheet" type="text/css" href="signupcss/style.css?after">
     <title>회원가입 | ppumting</title>
   </head>
   
@@ -62,7 +62,7 @@
 			<option>전라 북도</option>
 			<option>전라 남도</option>
 		</select>
-		<input type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
+		<input class="addr_input_1"type = "text" name="addr2" placeholder="상세 주소를 적어주세요"><br>
         </div>
         
         
