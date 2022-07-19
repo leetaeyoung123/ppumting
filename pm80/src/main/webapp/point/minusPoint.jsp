@@ -5,7 +5,7 @@
 <%@ page isELIgnored="false" %>
 
 <!doctype html>
-<html lang="ko">
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png">
@@ -15,7 +15,6 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>HOME | PUMTTING</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
 
 
@@ -79,32 +78,35 @@
 
 <main>
 
+  <form action="minusPoint" method="post">
   <div class="container marketing">
     <!-- Three columns of text below the carousel -->
-    <form action="minusPoint" method="post">
-    <div class="row">
+    <div class="row" style=" margin-top: 200px; margin-bottom: 200px;">
       <div class="col-lg-4">
         <img class="radius_img" src="../img/radius_img01.jpg" alt="">
         <h2>김종국</h2>
         <p>"포기란 없다"</p>
-        <input type="radio" name="contact" value="김종국">
+        <input type="radio" name="trainerId" value="300000">
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="radius_img" src="../img/radius_img02.jpg" alt="">
         <h2>마동석</h2>
         <p>"좋은 몸은 하루아침에 만들어지지 않는다."</p>
-        <input type="radio" name="contact" value="마동석">
+		<input type="radio" name="trainerId" value="200000">
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
       <img class="radius_img" src="../img/radius_img03.jpg" alt="">
         <h2>양치승</h2>
         <p>'한계'라고 느낄 때 '한 개'를 더 해야 성장한다.</p>
-        <input type="radio" name="contact" value="양치승">
+		<input type="radio" name="trainerId" value="400000">
       </div><!-- /.col-lg-4 -->
-      
-    	<button type="submit">결제하기</button>
-	</form>
+      <div class="col-lg-4 input" style="margin-left: 420px;">
+      	<input class="input-man" type="text" name="month" placeholder="개월 수 입력란  ">
+    	<button class="button-man" type="submit">결제하기</button>
+    	</div>
     </div><!-- /.row -->
+	</form>
+    
    </div>
    
    

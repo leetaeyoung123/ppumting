@@ -34,13 +34,11 @@ public class MinusPointServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String)session.getAttribute("userId");
-		String x = (String)session.getAttribute("contact");
-		System.out.println("tlqkf : " + x);
-		String trainerPrice = " ";
-//		String trainerPrice = trainerService.트레이너값부르는메소드();
+		String trainerPrice = (String) request.getParameter("trainerId");
+		String month = (String) request.getParameter("month");
 		
 		//ID 를 잘못 입력하고 결제버튼 누를 시
-		if( pointService.minusPoint(userId, trainerPrice) == false) {
+		if( pointService.minusPoint(userId, trainerPrice, month) == false) {
 			request.getRequestDispatcher("minusPointResult/error.jsp").forward(request, response);
 			return;
 		}

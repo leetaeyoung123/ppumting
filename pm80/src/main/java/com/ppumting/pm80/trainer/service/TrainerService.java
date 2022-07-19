@@ -17,8 +17,8 @@ public class TrainerService {
 		trainerDao.addTrainer(trainer);
 	}
 	
-	public String checkTrainerPoint(String name) {
-		return trainerDao.checkTrainerPoint(name);
+	public String checkTrainerPoint(String trainerId) {
+		return trainerDao.checkTrainerPoint(trainerId);
 	}
 
 	public List<Trainer> findAllTrainers() {

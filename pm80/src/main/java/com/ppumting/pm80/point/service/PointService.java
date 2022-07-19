@@ -16,8 +16,8 @@ public class PointService {
 	}
 	
 	// 사용자 포인트 차감 (결제)
-	public boolean minusPoint(String userId, String trainerPrice) { 
-		return pointdao.minusPoint(userId, trainerPrice);
+	public boolean minusPoint(String userId, String trainerPrice, String month) { 
+		return pointdao.minusPoint(userId, trainerPrice, month);
 	}
 	
 	// 사용자 아이디를 이용한 본인 계좌 조회
