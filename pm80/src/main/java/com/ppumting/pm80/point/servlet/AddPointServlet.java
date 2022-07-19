@@ -35,6 +35,7 @@ public class AddPointServlet extends HttpServlet {
 			return;
 		}
 		request.setAttribute("accountNum", pointService.checkAccountNum(userId));
+		request.setAttribute("checkPoint", pointService.checkPoint(userId));
 		request.getRequestDispatcher("addPoint.jsp").forward(request, response);
 	}
 

@@ -80,7 +80,7 @@
         	</div>
         </div>
         <div class="pw_input">
-        <input type="number" min="10000" max="30000000" step="10000" name="point" placeholder=" 입금 할 포인트                              단위 : 10,000" />
+        <input type="number" min="10000" step="10000" name="point" placeholder=" 입금 할 포인트                              단위 : 10,000" />
         </div>
         <button class="login" type="submit">충전하기</button>
         </form>
