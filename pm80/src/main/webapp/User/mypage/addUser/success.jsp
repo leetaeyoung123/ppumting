@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h3>회원가입 성공</h3>
+	<h4>${userId}</h4>
 	<button><a href='<c:url value="../loginout/login.jsp"/>'>로그인 페이지로</button>
 </body>
 </html>

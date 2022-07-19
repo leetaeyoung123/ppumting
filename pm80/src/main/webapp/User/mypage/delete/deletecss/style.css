@@ -74,18 +74,17 @@ select {
 }
 
 .login_form .update_btn {
-  width: 460px;
+  width: 233px;
   height: 60px;
   border: 5px solid #0078AA;
   background: #0078AA;
   color: #F6F6F6;
   border-radius: 25px;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
-.delete_btn {
-  width: 460px;
+.login_form .delete_btn {
+  width: 232px;
   height: 60px;
   border: 5px solid #0078AA;
   background: #0078AA;

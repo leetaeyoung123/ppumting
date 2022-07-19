@@ -88,6 +88,6 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("countNote", countNote);
 		session.setAttribute("checkPoint", checkPoint);
 		response.sendRedirect("../home");
-		
+		return;
 	}
 }

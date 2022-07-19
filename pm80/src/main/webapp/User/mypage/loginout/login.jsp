@@ -5,7 +5,7 @@
 <html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../ico/favicon-32x32.png">
     <link rel="stylesheet" href="logincss/normalize.css">
     <link rel="stylesheet" type="text/css" href="logincss/style.css">
     <title>로그인 | ppumting</title>
