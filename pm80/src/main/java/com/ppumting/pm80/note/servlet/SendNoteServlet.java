@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
@@ -28,7 +29,8 @@ public class SendNoteServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
 		String receiveUserId = request.getParameter("receiveUserId");
-		String sendUserId = request.getParameter("sendUserId");
+		HttpSession session = request.getSession(false);
+		String sendUserId = (String) session.getAttribute("userId");
 		
 		Note note = new Note();
 		

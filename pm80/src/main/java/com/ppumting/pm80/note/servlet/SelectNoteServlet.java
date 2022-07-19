@@ -31,6 +31,10 @@ public class SelectNoteServlet extends HttpServlet {
 		sendTitles = service.findSendNote(userId);
 		receiveTitles = service.findReceiveNote(userId);
 		
+		long countNote = service.countNote(userId);
+		System.out.println(countNote);
+		request.setAttribute("countNote", countNote);
+		
 		request.setAttribute("userId", userId);
 		request.setAttribute("sendTitles", sendTitles);
 		request.setAttribute("receiveTitles", receiveTitles);

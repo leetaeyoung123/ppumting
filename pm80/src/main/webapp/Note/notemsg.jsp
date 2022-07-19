@@ -4,7 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="../User/homecss/carousel.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sendMsg.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../ico/favicon-32x32.png">
+ 	<meta charset="utf-8">
 <title>쪽지내용 확인</title>
 <script type="text/javascript">
 	
@@ -13,10 +18,13 @@
 	          alert("삭제를 완료했습니다.");
 	          if(${sendNotes.sendnote}) {
 		          window.opener.location.href="deleteSend?no=${sendNotes.no}";
-		  		  window.close();
+		          opener.location.reload();
+		          window.close();
+		          opener.location.reload();
 	          }else {
 		          window.opener.location.href="deleteRcv?no=${rcvNotes.no}";
 		  		  window.close();
+		  		  opener.location.reload();
 	          }
 
 	        } else {
@@ -33,18 +41,24 @@
 	}
 	
 </script>
+  <body>
+    <div id="smWrap">
+      <form action="sendMsg" method="post">
+      <h1 class="sendMsg">쪽지 조회</h1>
+      보낸이 : <p class="receiveUserId">${sendNotes.sendnote == true ? sendNotes.sendUserId : rcvNotes.sendUserId }</p>
+      받은이 : <p class="receiveUserId"> ${sendNotes.sendnote == true ? sendNotes.receiveUserId : rcvNotes.receiveUserId }</p>
+      <input type="text" readonly name="title" maxlength="30" value="${sendNotes.sendnote == true ? sendNotes.title : rcvNotes.title }" class="title"><br>
+      <div class= "text_box">
+      <textarea name="msg" readonly >
+      ${sendNotes.sendnote == true ? sendNotes.msg : rcvNotes.msg }
+      </textarea><br>
+      </div>
+      <input class="submit_btn" onclick="window.open('sendMsg.jsp', '_blank', 'width=600, height=600')" type="button" value="답장">
+      <input id="Delete" class="submit_btn" onclick="toDelete()" type="submit" value="삭제">
+      </form>
+    </div>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  </body>
 </head>
-<body>
-쪽지 번호 : ${sendNotes.sendnote == true ? sendNotes.no : rcvNotes.no }<br>
-쪽지 제목 : ${sendNotes.sendnote == true ? sendNotes.title : rcvNotes.title }<br><br>
-보내신분 : ${sendNotes.sendnote == true ? sendNotes.sendUserId : rcvNotes.sendUserId }<br>
-받으신분 : ${sendNotes.sendnote == true ? sendNotes.receiveUserId : rcvNotes.receiveUserId }<br><br>
-쪽지 내용<br>
-${sendNotes.sendnote == true ? sendNotes.msg : rcvNotes.msg }
-<div>
-<button onclick="toDelete()" id="Delete">삭제</button>
-<button onclick="toReply()" id="Reply">답장</button>
-<!-- 보낸 메세지에는 로그인 세션 유효성 검사로 답장 없애기 -->
-</div>
-</body>
+
 </html>
