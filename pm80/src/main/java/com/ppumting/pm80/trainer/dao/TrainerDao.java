@@ -26,8 +26,8 @@ public class TrainerDao {
 
      public void addTrainer(Trainer trainer) {
     	 System.out.println("START addTrainer!");
-         String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr)"
-                  + "VALUES(?, ?, ?, ?, ?, ?)";
+         String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr, price)"
+                  + "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
          try {
             Connection con = null;
@@ -41,6 +41,7 @@ public class TrainerDao {
                pstmt.setString(4, trainer.getPhone());
                pstmt.setString(5, trainer.getPasswd());
                pstmt.setString(6, trainer.getAddr());
+               pstmt.setDouble(7, trainer.getPrice());
                pstmt.executeUpdate();
                System.out.println("END addTrainer!");
             } finally{
@@ -115,6 +116,30 @@ public class TrainerDao {
            e.printStackTrace();
         }
 		return false;
+	}
+	
+	public String checkTrainerPoint(String name) {
+		String sql = "SELECT price FROM Trainer WHERE name = ?";
+		String result = "없는 트레이너";
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, name);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					result = rs.getString("price");
+				}
+			} finally {
+				datasource.close(rs, pstmt, con); 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;	
 	}
 
 	public boolean login(String trainerId, String passwd) {

@@ -16,6 +16,10 @@ public class TrainerService {
 	public void addTrainer(Trainer trainer) {
 		trainerDao.addTrainer(trainer);
 	}
+	
+	public String checkTrainerPoint(String name) {
+		return trainerDao.checkTrainerPoint(name);
+	}
 
 	public List<Trainer> findAllTrainers() {
 		return trainerDao.findAllTrainers();
