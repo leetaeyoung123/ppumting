@@ -45,13 +45,11 @@
     <div id="smWrap">
       <form action="sendMsg" method="post">
       <h1 class="sendMsg">쪽지 조회</h1>
-      보낸이 : <p class="receiveUserId">${sendNotes.sendnote == true ? sendNotes.sendUserId : rcvNotes.sendUserId }</p>
-      받은이 : <p class="receiveUserId"> ${sendNotes.sendnote == true ? sendNotes.receiveUserId : rcvNotes.receiveUserId }</p>
-      <input type="text" readonly name="title" maxlength="30" value="${sendNotes.sendnote == true ? sendNotes.title : rcvNotes.title }" class="title"><br>
+      보낸이 : &nbsp;<p class="receiveUserId"> ${sendNotes.sendnote == true ? sendNotes.sendUserId : rcvNotes.sendUserId }</p>
+      받은이 : &nbsp;<p class="receiveUserId"> ${sendNotes.sendnote == true ? sendNotes.receiveUserId : rcvNotes.receiveUserId }</p>
+      <input type="text" readonly name="title" maxlength="30" value=" ${sendNotes.sendnote == true ? sendNotes.title : rcvNotes.title }" class="title"><br>
       <div class= "text_box">
-      <textarea name="msg" readonly >
-      ${sendNotes.sendnote == true ? sendNotes.msg : rcvNotes.msg }
-      </textarea><br>
+      <textarea name="msg" readonly > ${sendNotes.sendnote == true ? sendNotes.msg : rcvNotes.msg }</textarea><br>
       </div>
       <input class="submit_btn" onclick="window.open('sendMsg.jsp', '_blank', 'width=600, height=600')" type="button" value="답장">
       <input id="Delete" class="submit_btn" onclick="toDelete()" type="submit" value="삭제">
