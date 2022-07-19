@@ -81,7 +81,12 @@ body {
 .user, .title, .date {
 	position:absolute;
 	width: 440px;
-	margin-top: 30px;
+	margin-top: -10px;
+}
+
+.users, .titles, .dates {
+	position: absolute;
+	margin-top: 10px;
 }
 
 .user {
@@ -89,7 +94,6 @@ body {
 }
 
 .users {
-	position: absolute;
 	left: 200px;
 }
 
@@ -97,13 +101,20 @@ body {
 	left: 480px;
 }
 
+.titles {
+	transform: translateX(-13px);
+}
+
 .date {
 	right: 0;
 }
 
 .dates {
-	position: absolute;
 	right: 200px;
+}
+
+hr {
+	margin-top: 40px;
 }
 
 @keyframes rotate_btn {
