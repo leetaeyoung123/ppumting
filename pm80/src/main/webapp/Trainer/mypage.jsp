@@ -156,7 +156,7 @@
       $(".top").click(function(){
         $('body,html').animate({
           scrollTop:0 
-        },400 );
+        },300 );
         return false;
       });
     });</script>
