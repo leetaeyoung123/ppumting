@@ -118,18 +118,15 @@ public class TrainerDao {
 		return false;
 	}
 	
-	public String checkTrainerPoint(String name) {
-		String sql = "SELECT price FROM Trainer WHERE name = ?";
+	public String checkTrainerPoint(String trainerId) {
+		String sql = "SELECT price FROM Trainer WHERE trainerId = ?";
 		String result = "없는 트레이너";
 		try {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
+			Connection con = datasource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, trainerId);
+			ResultSet rs = pstmt.executeQuery();
 			try {
-				con = datasource.getConnection();
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, name);
-				rs = pstmt.executeQuery();
 				while(rs.next()) {
 					result = rs.getString("price");
 				}
