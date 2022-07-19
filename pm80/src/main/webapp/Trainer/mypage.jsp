@@ -57,12 +57,13 @@
         </ul>
         <div class="login_info">
           쪽지함 :
-          {쪽지 수}
-          {아이디}
-          <button class="login_btn"><a href='<c:url value="/Trainer/update/updateselect.jsp"/>'>정보수정</a></button>
-          포인트 : {}원
-          <button class="login_btn"><a href='<c:url value="/point/addpoint.jsp"/>'>충전</a></button>
-          <button class="login_btn"><a href='<c:url value="/Trainer/loginout/login.jsp"/>'>로그아웃</a></button>
+          <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
+          ${userId}님
+          <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
+          <% String point = (String)request.getAttribute("checkPoint"); %>
+          포인트 : <%=point%>p
+          <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
+          <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
         </div>
       </div>
     </div>
@@ -100,7 +101,7 @@
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img src = "./img/radius_img03.jpg" style="width:560px;height:450px;">
+        <img src = "./img/trainer2-1.jpg" style="width:560px;height:450px;">
       </div>
     </div>
 
@@ -127,6 +128,12 @@
         <img src = "./img/trainer5.jpg" style="width:560px;height:450px;">
       </div>
     </div>
+	
+	    <hr class="featurette-divider">
+	    
+	<div class="paymentBtn">
+	<button class="payment_btn"><a href='<c:url value="/point/addPoint"/>'>결제하기</a></button>
+	</div>
 
     <!-- /END THE FEATURETTES -->
   <!-- FOOTER -->
@@ -134,6 +141,7 @@
     <p class="float-end"><a href="#">Back to top</a></p>
     <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
-	
+</main>
+	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
