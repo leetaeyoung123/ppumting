@@ -11,7 +11,7 @@
 <body>
 	수정이 완료되었습니다.<br>
 	 <form action="find.do" method="post"><br>
-  		<input type="submit" value="완료">
+	 <button><a href='<c:url value="/Qna/qnaInfo/find.do"/>'>완료</a></button>
   	</form>
 </body>
 </html>

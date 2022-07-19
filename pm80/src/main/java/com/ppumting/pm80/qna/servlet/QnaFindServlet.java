@@ -26,7 +26,7 @@ public class QnaFindServlet extends HttpServlet {
 	private static List<Qna> qnaList; 
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");

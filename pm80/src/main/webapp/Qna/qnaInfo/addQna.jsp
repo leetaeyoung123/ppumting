@@ -9,6 +9,7 @@
 </head>
 <body>
 	<form action="add_qna.do" method="post">
+	아이디 : <input type="text" name="user_id"><br>
 	제목: <input type="text" name="qna_title"><br>
 	내용: <input type="text" name="qna_content"><br>
 		<input type="submit" value="등록">

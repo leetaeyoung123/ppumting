@@ -28,17 +28,17 @@ public class QnaDao {
 	
 	// 게시물 생성 메소드
 	public void insertQna(Qna qna) {
-		String sql = "INSERT INTO QNA (qna_title, qna_content)"
-					+ "VALUES(?, ?)";
+		String sql = "INSERT INTO QNA (user_id, qna_title, qna_content)"
+					+ "VALUES(?, ?, ?)";
 		try {
 			Connection con = null; 
 			PreparedStatement pstmt = null;
 			try {
 				con = datasource.getConnection();
 				pstmt = con.prepareStatement(sql);
-//				pstmt.setLong(1, qna.getUserNumber());
-				pstmt.setString(1, qna.getQnaTitle());
-				pstmt.setString(2, qna.getQnaContent());
+				pstmt.setString(1, qna.getUserId());;
+				pstmt.setString(2, qna.getQnaTitle());
+				pstmt.setString(3, qna.getQnaContent());
 				pstmt.executeUpdate();
 			} finally {
 				datasource.close(pstmt,con);
@@ -66,7 +66,7 @@ public class QnaDao {
 			while(rs.next()) {
 				Qna qna = new Qna();
 				qna.setQnaNo(rs.getString("qna_no"));
-				qna.setUserNumber(rs.getString("user_number"));
+				qna.setUserId(rs.getString("user_id"));
 				qna.setQnaTitle(rs.getString("qna_title"));
 				qna.setQnaContent(rs.getString("qna_content"));
 				qna.setQnaRegDate(rs.getDate("qna_reg_date"));
@@ -83,7 +83,7 @@ public class QnaDao {
 
 	// 고유번호로 게시글 데이터 정보 출력
 	public Qna viewQna(String QnaNo) {
-		String sql = "SELECT qna_no, qna_title, qna_content, qna_reg_date"
+		String sql = "SELECT qna_no, qna_title, qna_content, user_id, qna_reg_date"
 				+ " FROM Qna"
 				+ " WHERE qna_no = ?";
 		Qna qna = new Qna();
@@ -101,6 +101,7 @@ public class QnaDao {
 					qna.setQnaNo(rs.getString("qna_no"));
 					qna.setQnaTitle(rs.getString("qna_title"));
 					qna.setQnaContent(rs.getString("qna_content"));
+					qna.setUserId(rs.getString("user_id"));
 					qna.setQnaRegDate(rs.getDate("qna_reg_date"));
 				}
 			} finally {

@@ -11,7 +11,7 @@
 <body>
  	${qnaNo}번 게시글 삭제 완료<br>
  	<form action="find.do" method="post"><br>
- 	<button <c:url value="/Qna/qnaInfo/find.do"/>>확인</button>
+ 	<button><a href='<c:url value="/Qna/qnaInfo/find.do"/>'>완료</a></button>
  	</form>
 </body>
 </html>

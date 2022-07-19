@@ -1,5 +1,4 @@
 package com.ppumting.pm80.qna.servlet;
-//package com.ppumting.pm80.qna.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class QnaServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		// 게시판 등록에 사용될 db값 넣기
-//		String userId = request.getParameter("user_id");
+		String userId = request.getParameter("user_id");
 		String qnaTitle = request.getParameter("qna_title");
 		String qnaContent = request.getParameter("qna_content");
 		
@@ -47,6 +46,7 @@ public class QnaServlet extends HttpServlet {
 		}
 		
 		Qna qna = new Qna();
+		qna.setUserId(userId);
 		qna.setQnaTitle(qnaTitle);
 		qna.setQnaContent(qnaContent);
 		qnaService.addQna(qna);

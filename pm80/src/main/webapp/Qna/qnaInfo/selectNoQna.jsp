@@ -13,6 +13,7 @@
 	No : ${qnas.qnaNo}<br> 
 	제목 : ${qnas.qnaTitle}<br> 
 	게시글 내용 : ${qnas.qnaContent}<br>
+	작성자 아이디 : ${qnas.userId}<br>
 	등록 일자 : ${qnas.qnaRegDate}	
 	<form action="modifyQna.do" method="post">
 		<!--  <button type="submit" value="${qnas.qnaNo}" name="qnaNo">수정</button> -->
