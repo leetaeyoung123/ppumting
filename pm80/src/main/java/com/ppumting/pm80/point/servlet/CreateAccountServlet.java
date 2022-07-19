@@ -47,14 +47,14 @@ public class CreateAccountServlet extends HttpServlet {
 			return;
 		}
 		//성공 시 로직
-		accountNum.add(pointService.createAccountNum(userId)); 
-		request.setAttribute("accountNum", accountNum);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
-		dispatcher.forward(request, response);
-		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("userId", userId);
-		response.sendRedirect("createAccountResult/success.jsp");
+//		accountNum.add(pointService.createAccountNum(userId)); 
+//		request.setAttribute("accountNum", accountNum);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("createAccountResult/success.jsp");
+//		dispatcher.forward(request, response);
+//		
+//		HttpSession session = request.getSession(true);
+//		session.setAttribute("userId", userId);
+//		response.sendRedirect("createAccountResult/success.jsp");
 		
 		
 		

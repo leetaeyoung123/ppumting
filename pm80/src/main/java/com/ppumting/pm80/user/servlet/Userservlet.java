@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ppumting.pm80.point.service.PointService;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
@@ -18,9 +19,11 @@ import com.ppumting.pm80.user.service.Userservice;
 public class Userservlet extends HttpServlet {	
 	private static final long serialVersionUID = 1L;
 	Userservice userService;
+	PointService pointService;
 	
 	public void init() {
 		userService = new Userservice();
+		pointService = new PointService();
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -70,6 +73,7 @@ public class Userservlet extends HttpServlet {
 		user.setAddr(addr1+ " " + addr2);
 		Userservice userService = new Userservice();
 		userService.addUser(user);
+		pointService.createAccountNum(userId);
 		request.setAttribute("user", user);
 		
 		dispatcher = request.getRequestDispatcher("success.jsp");
