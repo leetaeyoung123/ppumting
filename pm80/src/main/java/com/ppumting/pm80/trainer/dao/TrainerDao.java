@@ -41,7 +41,7 @@ public class TrainerDao {
                pstmt.setString(4, trainer.getPhone());
                pstmt.setString(5, trainer.getPasswd());
                pstmt.setString(6, trainer.getAddr());
-               pstmt.setDouble(7, trainer.getPrice());
+               pstmt.setDouble(6, trainer.getPrice());
                pstmt.executeUpdate();
                System.out.println("END addTrainer!");
             } finally{
