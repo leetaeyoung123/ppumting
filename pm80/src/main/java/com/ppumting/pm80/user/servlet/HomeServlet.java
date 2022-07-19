@@ -14,16 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ppumting.pm80.point.service.PointService;
 import com.ppumting.pm80.user.service.Userservice;
 
 @WebServlet("/User/mypage/home")
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Userservice userService;
+	private PointService pointService;
 
 	public void init() {
 		userService = new Userservice();
-		
+		pointService = new PointService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,9 +33,11 @@ public class HomeServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null) {
-			request.getRequestDispatcher("longin.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
+		request.setAttribute("checkPoint", pointService.checkPoint(userId));
+		
 		Cookie[] cookies = request.getCookies();
 		for (Cookie cookie : cookies) {
 			System.out.println(cookie.getName() + ": " + cookie.getValue());
@@ -69,7 +73,8 @@ public class HomeServlet extends HttpServlet {
 		session.setAttribute("userId", userId);
 		session.setAttribute("user", userService.userSelect(userId));
 		response.sendRedirect("userUpdate");
+		response.sendRedirect("checkPoint");
+		response.sendRedirect("addPoint");
 		
-		;
 	}
 }

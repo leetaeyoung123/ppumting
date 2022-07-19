@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>글 수정</title>
+<title>게시글 수정</title>
 </head>
 <body>
 <div>
-<h4>글수정 실패</h4>
+<h4>게시글수정 실패</h4>
    <%
    List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
    %>

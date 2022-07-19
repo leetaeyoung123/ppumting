@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ppumting.pm80.note.service.NoteService;
 import com.ppumting.pm80.user.domain.User;
 import com.ppumting.pm80.user.service.Userservice;
 
@@ -19,6 +20,8 @@ import com.ppumting.pm80.user.service.Userservice;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Userservice userService;
+//	받은 쪽지의 갯수를 확인하기위해 노트서비스 추가
+	private NoteService service = NoteService.getInstance();
 	
 	public void init() {
 		userService = new Userservice();
@@ -67,6 +70,9 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
 		
+//		받아온 세션의 유저아이디로 받은쪽지의 갯수를 알려주는 서비스 호출
+		long countNote = service.countNote(userId);
+		
 		if(!userService.login(userId, pw)) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
@@ -74,6 +80,8 @@ public class LoginServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("userId", userId);
+		// 쪽지갯수 출력
+		session.setAttribute("countNote", countNote);
 		response.sendRedirect("../home");
 		
 	}

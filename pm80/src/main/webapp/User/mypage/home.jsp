@@ -63,11 +63,12 @@
         </ul>
         <div class="login_info">
           쪽지함 :
-          {쪽지 수}
-          {아이디}
+          <a type="hidden" href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
+          ${userId}님
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
-          포인트 : {}원
-          <button class="login_btn"><a href='<c:url value="/point/addpoint.jsp"/>'>충전</a></button>
+          <% String point = (String)request.getAttribute("checkPoint"); %>
+          포인트 : <%=point%>p
+          <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
           <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
         </div>
       </div>
