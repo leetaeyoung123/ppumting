@@ -194,7 +194,7 @@ public class PointDao {
 	}
 
 	// 포인트 차감 (결제) 				
-	public boolean minusPoint(String userId, String trainerPrice) { 
+	public boolean minusPoint(String userId, String trainerPrice, String month) { 
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
 
@@ -205,8 +205,9 @@ public class PointDao {
 				if ( pointdao.isValidUser(userId) ) {
 					long x = Long.parseLong(pointdao.checkPoint(userId));
 					long y = Long.parseLong(trainerPrice);
+					long z = Long.parseLong(month);
 					if( (x-y) >= 0) {
-						stmt.setLong(1, x - y );
+						stmt.setLong(1, x - (y*z) );
 						stmt.setString(2, userId);
 						stmt.executeUpdate();
 						result = true;

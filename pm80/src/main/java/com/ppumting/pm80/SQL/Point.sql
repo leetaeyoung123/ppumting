@@ -10,7 +10,7 @@ CREATE TABLE Point(
 SELECT * FROM Point;
 SELECT * FROM Users;
 
-UPDATE Point SET point=1000000 WHERE userId='sssssg06';
+UPDATE Point SET point=5000000 WHERE userId='sssssg06';
 
 SELECT userId,pw FROM Users ;
 

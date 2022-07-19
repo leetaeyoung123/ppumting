@@ -13,9 +13,9 @@ CREATE TABLE Trainer (
 
 SELECT * FROM Trainer;
 DROP TABLE Trainer;
-DELETE FROM Trainer WHERE name = '마동석';
+DELETE FROM Trainer WHERE name = '찐마동석';
 
 INSERT INTO Trainer (name, ssn, phone, trainerId, passwd, addr, price)
-VALUES('마동석', '950512', '010-8538-8436', 'bky', '1234', 'daegu', 100000);
+VALUES('양치승', '950512', '010-8538-8436', 'ycs', '1234', 'daegu', 400000);
 
 UPDATE Trainer SET ssn='961025', phone='01077777777' WHERE trainerId='pt1';
