@@ -30,7 +30,6 @@
     <br>
     <fieldset>
     <legend>결제하기</legend>
-		아이디 : <input type="text" name="userId"/>
     	<button type="submit">결제하기</button>
   </fieldset>
 	</form>
