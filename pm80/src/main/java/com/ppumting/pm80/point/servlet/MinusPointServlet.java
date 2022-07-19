@@ -2,7 +2,6 @@ package com.ppumting.pm80.point.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,15 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.point.service.PointService;
+import com.ppumting.pm80.trainer.service.TrainerService;
 
 @WebServlet("/point/minusPoint")
 public class MinusPointServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private PointService pointService;
+	private TrainerService trainerService;
 
 	public void init(ServletConfig config) throws ServletException {
 		pointService = new PointService();
+		trainerService = new TrainerService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +34,10 @@ public class MinusPointServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String)session.getAttribute("userId");
-		String trainerPrice = request.getParameter("price");
+		String x = (String)session.getAttribute("contact");
+		System.out.println("tlqkf : " + x);
+		String trainerPrice = " ";
+//		String trainerPrice = trainerService.트레이너값부르는메소드();
 		
 		//ID 를 잘못 입력하고 결제버튼 누를 시
 		if( pointService.minusPoint(userId, trainerPrice) == false) {
