@@ -11,6 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+    <link href="../findqna/style.css" rel="stylesheet">
+    
     <title>HOME | PUMTTING</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
@@ -80,14 +82,16 @@
           </div>
         </div>
       </div>
-      <div>
-      <button style="width: 50px;height: 30px;margin: 0 auto;position: relative;display: flex;left: 600px; border-color: red;"><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>' 
-      style="text-align: center; text-decoration: none; font-weight: bold;" >등록</button>
-      </div>
-      <div class="form" style="text-decoration: none;text-align: center;display: flex;justify-content: center; border: 1px solid black;">
+     <<div style="height: 45px;">
+      <button class="addBu" style="width: 50px;height: 30px;margin: 0 auto;position: relative;display: flex;left: 600px; border-color: red;"><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'  
+      style="text-align: center; text-decoration: none; font-weight: bold;" >등록</button> 
+      </div> 
+      
+      
+      <div class="form" style="text-decoration: none;text-align: center;display: flex;justify-content: center; border: 1px solid black; height: 600px;">
 	<form action="find.do" method="post" style="text-align: center;"><br>
-	<c:forEach var="qna" items="${qnaList}">&nbsp;
-		<div style="font-size: 20px; font-weight: bold;">
+	<c:forEach var="qna" items="${qnaList}">
+		<div style="font-size: 20px;font-weight: bold;border-bottom: 1px solid black;">
 		<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none;text-align: center;display: flex;justify-content: center;"><br>
 		<!-- ${qna.qnaNo}.&nbsp; -->
 		<span>제목 :</span> <input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 30px;">
@@ -98,10 +102,12 @@
 	<br>
 	<br>
 	</div>
+	
+	
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#" style="position: absolute; bottom: 100px;">Back to top</a></p>
-    <p style="position: absolute; bottom: 100px;">&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p class="float-end"><a href="#" style="position: absolute; bottom: 20px;">Back to top</a></p>
+    <p style="position: absolute; bottom: 0;">&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 	
 </body>

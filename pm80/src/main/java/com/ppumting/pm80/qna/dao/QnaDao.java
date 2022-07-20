@@ -70,6 +70,7 @@ public class QnaDao {
 				qna.setQnaTitle(rs.getString("qna_title"));
 				qna.setQnaContent(rs.getString("qna_content"));
 				qna.setQnaRegDate(rs.getDate("qna_reg_date"));
+				qna.setQnaViews(rs.getString("qna_views"));
 				qnaList.add(qna);
 			}
 		} finally {

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* 공통 UI */
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  overflow-x: hidden;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  border: 0 none;
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+  background-position: center;
+}
+
+.paymentBtn {
+	padding-bottom: 30px;
+	margin: auto 50%;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+	
+.payment_btn {
+	width: 200px;
+	height: 80px;
+	background: #f1f1f1;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-size: 30px;	
+}
+.payment_btn a {
+	color: gray;
+	text-decoration: none;
+}
+
+.addBu {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+
+/*footer*/
+.top {
+  position: fixed;
+  right: 40px;
+  bottom: 70px;
+  padding:10px;
+  background-color:#0078AA;
+  color:#fff;
+  font-size: 20px;
+  text-decoration:none;
+}

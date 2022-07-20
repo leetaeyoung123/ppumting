@@ -67,7 +67,6 @@ body {
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
-  text-shadow: 0 1px 12px black;
 }
 
 /* Declare heights because of positioning of img element */
@@ -84,11 +83,12 @@ body {
 
 .carousel-item:nth-child(1) {
   background-image: url("../../../img/slider_img01.jpg");
+  background-origin: content-box;
   background-size: cover;
 }
 
 .carousel-item:nth-child(2) {
-  background-image: url("../../../img/slider_img02.png");
+  background-image: url("../../../img/slider_img02.jpg");
   background-size: cover;
 }
 
@@ -108,6 +108,11 @@ body {
   font-family: 'MICEMyungjo';
 }
 
+.col-lg-4 .input {
+	display: flex;
+	justify-content: center;
+	aligns-items: center;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -124,6 +129,28 @@ body {
 .marketing .col-lg-4 p {
   margin-right: .75rem;
   margin-left: .75rem;
+}
+
+.input-man {
+	text-align: center;
+	width: 150px;
+    height: 40px;
+    padding: 5px;
+    padding-left: 20px;
+    border: 3px solid #d5ecf7;
+    border-radius: 25px;
+    background-color: #d5ecf7;
+}
+
+.button-man {
+	width: 140px;
+    height: 40px;
+    border: 5px solid #0078AA;
+    background: #0078AA;
+    color: #F6F6F6;
+    border-radius: 25px;
+    margin-top: 5px;
+    cursor: pointer;
 }
 /* rtl:end:ignore */
 
@@ -165,3 +192,4 @@ body {
     margin-top: 7rem;
   }
 }
+

@@ -11,19 +11,21 @@ public class Qna {
 	private String qnaTitle;
 	private String qnaContent;
 	private Date qnaRegDate;
+	private String qnaViews;
 	private List<Replay> replays;
 	
 	public Qna() {
 		
 	}
 
-	public Qna(String qnaNo, String userId, String qnaTitle, String qnaContent, Date qnaRegDate) {
+	public Qna(String qnaNo, String userId, String qnaTitle, String qnaContent, Date qnaRegDate, String qnaViews) {
 		super();
 		this.qnaNo = qnaNo;
 		this.userId = userId;
 		this.qnaTitle = qnaTitle;
 		this.qnaContent = qnaContent;
 		this.qnaRegDate = qnaRegDate;
+		this.qnaViews = qnaViews;
 	}
 
 	public String getQnaNo() {
@@ -64,6 +66,14 @@ public class Qna {
 
 	public void setQnaRegDate(Date qnaRegDate) {
 		this.qnaRegDate = qnaRegDate;
+	}
+	
+	public String getQnaViews() {
+		return qnaViews;
+	}
+
+	public void setQnaViews(String qnaViews) {
+		this.qnaViews = qnaViews;
 	}
 	
 	public List<Replay> getReplays() {
