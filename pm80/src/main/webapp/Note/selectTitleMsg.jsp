@@ -55,6 +55,7 @@
        <span class="users">보낸이</span>
        <span class="titles">제목</span>
        <span class="dates">보낸 날짜</span>
+       <hr>
        <c:forEach var = "receiveTitle" items="${receiveTitles}">
 		<a class="notes" onclick="window.open('notemsg?no=${receiveTitle.no}', '_blank', 'width=600 height=600')">
 		<span class="user">${receiveTitle.sendUserId}</span>
@@ -69,6 +70,7 @@
        <span class="users">받은이</span>
        <span class="titles">제목</span>
        <span class="dates">보낸 날짜</span>
+       <hr>
        <c:forEach var = "sendTitle" items="${sendTitles}">
 		<a class="notes" onclick="window.open('notemsg?no=${sendTitle.no}', '_blank', 'width=600 height=600')">
 		 <span class="user">${sendTitle.receiveUserId}</span> 

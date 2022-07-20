@@ -11,6 +11,8 @@ CREATE TABLE Trainer (
 
 -- ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);
 
+ALTER TABLE Trainer MODIFY Price MEDIUMTEXT;
+
 SELECT * FROM Trainer;
 DROP TABLE Trainer;
 DELETE FROM Trainer WHERE name = '찐마동석';

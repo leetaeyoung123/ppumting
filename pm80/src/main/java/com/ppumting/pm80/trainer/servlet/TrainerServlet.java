@@ -31,6 +31,7 @@ public class TrainerServlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
+		String price = request.getParameter("price");
 
 		List<String> errorMsgs = new ArrayList<>();
 		if(trainerId == null || trainerId.length() == 0) {
@@ -63,6 +64,7 @@ public class TrainerServlet extends HttpServlet {
 		trainer.setSsn(ssn);
 		trainer.setPhone(phone);
 		trainer.setAddr(addr1+ " " + addr2);
+		trainer.setPrice(price);
 
 		trainerService.addTrainer(trainer);
 		request.setAttribute("trainer", trainer);

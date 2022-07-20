@@ -48,7 +48,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">게시판</a>
+            <a class="nav-link" aria-current="page" href="../Qna/qnaInfo/find.do">게시판</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pm80/Trainer/mypage.jsp">P.P.T</a>
@@ -97,7 +97,7 @@
     <hr class="featurette-divider">
 
     <div class="row featurette" style="flex-wrap:nowrap;">
-      <div class="col-md-7 order-md-2" style="width: 48%;">
+      <div class="col-md-7-2 order-md-2" style="width: 48%;">
         <h2 class="featurette-heading">양치승 <br> <span class="text-muted">"아직도 운동 안 하고 먹기만 하냐?!"</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
@@ -121,7 +121,7 @@
     <hr class="featurette-divider">
 
     <div class="row featurette" style="flex-wrap:nowrap;">
-      <div class="col-md-7 order-md-2" style="width: 48%;">
+      <div class="col-md-7-2 order-md-2" style="width: 48%;">
         <h2 class="featurette-heading">권상우 <br> <span class="text-muted">"니가 그렇게 운동을 잘해? 헬스장으로 따라와.."</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
