@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +16,19 @@
 <script type="text/javascript">
 function sendComplete() {
 	alert('쪽지 전송 완료');
-	opener.location.reload();
 	window.opner.location.href="/Note/sendMsg";
+    window.close();
+    window.close();
+    opener.location.reload();
+    opener.location.reload();
 }
 </script>
 
   <body>
     <div id="smWrap">
       <form action="sendMsg" method="post">
-      <h1 class="sendMsg">쪽지 보내기</h1>
-      보내실 분 ID : <input class="receiveUserId" type="text" name="receiveUserId">
+      <h1 class="sendMsg">답장 보내기</h1>
+      보내실 분 ID : <input class="receiveUserId" type="text" value = "${receiveUserId }" readonly name="receiveUserId">
       <input type="text" name="title" maxlength="30" placeholder="제목은 최대 30자까지 입력가능합니다." class="title"><br>
       <div class= "text_box">
       <textarea name="msg"></textarea><br>
