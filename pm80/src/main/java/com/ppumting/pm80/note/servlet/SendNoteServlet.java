@@ -22,14 +22,14 @@ public class SendNoteServlet extends HttpServlet {
 		super.init();
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response, HttpSession session) 
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
 		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
 		String receiveUserId = request.getParameter("receiveUserId");
-		HttpSession session = request.getSession(false);
+		session = request.getSession(false);
 		String sendUserId = (String) session.getAttribute("userId");
 		
 		Note note = new Note();
