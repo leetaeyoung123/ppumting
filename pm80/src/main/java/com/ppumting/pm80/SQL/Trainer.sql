@@ -15,7 +15,7 @@ ALTER TABLE Trainer MODIFY Price MEDIUMTEXT;
 
 SELECT * FROM Trainer;
 DROP TABLE Trainer;
-DELETE FROM Trainer WHERE trainerId = 'pt4';
+DELETE FROM Trainer WHERE trainerId = 'admin1';
 
 INSERT INTO Trainer (name, ssn, phone, trainerId, passwd, addr, price)
 VALUES('마동석', '950512', '010-1212-1212', 'pt1', '1234', 'daegu', 300000);

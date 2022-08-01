@@ -11,9 +11,12 @@
     <title>관리자 로그인</title>
   </head>
   <body>
+  <div id="admin">
+    <img src="../img/setting.png" style="width:30px;height:30px;cursor:pointer;position:absolute;top:50px;right:50px;" onclick="location.href='http://localhost:8080/pm80/Trainer/loginout/admin'"/>
+  </div>
     <div id="wrap">
       <header id="header">
-        <h1 class="logo">관리자 로그인<h1>
+        <h1 class="logo">관리자 로그인</h1>
       </header>
       <div id="login_wrap">
         <form class="login_form" action="admin" method="post">

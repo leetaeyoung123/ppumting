@@ -11,6 +11,9 @@
     <title>로그인 | ppumting</title>
   </head>
   <body>
+  <div id="admin">
+    <img src="../img/setting.png" style="width:30px;height:30px;cursor:pointer;position:absolute;top:50px;right:50px;" onclick="location.href='http://localhost:8080/pm80/Trainer/loginout/admin'"/>
+  </div>
     <div id="wrap">
       <header id="header">
         <h1 class="logo">PPUMTING | 건강한 만남의 시작<h1>
