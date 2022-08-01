@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.trainer.service.TrainerService;
 
-@WebServlet("/Trainer/loginout/login")
+@WebServlet("/Trainer/loginout/admin")
 public class LoginTrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +23,7 @@ public class LoginTrainerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		request.getRequestDispatcher("login.jsp").forward(request,  response);
+		request.getRequestDispatcher("admin.jsp").forward(request,  response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -37,7 +37,7 @@ public class LoginTrainerServlet extends HttpServlet {
 			session.setAttribute("trainerId", trainerId);
 			response.sendRedirect("../mypage.jsp");
 		}else {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("admin.jsp").forward(request, response);
 			return;
 		}
 		
