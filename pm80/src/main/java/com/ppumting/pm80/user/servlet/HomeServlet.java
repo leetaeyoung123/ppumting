@@ -76,6 +76,7 @@ public class HomeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		
+		// 세션 주는 코드
 		HttpSession session = request.getSession(false);
 		session.setAttribute("userId", userId);
 		session.setAttribute("user", userService.userSelect(userId));
@@ -83,6 +84,7 @@ public class HomeServlet extends HttpServlet {
 		response.sendRedirect("checkPoint");
 		response.sendRedirect("addPoint");
 		response.sendRedirect("mypage");
+		response.sendRedirect("add_qna.do");
 		
 	}
 }

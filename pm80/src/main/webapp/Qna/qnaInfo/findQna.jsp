@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <link href="../findqna/style.css" rel="stylesheet">
+    <link href="../findqna/board.css" rel="stylesheet">
     
     <title>HOME | PUMTTING</title>
 
@@ -81,33 +81,32 @@
             style=" font-weight: bold;">BOARD</span></h1>
           </div>
         </div>
-      </div>
-     <<div style="height: 45px;">
-      <button class="addBu" style="width: 50px;height: 30px;margin: 0 auto;position: relative;display: flex;left: 600px; border-color: red;"><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'  
-      style="text-align: center; text-decoration: none; font-weight: bold;" >등록</button> 
       </div> 
-      
-      
-      <div class="form" style="text-decoration: none;text-align: center;display: flex;justify-content: center; border: 1px solid black; height: 600px;">
-	<form action="find.do" method="post" style="text-align: center;"><br>
-	<c:forEach var="qna" items="${qnaList}">
-		<div style="font-size: 20px;font-weight: bold;border-bottom: 1px solid black;">
-		<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none;text-align: center;display: flex;justify-content: center;"><br>
-		<!-- ${qna.qnaNo}.&nbsp; -->
-		<span>제목 :</span> <input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 30px;">
-		</a>
-		</div>
-	</c:forEach>
-	</form>
-	<br>
-	<br>
+
+      </div>
+      <div class="form">
+     	<form action="find.do" method="post" style="text-align: center;"><br>
+			<c:forEach var="qna" items="${qnaList}">
+				<div>
+					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none;text-align: center;display: flex;justify-content: center; margin-bottom: 10px;"><br>
+					<!-- ${qna.qnaNo}.&nbsp; -->
+					<div style="font-size: xx-large;">제목 : <input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 30px;"></div>
+					</a>
+				</div>
+			</c:forEach>
+		</form>
+		<br>
+		<br>
 	</div>
+	  <div style="height: 45px;">
+      	<button class="addBu"><a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>등록</a></button> 
+      </div>
 	
 	
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#" style="position: absolute; bottom: 20px;">Back to top</a></p>
-    <p style="position: absolute; bottom: 0;">&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p class="float-end"><a href="#" style="position: fixed; bottom: 20px;">Back to top</a></p>
+    <p style="position: fixed; bottom: 0;">&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 	
 </body>
