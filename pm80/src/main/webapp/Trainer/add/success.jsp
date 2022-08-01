@@ -31,7 +31,7 @@
       이름 : <jsp:getProperty property="name" name="trainer"/><br>
    </div>
    
-<input type="button" value="회원정보" onclick="location.href='http://localhost:8080/pm80/Trainer/mypage.jsp'"/>
+<input type="button" value="로그인하기" onclick="location.href='http://localhost:8080/pm80/Trainer/loginout/admin.jsp'"/>
 </div>
  
 </body>

@@ -7,16 +7,16 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../ico/favicon-32x32.png">
     <link rel="stylesheet" href="logincss/normalize.css">
-    <link rel="stylesheet" type="text/css" href="signupcss/style.css">
+    <link rel="stylesheet" type="text/css" href="adminlogin.css">
     <title>관리자 로그인</title>
   </head>
   <body>
     <div id="wrap">
       <header id="header">
-        <h1 class="logo">PPUMTING | 건강한 만남의 시작<h1>
+        <h1 class="logo">관리자 로그인<h1>
       </header>
       <div id="login_wrap">
-        <form class="login_form" action="login" method="post">
+        <form class="login_form" action="admin" method="post">
         <div class="id_input">
           <input type="text" name="trainerId" placeholder="아이디"/>
         </div>
