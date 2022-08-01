@@ -1,7 +1,6 @@
 package com.ppumting.pm80.note.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +12,8 @@ import javax.servlet.http.HttpSession;
 import com.ppumting.pm80.note.domain.Note;
 import com.ppumting.pm80.note.service.NoteService;
 
-@WebServlet("/Note/sendMsg")
-public class SendNoteServlet extends HttpServlet {
+@WebServlet("/Note/resendMsg")
+public class ReSendNoteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
 	private NoteService service = NoteService.getInstance();
@@ -24,10 +23,19 @@ public class SendNoteServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		System.out.println(request.getParameter("receiveUserId"));
+		request.setAttribute("receiveUserId", request.getParameter("receiveUserId"));
+		
+		request.getRequestDispatcher("resendMsg.jsp").forward(request, response);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		String title = request.getParameter("title");
 		String msg = request.getParameter("msg");
 		String receiveUserId = request.getParameter("receiveUserId");
