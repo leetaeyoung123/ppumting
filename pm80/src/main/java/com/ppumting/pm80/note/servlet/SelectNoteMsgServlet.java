@@ -26,7 +26,6 @@ public class SelectNoteMsgServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Note rcvNotes = new Note();
 		Note sendNotes = new Note();
-		
 		rcvNotes = service.viewRcvMsg(request.getParameter("no"));
 		sendNotes = service.viewSendMsg(request.getParameter("no"));
 		request.setAttribute("rcvNotes", rcvNotes);
