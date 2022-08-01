@@ -13,7 +13,7 @@
   <body>
     <div id="wrap">
       <header id="header">
-        <h1 class="logo">PPUMTING | 트레이너 회원가입<h1>
+        <h1 class="logo">PPUMTING | 트레이너 회원가입</h1>
       </header>
       
       

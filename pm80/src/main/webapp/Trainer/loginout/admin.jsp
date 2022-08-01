@@ -30,8 +30,8 @@
         </form>
       </div>
       <div class="sign_up">
-        <span>관리자 <a href='<c:url value="../add/addTrainer.jsp"/>'>회원가입</a></span>
-      </div>
+        <span>트레이너 <a href='<c:url value="../add/addTrainer.jsp"/>'>회원가입</a></span>
+      </div><br>
       <footer id="footer">
         <span class="text">Copyright</span>
         <span class="corp">© PPUMTING Corp.</span>
