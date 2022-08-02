@@ -37,4 +37,8 @@ public class Userservice {
 		userdao.updateUser(user);
 		
 	}
+	
+	public boolean checkUserId(String userId) {
+		return userdao.checkUserId(userId);
+	}
 }

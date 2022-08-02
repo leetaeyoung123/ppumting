@@ -150,6 +150,38 @@ public class Userdao {
 		}
 		return checkResult;
 	}
+	
+	public boolean checkUserId(String userId) {
+		String sql = "SELECT userId FROM Users WHERE userId = ? ";
+		boolean checkId = false;
+		User user = new User();
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, userId);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					user.setUserId(rs.getString("userId"));
+					if(!userId.equals(user.getUserId())) {
+						checkId = true;
+					}
+					else if(user.getUserId() == null) {
+						System.out.println(userId);
+						checkId = true;
+					}
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return checkId;
+	}
 
 	public void updateUser(User user) {
 		String sql = "UPDATE Users SET pw = ?, name = ?, phone = ?, addr = ? WHERE userId = ?";
