@@ -57,6 +57,7 @@ public class HomeServlet extends HttpServlet {
 		request.setAttribute("countNote", countNote);
 
 		request.getRequestDispatcher("home.jsp").forward(request, response);
+		request.getRequestDispatcher("banner.jsp").forward(request, response);
 	}
 
 	private Cookie lastAccessTime() {
