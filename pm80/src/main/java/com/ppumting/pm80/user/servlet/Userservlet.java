@@ -25,7 +25,8 @@ public class Userservlet extends HttpServlet {
 		userService = new Userservice();
 		pointService = new PointService();
 	}
-	
+		
+	//회원가입
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		

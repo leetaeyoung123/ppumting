@@ -82,7 +82,7 @@ public class PointDao {
 		return result;
 	}
 	
-	// 계좌 조회 		
+	// 계좌번호 조회 		
 	public String checkAccountNum(String userId) {
 		String sql = "SELECT accountNum FROM Point p INNER JOIN " +
 				"Users u ON p.userId = u.userId WHERE u.userId = ?";
@@ -168,7 +168,6 @@ public class PointDao {
 	public boolean addPoint(String userId, long point) {
 		String sql = "UPDATE Point SET point=? WHERE userId=?";
 		boolean result = false;
-
 		try {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -203,10 +202,10 @@ public class PointDao {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
 				if ( pointdao.isValidUser(userId) ) {
-					long x = Long.parseLong(pointdao.checkPoint(userId));
-					long y = Long.parseLong(trainerPrice);
-					long z = Long.parseLong(month);
-					if( (x-y) >= 0) {
+					long x = Long.parseLong(pointdao.checkPoint(userId)); //사용자가 보유한 포인트
+					long y = Long.parseLong(trainerPrice); // 트레이너 몸값
+					long z = Long.parseLong(month); // 개월 수
+					if( x-(y*z) >= 0) {
 						stmt.setLong(1, x - (y*z) );
 						stmt.setString(2, userId);
 						stmt.executeUpdate();
@@ -217,6 +216,7 @@ public class PointDao {
 					}
 				}else {
 					//없는 아이디 입력했을 때
+					result = false;
 				}
 			} finally {
 				stmt.close();

@@ -55,7 +55,7 @@
             <a class="nav-link" aria-current="page" href='<c:url value="/Qna/qnaInfo/find.do"/>'>게시판</a> 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../Trainer/mypage.jsp">P.P.T</a>
+            <a class="nav-link" aria-current="page" href='<c:url value="/Trainer/mypage"/>'>P.P.T</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Info</a>
@@ -68,7 +68,7 @@
           <button class="login_btn"><a href='<c:url value="/User/mypage/userUpdate/userSelect"/>'>수정</a></button>
           포인트 : ${checkPoint}p
           <button class="login_btn"><a href='<c:url value="/point/addPoint"/>'>충전</a></button>
-          <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/logout"/>'>로그아웃</a></button>
+          <button class="login_btn"><a href='<c:url value="/User/mypage/loginout/login.jsp"/>'>로그아웃</a></button>
         </div>
       </div>
     </div>

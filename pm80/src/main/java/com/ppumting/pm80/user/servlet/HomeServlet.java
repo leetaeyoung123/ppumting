@@ -34,14 +34,16 @@ public class HomeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");
+		String checkPoint = pointService.checkPoint(userId);
 		
 		long countNote = service.countNote(userId);
 		
-		if (userId == null) {
+		if (userId == null) { //세션 ID가 유지가 안됬을때 로그인 화면으로 보냄
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
-		request.setAttribute("checkPoint", pointService.checkPoint(userId));
+		
+		request.setAttribute("checkPoint", checkPoint);
 		
 		Cookie[] cookies = request.getCookies();
 		for (Cookie cookie : cookies) {
@@ -74,17 +76,14 @@ public class HomeServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		String userId = request.getParameter("userId");
-		
-		// 세션 주는 코드
-		HttpSession session = request.getSession(false);
-		session.setAttribute("userId", userId);
-		session.setAttribute("user", userService.userSelect(userId));
-		response.sendRedirect("userUpdate");
-		response.sendRedirect("checkPoint");
-		response.sendRedirect("addPoint");
-		response.sendRedirect("mypage");
-		response.sendRedirect("add_qna.do");
-		
+//		String userId = request.getParameter("userId");
+//		
+//		// 세션 주는 코드
+//		HttpSession session = request.getSession(true);
+//		session.setAttribute("userId", userId);
+//		session.setAttribute("user", userService.userSelect(userId));
+//		response.sendRedirect("userUpdate");
+//		response.sendRedirect("addPoint");
+//		response.sendRedirect("add_qna.do");
 	}
 }
