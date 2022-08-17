@@ -85,12 +85,20 @@
 
       </div>
       <div class="form">
+      <div style="font-size: 30px;display: flex; margin-left: 100px;">
+      <span style="border-bottom: 2px solid black; color: #0d6efd;">제목</span> 
+      <span style="margin-left: 310px; border-bottom: 2px solid black; color: #0d6efd;">아이디</span> 
+      <span style="margin-left: 310px; border-bottom: 2px solid black; color: #0d6efd;">게시일자</span>
+      </div> 
+      
      	<form action="find.do" method="post" style="text-align: center;"><br>
 			<c:forEach var="qna" items="${qnaList}">
 				<div>
-					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none;text-align: center;display: flex;justify-content: center; margin-bottom: 10px;"><br>
+					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none; text-align: center; display: flex; margin-bottom: 10px; margin-bottom: 20px;"><br>
 					<!-- ${qna.qnaNo}.&nbsp; -->
-					<div style="font-size: xx-large;">제목 : <input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 30px;"></div>
+					<div style="font-size: xx-large;"><input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 40px;"></div>
+					<div style="font-size: xx-large;"><input type="text" value="${qna.userId}" style="border: none; margin-left: 40px;"></div>
+					<div style="font-size: xx-large;"><input type="text" value="${qna.qnaRegDate}" style="border: none; margin-left: 40px;"></div>
 					</a>
 				</div>
 			</c:forEach>
