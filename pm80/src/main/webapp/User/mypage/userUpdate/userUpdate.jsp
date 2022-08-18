@@ -46,7 +46,7 @@
 				</div>
 				<button class="update_btn" type="submit">회원정보 수정완료</button>
 			</form>
-				<form action="../delete/deleteUser">
+				<form action="/User/mypage/loginout/login">
 					<button class="delete_btn" type="submit">회원탈퇴</button>
 				</form>
 

@@ -21,8 +21,8 @@ import com.ppumting.pm80.user.service.Userservice;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Userservice userService;
-//	받은 쪽지의 갯수를 확인하기위해 노트서비스 추가
-	private NoteService service = NoteService.getInstance();
+
+	private NoteService service = NoteService.getInstance(); //	받은 쪽지의 갯수를 확인하기위해 노트서비스 추가
 	private PointService pointService;
 
 	public void init() {
