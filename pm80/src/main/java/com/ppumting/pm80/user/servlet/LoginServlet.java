@@ -71,15 +71,13 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String pw = request.getParameter("pw");
 
-//		받아온 세션의 유저아이디로 받은쪽지의 갯수를 알려주는 서비스 호출
-		long countNote = service.countNote(userId);
-		
 
 		if (!userService.login(userId, pw)) {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
 
+		long countNote = service.countNote(userId);
 		HttpSession session = request.getSession(true);
 		
 		String checkPoint = pointService.checkPoint(userId);

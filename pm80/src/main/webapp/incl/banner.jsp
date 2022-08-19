@@ -21,7 +21,7 @@
 						<li class="nav-item"><a class="nav-link" aria-current="page"
 							href='<c:url value="/Qna/qnaInfo/find.do"/>'>게시판</a></li>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href='<c:url value="/Trainer/mypage"/>'>P.P.T</a></li>
+							href='<c:url value="/point/minusPoint"/>'>P.P.T</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">Info</a></li>
 					</ul>
 					<div class="login_info">

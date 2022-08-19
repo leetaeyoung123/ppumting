@@ -71,10 +71,6 @@
         
         
       </div>
-      	 <form action="findTrainer" method="post">
-			<input type="submit" value="트레이너 조회" style="margin-left:45%;"><br>
-	 	 </form>
-      <br><br>
       <footer id="footer">
         <span class="text">Copyright</span>
         <span class="corp">© PPUMTING Corp.</span>

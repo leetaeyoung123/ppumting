@@ -65,6 +65,7 @@
 						<img class="radius_img" src="../img/radius_img01.jpg" alt="">
 						<h2>김종국</h2>
 						<p>"포기란 없다"</p>
+						<p>1개월 - 300,000원</p>
 						<input type="radio" name="trainerPrice" value="300000">
 					</div>
 					<!-- /.col-lg-4 -->
@@ -72,6 +73,7 @@
 						<img class="radius_img" src="../img/radius_img02.jpg" alt="">
 						<h2>마동석</h2>
 						<p>"좋은 몸은 하루아침에 만들어지지 않는다."</p>
+						<p>1개월 - 200,000원</p>
 						<input type="radio" name="trainerPrice" value="200000">
 					</div>
 					<!-- /.col-lg-4 -->
@@ -79,6 +81,7 @@
 						<img class="radius_img" src="../img/radius_img03.jpg" alt="">
 						<h2>양치승</h2>
 						<p>'한계'라고 느낄 때 '한 개'를 더 해야 성장한다.</p>
+						<p>1개월 - 400,000원</p>
 						<input type="radio" name="trainerPrice" value="400000">
 					</div>
 					<!-- /.col-lg-4 -->

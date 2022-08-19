@@ -33,13 +33,12 @@ public class PointDao {
 			Connection con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			try {
-				if (pointdao.isValidUser(userId)) { // userId가 존재한다면
-					//회원가입은 했지만 유저의 계좌가 없다면
+				if (pointdao.isValidUser(userId)) { 
 					if( pointdao.checkAccountNum(userId) == null ) { //생성해주기
 						stmt.setString(1, result);
 						stmt.setString(2, userId);
 						stmt.executeUpdate();
-					}else { //이미 계좌가 있다면 null 반환
+					}else { 
 						result = null;
 					}
 				} else {
