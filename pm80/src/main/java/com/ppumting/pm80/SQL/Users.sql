@@ -16,3 +16,6 @@ DELETE FROM Users WHERE userId = wed456;
 
 INSERT INTO Users (name, ssn, phone, userId, pw, addr)
 VALUES('이태영', '970312', '010-2881-2498', 'lty', '1234', 'daegu');
+
+INSERT INTO Users (name, ssn, phone, userId, pw, addr)
+VALUES('이성호', '930418', '010-2503-4372', 'tjdgh7984', '1234', 'daegu');

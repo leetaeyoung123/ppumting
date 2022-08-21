@@ -51,47 +51,41 @@
 		</jsp:include>
 	</div>
 	<%-- content Area --%>
-	<div class="trainer-wrapper">
-		<div class="inner">
-			<div class="trainer-container">
-				<h1 style="margin-top: 50px; text-align: center;">
-					<span class="trainer-hover" style="font-weight: bold;">BOARD</span>
-				</h1>
-			</div>
-		</div>
-	</div>
 
   <div class="trainer-wrapper">
         <div class="inner">
           <div class="trainer-container">
-            <h1 style="margin-top: 50px; text-align: center;"><span class="trainer-hover"
+            <h1 style="margin-top: 50px; margin-bottom: 50px; text-align: center;"><span class="trainer-hover"
             style=" font-weight: bold;">BOARD</span></h1>
           </div>
         </div>
       </div>
-
+ 
+      <div style="border: 1px solid black;">
+      <div style="font-size: 28px; display: flex; border-bottom: 1px solid black; padding-top: 20px; padding-bottom: 20px;">
+      <span style="color: #0d6efd; margin-left: 240px; font-weight: bold;">제목</span>
+      <span style="margin-left: 270px; color: #0d6efd; font-weight: bold;">아이디</span>
+      <span style="margin-left: 300px; color: #0d6efd; font-weight: bold;">게시일자</span>
       </div>
-      <div class="form">
-      <div style="font-size: 30px;display: flex; margin-left: 100px;">
-      <span style="border-bottom: 2px solid black; color: #0d6efd;">제목</span>
-      <span style="margin-left: 310px; border-bottom: 2px solid black; color: #0d6efd;">아이디</span>
-      <span style="margin-left: 310px; border-bottom: 2px solid black; color: #0d6efd;">게시일자</span>
-      </div>
-
+		
+		<div class="form">
      	<form action="find.do" method="post" style="text-align: center;"><br>
 			<c:forEach var="qna" items="${qnaList}">
-				<div>
-					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="text-decoration: none; text-align: center; display: flex; margin-bottom: 10px; margin-bottom: 20px;"><br>
+				<div  style="text-decoration: none; text-align: center; display: flex; margin-bottom: 20px; font-size: 30px; border-bottom: 1px solid black; padding-bottom: 30px;">
+					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}"><br>
 					<!-- ${qna.qnaNo}.&nbsp; -->
-					<div style="font-size: xx-large;"><input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 40px;"></div>
-					<div style="font-size: xx-large;"><input type="text" value="${qna.userId}" style="border: none; margin-left: 40px;"></div>
-					<div style="font-size: xx-large;"><input type="text" value="${qna.qnaRegDate}" style="border: none; margin-left: 40px;"></div>
+					<input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 95px; text-align: center; /">
 					</a>
+					<div style="border: none;/* margin-left: 10px; */text-align: center;color: black;font-weight: 500;margin-left: 100px;">${qna.userId}</div>
+					<div style="border: none;/* margin-left: 10px; */text-align: center;color: black;font-weight: 500;margin-left: 265px;">${qna.qnaRegDate}</div>
 				</div>
 			</c:forEach>
 		</form>
-		<br> <br>
+		</div>
+		<br>
 	</div>
+	
+	<!-- 등록버튼 -->
 	<div style="height: 45px;">
 		<button class="addBu">
 			<a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>등록</a>
