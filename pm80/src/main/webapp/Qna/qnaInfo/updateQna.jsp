@@ -14,6 +14,7 @@
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.88.1">
 <link href="../findqna/success.css" rel="stylesheet">
+<link href="../findqna/addQna.css" rel="stylesheet">
 
 <title>HOME | PUMTTING</title>
 
@@ -63,15 +64,15 @@
 	</div>
 <body>
 	<form action="find.do" method="post" style="text-align: center;">
-		<br>
-		<div style="width: auto; height: 100px; text-align: center;">
-			<a style="color: black; text-decoration: none; border:3px solid black;"
+	<div class="addBu" style="text-decoration: none;font-weight: bold;font-size: 20px; margin-top: 150px;">
+			<a class="addBu" style="text-decoration: none;"
 				aria-current="page" href='<c:url value="/Qna/qnaInfo/find.do"/>'>완료</a>
-		</div>
+				</div>
+		
 	</form>
 
 	<%-- footer Area --%>
-	<div id="footer">
+	<div id="footer"style=" margin-top: 250px;">
 		<%@ include file="/incl/footer.jsp"%>
 	</div>
 </body>

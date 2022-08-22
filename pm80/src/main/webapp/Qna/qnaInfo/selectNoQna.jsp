@@ -94,29 +94,28 @@
 			<div class="trainer-container">
 				<h1
 					style="margin-top: 50px; text-align: center; margin-bottom: 30px;">
-					<span class="trainer-hover" style="font-weight: bold;">게시글
-						보기</span>
+					<span class="trainer-hover" style="font-weight: bold; color: #0d6efd;">게시글보기</span>
 				</h1>
 			</div>
 		</div>
 	</div>
 	<div class="board">
 		<!-- qnas는 servlet에 있는 setAttribute안에 키값이랑 같아야 함 -->
-		<div
-			style="font-size: xx-large; margin-bottom: 20px; margin-top: 20px;">No
-			: ${qnas.qnaNo}</div>
-		<br>
-		<div style="font-size: xx-large; margin-bottom: 20px;">제목 :
-			${qnas.qnaTitle}</div>
-		<br>
-		<div style="font-size: xx-large; margin-bottom: 20px;">게시글 내용 :
+<%-- 		<div style="font-weight: bold; margin-top: 20px; font-size:30px;">No
+			 ${qnas.qnaNo}</div>
+		<br> --%>
+		<div style="font-weight: bold; font-size: 20px; background-color: #f9f9f9; padding-top: 20px; padding-bottom: 20px;">
+			<span style="font-weight: bold;">${qnas.qnaTitle}</span></div>
+
+		<div style="font-weight: bold; margin-bottom: 20px; font-size: 20px; display: flex; justify-content: space-between; margin-top: 20px; 
+						border-bottom: 1px solid #e3e3e3; padding-bottom: 20px;">
+		<span style="margin-left: 50px; font-weight: 300;">${qnas.userId}</span> 
+		<span style="margin-right: 50px; font-weight: 300;">${qnas.qnaRegDate}</span>
+		</div>
+
+		<div style="font-weight: bold;margin-bottom: 20px;font-size: 20px;margin-top: 20px; margin-top: 160px; font-weight: 300;">
 			${qnas.qnaContent}</div>
-		<br>
-		<div style="font-size: xx-large; margin-bottom: 20px;">작성자 아이디 :
-			${qnas.userId}</div>
-		<br>
-		<div style="font-size: xx-large; margin-bottom: 20px;">등록 일자 :
-			${qnas.qnaRegDate}</div>
+		
 	</div>
 	<c:if test="${check == false}">
 		<div
@@ -124,22 +123,24 @@
 			<a class="addBu" onclick="back()" style="text-decoration: none;">뒤로가기</a>
 		</div>
 	</c:if>
+	
 	<c:if test="${check == true}">
-		<form action="modifyQna.do" method="post">
-			<!--  <button type="submit" value="${qnas.qnaNo}" name="qnaNo">수정</button> -->
-			<button type="submit" value="${qnas.qnaNo}" name="qnaNo"
-				onclick="location.href='modifyQna.jsp'" class="addBu">
-				<span style="font-size: 30px; line-height: 38px;" class="ft">수정</span>
-			</button>
-		</form>
-		<form action="deleteQna.do" method="post">
-			<button type="submit" value="${qnas.qnaNo}" name="qnaNo"
-				class="addBu">
-				<span style="font-size: 30px; line-height: 38px;" class="ft">삭제</span>
-			</button>
-		</form>
+			<form action="modifyQna.do" method="post">
+				<button type="submit" value="${qnas.qnaNo}" name="qnaNo"
+					onclick="location.href='modifyQna.jsp'" class="addBu" style="margin-top: 20px;">
+					<span style="font-size: 30px; line-height: 38px;" class="ft">수정</span>
+				</button>
+			</form>	
+			
+			<form action="deleteQna.do" method="post">
+				<button type="submit" value="${qnas.qnaNo}" name="qnaNo"
+					class="addBu" style="margin-top: 20px;">
+					<span style="font-size: 30px; line-height: 38px;" class="ft">삭제</span>
+				</button>
+			</form>
+		
 		<div
-			style="width: 100%; height: 50px; display: flex; text-align: center; font-size: 30px; line-height: 38px;">
+			style="width: 100%; height: 50px; display: flex; text-align: center; font-size: 30px; line-height: 38px; margin-top: -20px;">
 			<a class="addBu" onclick="back()" style="text-decoration: none;">뒤로가기</a>
 		</div>
 	</c:if>
@@ -148,7 +149,7 @@
 	<!-- FOOTER -->
 	<footer class="container">
 		<p class="float-end">
-			<a href="#" style="position: fixed; bottom: 20px;">Back to top</a>
+			<a href="#" style="position: fixed; ">Back to top</a>
 		</p>
 		<p style="position: fixed; bottom: 0;">
 			&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a>

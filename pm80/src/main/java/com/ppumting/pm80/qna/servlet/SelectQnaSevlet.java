@@ -26,6 +26,7 @@ public class SelectQnaSevlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Qna qnas = new Qna();
+		
 		qnas = service.viewQna(request.getParameter("qnaNo"));
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");

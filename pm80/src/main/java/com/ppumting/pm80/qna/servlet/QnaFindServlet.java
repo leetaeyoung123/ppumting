@@ -40,9 +40,14 @@ public class QnaFindServlet extends HttpServlet {
 		RequestDispatcher dispacher = null;
 		
 		qnaList = qnaService.getfindNoQna();
+		int count = 0;
+		for (int i = 0; i < qnaList.size(); i++) {
+			count ++;
+		}
 		
 		request.setAttribute("checkPoint", checkPoint);
 		request.setAttribute("qnaList", qnaList);
+		request.setAttribute("count", count);
 //		System.out.println("실행됨");
 		
 		dispacher = request.getRequestDispatcher("findQna.jsp");

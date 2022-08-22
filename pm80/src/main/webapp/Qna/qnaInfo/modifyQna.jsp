@@ -73,23 +73,39 @@
     </div>
   </nav>
 </header>
+
   <div class="trainer-wrapper">
         <div class="inner">
           <div class="trainer-container">
             <h1 style="margin-top: 50px; text-align: center; margin-bottom: 30px;"><span class="trainer-hover" 
-            style=" font-weight: bold;">게시글 보기</span></h1>
+            style=" font-weight: bold; color: #0d6efd;">게시글 보기</span></h1>
           </div>
         </div>
       </div>   
-	<h4 style="margin-left: 800px;">제목 or 내용을 변경해 주세요</h4>
-	<div>
+	<h4 style="margin-left: 775px;color: black;font-weight: bold;">★제목과 내용을 변경해 주세요★</h4>
+	
 	<form action="update.do" method="post" class="form">
-	<div><span style="font-weight: bold; font-size: 25px;">게시글 번호: </span> <input type="text" name="qna_no" value="${qnas.qnaNo}" readonly></div><br>
-	<div><span style="font-weight: bold; font-size: 25px;">제목 </span> <input type="text" name="qna_title" value="${qnas.qnaTitle}"></div><br>
-	<div><span style="font-weight: bold;font-size: 25px;">내용 </span><br> <input type="text" name="qna_content" value="${qnas.qnaContent}" class="content"></div><br>
-	<div><span style="font-weight: bold; font-size: 25px;">게시일자 </span> <input type="text" name="qna_reg_date" value="${qnas.qnaRegDate}" disabled></div><br>
+	
+	<div style="margin-bottom: 20px;">
+	<span style="font-weight: 400; font-size: 25px;  color: black;">게시글 번호: </span> 
+	<input type="text" name="qna_no" value="${qnas.qnaNo}" style="text-align: center;" readonly><br>
 	</div>
-		<input type="submit" value="게시글 수정 완료" class="addBu">
+	
+	<div style="margin-bottom: 20px;">
+	<span style="font-weight: 400; font-size: 25px; margin-right: 10px; color: black;">제목 </span> 
+	<input type="text" name="qna_title" value="${qnas.qnaTitle}" style="text-align: center;"><br>
+	</div>
+	
+	<span style="font-weight: 400;font-size: 25px; color: black;">내용 </span><br> 
+	<input type="text" name="qna_content" value="${qnas.qnaContent}" class="content" style="text-align: center;">
+	<br>
+	
+	<div style="margin-top: 30px;">
+	<span style="font-weight: 400; font-size: 25px; color: black;">게시일자</span> 
+	<input type="text" name="qna_reg_date" value="${qnas.qnaRegDate}" style="text-align: center;" disabled><br>
+	</div>
+	
+		<input type="submit" value="게시글 수정 완료" class="addBu" style="font-weight: bold; margin-left: auto; margin-top: 60px;">
 	</form>
   	
   	<!-- FOOTER -->

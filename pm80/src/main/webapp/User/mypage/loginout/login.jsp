@@ -35,8 +35,7 @@
 			</form>
 		</div>
 		<div class="sign_up">
-			<span>아직 ppumting 회원이 아니시라면 지금 바로 <a
-				href='<c:url value="../addUser/addUser.jsp"/>'>회원가입</a>해보세요!
+			<span>아직 ppumting 회원이 아니시라면 지금 바로 <a href='<c:url value="../addUser/addUser.jsp"/>'>회원가입</a>해보세요!
 			</span>
 		</div>
 		<footer id="footer">

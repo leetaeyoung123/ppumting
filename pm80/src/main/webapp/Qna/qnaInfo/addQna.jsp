@@ -84,9 +84,9 @@
       
 	<form action="add_qna.do" method="post" class="form">
 	<!-- <div><span>아이디:</span> <input type="text" name="user_id"></div><br> -->
-	<div><span style="font-weight: bold;font-size: 25px;">제목:</span> <input type="text" name="qna_title"></div><br>
-	<div><span style="font-weight: bold;font-size: 25px;">내용 </span><br> <input type="text" name="qna_content" class="content"></div><br>
-	<input type="submit" value="등록" class="addBu"> 
+	<div><span style="font-weight: 500;font-size: 25px;">제목:</span> <input type="text" name="qna_title"></div><br>
+	<div><span style="font-weight: 500;font-size: 25px;">내용 </span><br> <input type="text" name="qna_content" class="content"></div><br>
+	<input type="submit" value="등록" class="addBu" style="font-weight: bold;"> 
 	</form>
 	
 	<!-- FOOTER -->

@@ -55,46 +55,42 @@
   <div class="trainer-wrapper">
         <div class="inner">
           <div class="trainer-container">
-            <h1 style="margin-top: 50px; margin-bottom: 50px; text-align: center;"><span class="trainer-hover"
-            style=" font-weight: bold;">BOARD</span></h1>
+            <h1 style="margin-top: 50px; text-align: center; font-size: 80px;"><span class="trainer-hover"
+            style=" font-weight: bold; color: #0d6efd;">BOARD</span></h1>
           </div>
         </div>
       </div>
- 
-      <div style="border: 1px solid black;">
-      <div style="font-size: 28px; display: flex; border-bottom: 1px solid black; padding-top: 20px; padding-bottom: 20px;">
-      <span style="color: #0d6efd; margin-left: 240px; font-weight: bold;">제목</span>
-      <span style="margin-left: 270px; color: #0d6efd; font-weight: bold;">아이디</span>
-      <span style="margin-left: 300px; color: #0d6efd; font-weight: bold;">게시일자</span>
-      </div>
-		
-		<div class="form">
-     	<form action="find.do" method="post" style="text-align: center;"><br>
-			<c:forEach var="qna" items="${qnaList}">
-				<div  style="text-decoration: none; text-align: center; display: flex; margin-bottom: 20px; font-size: 30px; border-bottom: 1px solid black; padding-bottom: 30px;">
-					<a href="selectNoQna.do?qnaNo=${qna.qnaNo}"><br>
-					<!-- ${qna.qnaNo}.&nbsp; -->
-					<input type="text" value="${qna.qnaTitle}" style="border: none; margin-left: 95px; text-align: center; /">
-					</a>
-					<div style="border: none;/* margin-left: 10px; */text-align: center;color: black;font-weight: 500;margin-left: 100px;">${qna.userId}</div>
-					<div style="border: none;/* margin-left: 10px; */text-align: center;color: black;font-weight: 500;margin-left: 265px;">${qna.qnaRegDate}</div>
-				</div>
-			</c:forEach>
-		</form>
-		</div>
-		<br>
+      <div style="margin-left: 1210px;color: violet;font-weight: bold;">※ 상세보기를 원하시면 원하시는 번호를 클릭하세요</div>
+    <div class="form" style="height: 550px;">
+    <form action="find.do" method="post" style="text-align: center;"><br>
+    <table>
+    	<th>번호</th>
+		<th>제목</th>
+		<th>아이디</th>
+		<th>게시일자</th>
+		<c:forEach var="qna" items="${qnaList}" varStatus="x">	<!-- varStatus는 인덱스값 사용가능한 문법 -->
+		<tr>
+			<td style="font-weight: 400;color: black;"><a href="selectNoQna.do?qnaNo=${qna.qnaNo}" style="color: black;text-decoration: none;">${x.index+1}</td>
+			<td style="font-weight: 400;color: black;">${qna.qnaTitle}</td>
+			<td style="font-weight: 400;color: black;">${qna.userId}</td>
+			<td style="font-weight: 400;color: black;">${qna.qnaRegDate}</td>
+		</tr>
+	
+		</c:forEach>
+	</table>
+	</form>
 	</div>
 	
 	<!-- 등록버튼 -->
 	<div style="height: 45px;">
-		<button class="addBu">
-			<a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>'>등록</a>
+		<button class="addBu" style="margin-top: -50px;">
+			<a href='<c:url value="/Qna/qnaInfo/addQna.jsp"/>' style="font-weight: bold;">등록</a>
 		</button>
 	</div>
 
 
 	<%-- footer Area --%>
-	<div id="footer">
+	<div id="footer" style="margin-top: 28px;">
 		<%@ include file="/incl/footer.jsp"%>
 	</div>
 
