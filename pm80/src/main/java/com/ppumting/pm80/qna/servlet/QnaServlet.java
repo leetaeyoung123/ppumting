@@ -10,23 +10,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.qna.domain.Qna;
 import com.ppumting.pm80.qna.service.QnaService;
-import com.ppumting.pm80.user.domain.User;
 
 @WebServlet("/Qna/qnaInfo/add_qna.do")
 public class QnaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private QnaService qnaService = QnaService.getInstance();
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String userId = (String) session.getAttribute("userId");
+		if (userId == null) {
+			request.getRequestDispatcher("home").forward(request, response);
+			return;
+		}
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		// 게시판 등록에 사용될 db값 넣기
-		String userId = request.getParameter("user_id");
+		HttpSession session = request.getSession(false);
+		String userId = (String) session.getAttribute("userId");
 		String qnaTitle = request.getParameter("qna_title");
 		String qnaContent = request.getParameter("qna_content");
 		
@@ -51,8 +61,7 @@ public class QnaServlet extends HttpServlet {
 		qna.setQnaContent(qnaContent);
 		qnaService.addQna(qna);
 		request.setAttribute("qna", qna);
-		
-		dispatcher = request.getRequestDispatcher("/Qna/qnaInfo/success.jsp");
-		dispatcher.forward(request, response);
+		System.out.println(userId);
+		response.sendRedirect("find.do");
 	}
 }

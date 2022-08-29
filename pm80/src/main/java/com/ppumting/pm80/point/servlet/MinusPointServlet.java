@@ -27,6 +27,12 @@ public class MinusPointServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String userId = (String) session.getAttribute("userId");
+		String checkPoint = pointService.checkPoint(userId);
+		
+		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("checkPoint", checkPoint);
 		request.getRequestDispatcher("minusPoint.jsp").forward(request, response);
 	}
 
@@ -34,12 +40,12 @@ public class MinusPointServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String)session.getAttribute("userId");
-		String trainerPrice = (String) request.getParameter("trainerId");
+		String trainerPrice = (String) request.getParameter("trainerPrice");
 		String month = (String) request.getParameter("month");
 		
 		//ID 를 잘못 입력하고 결제버튼 누를 시
 		if( pointService.minusPoint(userId, trainerPrice, month) == false) {
-			request.getRequestDispatcher("minusPointResult/error.jsp").forward(request, response);
+			request.getRequestDispatcher("error/error.jsp").forward(request, response);
 			return;
 		}
 		//성공 시 로직

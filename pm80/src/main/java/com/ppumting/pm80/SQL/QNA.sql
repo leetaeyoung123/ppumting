@@ -9,18 +9,14 @@ CREATE TABLE QNA (
 
 SELECT * FROM QNA
 
-ALTER TABLE QNA ADD qna_views BIGINT NOT NULL
-
-ALTER TABLE QNA DROP COLUMN qna_views
-
 DELETE FROM QNA WHERE qna_no = 9
 
 drop table QNA
 -- 외래키 선언 방법
 -- CONSTRAINT QNA_user_number_FK FOREIGN KEY (user_number) REFERENCES Users(userId)
 
-INSERT INTO QNA (qna_title, qna_content)
-VALUES ('제목', '내용')
+INSERT INTO QNA (user_id, qna_title, qna_content)
+VALUES ('tjdgh7984', '왜', '안드가')
 
 DELETE FROM QNA WHERE qna_no = 1
 

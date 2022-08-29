@@ -30,18 +30,6 @@ public class DeleteQnaServlet extends HttpServlet {
 			
 			String qnaNo = request.getParameter("qnaNo");	// jsp에 name값이 파라미터로 들어가야함
 			
-//			List<String> errorMsgs = new ArrayList<>();
-//			if(qnaNo == null || qnaNo.length() == 0) {	// 위에 String에 qnaTitle이 여기로 들어감
-//				errorMsgs.add("제목을 입력해 주세요");
-//			}
-			
-//			if(errorMsgs.size() > 0 ) {
-//				dispatcher = request.getRequestDispatcher("error.jsp");
-//				request.setAttribute("errorMsgs", errorMsgs);
-//				dispatcher.forward(request, response);
-//				return;
-//			}
-			
 			// DELETE 실패 시
 			if( qnaService.deleteQna(qnaNo) == false ) { 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("deleteResult/error.jsp");

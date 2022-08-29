@@ -35,17 +35,17 @@
 <header>
   <nav class="navbar navbar-expand-md fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PPUMTING</a>
+      <a class="navbar-brand" aria-current="page" href='<c:url value="/User/mypage/home"/>'>PPUMTING</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">게시판</a>
+            <a class="nav-link" aria-current="page" href='<c:url value="/Qna/qnaInfo/find.do"/>'>게시판</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">P.P.T</a>
+            <a class="nav-link" aria-current="page" href='<c:url value="/Trainer/mypage"/>'>P.P.T</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Info</a>
@@ -79,7 +79,7 @@
         	</div>
         </div>
         <div class="pw_input">
-        <input type="number" min="10000" step="10000" name="point" placeholder=" 입금 할 포인트                              단위 : 10,000" />
+        <input type="number" min="10000" step="10000" name="point" value="" placeholder=" 입금 할 포인트                              단위 : 10,000" />
         </div>
         <button class="login" type="submit">충전하기</button>
         </form>

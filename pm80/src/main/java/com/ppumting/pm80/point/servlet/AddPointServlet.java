@@ -48,18 +48,23 @@ public class AddPointServlet extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
-		
-		String jsp_Point = request.getParameter("point");
-		long point = Long.parseLong(jsp_Point);
+		if( request.getParameter("point") == null ) {
+			request.setAttribute("msg", "공백 입력 불가");
+			request.getRequestDispatcher("error/error.jsp").forward(request, response);
+			return;
+		}
+		long point = Long.parseLong(request.getParameter("point"));
 		
 		if( pointService.isValidUser(userId) == false ) {
 			request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
 			return;
 		}
 		if( pointService.addPoint(userId, point) == false ) {
-			request.getRequestDispatcher("addPointResult/error.jsp").forward(request, response);
+			request.setAttribute("msg", "충전 실패");
+			request.getRequestDispatcher("error/error.jsp").forward(request, response);
 			return;
 		}
+		
 		
 		response.sendRedirect("../User/mypage/home");
 		
