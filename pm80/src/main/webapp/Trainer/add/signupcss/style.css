@@ -74,7 +74,7 @@ select {
 }
 
 .login_form .login {
-  width: 465px;
+  width: 335px;
   height: 60px;
   border: 5px solid #0078AA;
   background: #0078AA;
@@ -93,7 +93,15 @@ select {
   background-color: #d5ecf7;
   border-radius: 25px;
 }
-
+.prevbtn {
+    width: 120px;
+    height: 60px;
+    border: 5px solid #0078AA;
+    background: #0078AA;
+    color: #F6F6F6;
+    border-radius: 25px;
+    cursor: pointer;
+}
 #footer {
   display: flex;
   justify-content: center;
