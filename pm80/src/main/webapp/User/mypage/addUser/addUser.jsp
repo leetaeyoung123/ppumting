@@ -24,11 +24,8 @@
         
          <div class="id_input">
           <input type="text" name="userId" maxlength="13" placeholder="아이디" required>
-          <input type="submit" value="중복확인">
         </div>
-        </form>
         
-        <form class="login_form" action="addUser" method="post">
         <div class="pw_input">
           <input type="password" name="pw" maxlength="13" placeholder="비밀번호" required>
         </div>

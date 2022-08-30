@@ -1,11 +1,11 @@
 package com.ppumting.pm80.user.domain;
 
 public class User {
+	String userId;
+	String pw;
 	String name;
 	String ssn;
 	String phone;
-	String userId;
-	String pw;
 	String addr;
 	
 	public String getName() { 

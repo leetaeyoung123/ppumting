@@ -8,7 +8,7 @@ CREATE TABLE Users (
 );
 
 SELECT * FROM Users;
-
+SELECT userId FROM Users
 
 DROP TABLE Users;
 

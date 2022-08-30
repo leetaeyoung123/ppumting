@@ -26,6 +26,12 @@ public class Userservlet extends HttpServlet {
 		pointService = new PointService();
 	}
 	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+	}
+		
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
@@ -38,7 +44,7 @@ public class Userservlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
-				
+
 		User user = new User();
 		user.setUserId(userId);
 		user.setPw(pw);
@@ -46,13 +52,26 @@ public class Userservlet extends HttpServlet {
 		user.setSsn(ssn);
 		user.setPhone(phone);
 		user.setAddr(addr1+ " " + addr2);
-		Userservice userService = new Userservice();
-		if(userService.checkUserId(userId)) {
-			userService.addUser(user);
-			pointService.createAccountNum(userId);
-			request.setAttribute("user", user);
-			response.sendRedirect("../loginout/login");
-			return;
+		
+		// 같은 아이디가 있으면 중복검사
+		List<String> errorMsgs = new ArrayList<>();
+		if (user.getUserId().equals(userId)) {
+			errorMsgs.add("중복된 아이디 입니다");
 		}
+		
+		RequestDispatcher dispatcher = null;
+		if(errorMsgs.size() > 0 ) {
+			dispatcher = request.getRequestDispatcher("/User/mypage/error.jsp");
+			request.setAttribute("errorMsgs", errorMsgs);
+			dispatcher.forward(request, response);
+			return ;
+		}
+		
+		// 같은 아이디가 없다면 생성
+		userService.addUser(user);
+		pointService.createAccountNum(userId);
+		request.setAttribute("user", user);
+		dispatcher = request.getRequestDispatcher("../loginout/login");
+		dispatcher.forward(request, response);
 	}
 }
