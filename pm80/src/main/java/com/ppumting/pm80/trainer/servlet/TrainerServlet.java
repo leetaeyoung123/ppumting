@@ -17,8 +17,13 @@ import com.ppumting.pm80.trainer.service.TrainerService;
 @WebServlet("/Trainer/add/addTrainer")
 public class TrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TrainerService trainerService = TrainerService.getInstance();
+	TrainerService trainerService;
+	
+	public void init() {
+		trainerService = new TrainerService();
+	}
 
+	//회원가입
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

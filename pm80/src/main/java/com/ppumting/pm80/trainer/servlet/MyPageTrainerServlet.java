@@ -24,8 +24,7 @@ public class MyPageTrainerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String trainerId = (String)session.getAttribute("trainerId");
-		String userId = (String) session.getAttribute("userId");
-		String checkPoint = pointService.checkPoint(userId);
+		String checkPoint = pointService.checkPoint(trainerId);
 		
 		request.setCharacterEncoding("UTF-8");
 		
@@ -34,6 +33,7 @@ public class MyPageTrainerServlet extends HttpServlet {
 //			request.getRequestDispatcher("/loginout/login.jsp").forward(request, response);
 //			return;
 //		}
+		
 		request.setAttribute("checkPoint", checkPoint);
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}

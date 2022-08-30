@@ -24,7 +24,7 @@ public class SelectServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession(false);
-		String trainerId = (String) session.getAttribute("userId");
+		String trainerId = (String)session.getAttribute("userId");
 
 		if (trainerService.checkTrainer(trainerId)) {
 			request.setAttribute("trainer", trainerService.trainerSelect(trainerId));

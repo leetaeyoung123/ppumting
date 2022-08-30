@@ -28,7 +28,7 @@
 				<span class="idtext"> *아이디 변경은 불가능합니다.</span><br> 
 				비밀번호:
 				<div class="id_input">
-					<input type="password" name="pw" value="${trainer.pw}"
+					<input type="password" name="passwd" value="${trainer.passwd}"
 						maxlength="20" required>
 				</div>
 				<br> 

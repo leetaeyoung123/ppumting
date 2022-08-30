@@ -62,8 +62,8 @@
 						<li class="nav-item"><a class="nav-link" href="#">Info</a></li>
 					</ul>
 					<div class="login_info">
-						쪽지함 : <a type="hidden"
-							href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a>
+						<%-- 쪽지함 : <a type="hidden"
+							href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a> --%>
 						${trainerId}님
 						<button class="login_btn">
 							<a href='<c:url value="/Trainer/update/updatetrainer.jsp"/>'>수정</a>

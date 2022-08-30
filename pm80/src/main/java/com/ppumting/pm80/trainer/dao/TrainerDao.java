@@ -19,10 +19,6 @@ public class TrainerDao {
 
 	NamingService namingService = NamingService.getInstance();
 	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
-	
-	public TrainerDao() {
-		
-	}
 
      public void addTrainer(Trainer trainer) {
     	 System.out.println("START addTrainer!");

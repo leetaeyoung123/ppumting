@@ -48,7 +48,7 @@ public class LoginTrainerServlet extends HttpServlet {
 		if(trainerService.login(trainerId, passwd)) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("trainerId", trainerId);
-			response.sendRedirect("../mypage.jsp");
+			response.sendRedirect("../mypage");
 			System.out.println("admin login");
 		}else {
 			request.getRequestDispatcher("error.jsp").forward(request, response);
