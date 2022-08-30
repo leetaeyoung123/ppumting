@@ -43,7 +43,6 @@ public class UpdateTrainerServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		session.setAttribute("trainerId", trainerId);
 		response.sendRedirect("../mypage");
-		System.out.println(trainerId);
 		
 		String name = request.getParameter("name");
 		String passwd = request.getParameter("passwd");
@@ -51,6 +50,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 		String addr = request.getParameter("addr");
 
 		List<String> errorMsgs = new ArrayList<>();
+		
 		if(passwd == null || passwd.length() == 0) {
 			errorMsgs.add("PW를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
@@ -61,13 +61,13 @@ public class UpdateTrainerServlet extends HttpServlet {
 			errorMsgs.add("주소를 입력해주세요");
 		}
 
-		RequestDispatcher dispatcher = null;
-		if(errorMsgs.size() > 0) {
-			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
-			request.setAttribute("errorMsgs", errorMsgs);
-			dispatcher.forward(request, response);
-			return;
-		}
+//		RequestDispatcher dispatcher = null;
+//		if(errorMsgs.size() > 0) {
+//			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
+//			request.setAttribute("errorMsgs", errorMsgs);
+//			dispatcher.forward(request, response);
+//			return;
+//		}
 
 		Trainer trainer = new Trainer();
 		trainer.setTrainerId(trainerId);
@@ -79,8 +79,8 @@ public class UpdateTrainerServlet extends HttpServlet {
 		trainerService.updateTrainer(trainer);
 		request.setAttribute("trainer", trainer);
 
-		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
-		dispatcher.forward(request, response);
+//		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 }

@@ -25,21 +25,25 @@
 				<div class="id_input">
 					<input type="text" name="name" value="${trainer.name}" readonly>
 				</div>
-				<span class="idtext"> *아이디 변경은 불가능합니다.</span><br> 비밀번호:
+				<span class="idtext"> *아이디 변경은 불가능합니다.</span><br> 
+				비밀번호:
 				<div class="id_input">
 					<input type="password" name="pw" value="${trainer.pw}"
 						maxlength="20" required>
 				</div>
-				<br> 이름:
+				<br> 
+				이름:
 				<div class="name_input">
 					<input type="text" name="name" value="${trainer.name}">
 				</div>
-				<br> 전화번호:
+				<br> 
+				전화번호:
 				<div class="phone_input">
 					<input type="text" name="phone" value="${trainer.phone}"
 						maxlength="13" required>
 				</div>
-				<br> 주소:
+				<br> 
+				주소:
 				<div class="addr_input">
 					<input type="text" name="addr" value="${trainer.addr}" required><br>
 				</div>

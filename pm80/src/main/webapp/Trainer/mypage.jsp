@@ -46,7 +46,7 @@
 		<nav class="navbar navbar-expand-md fixed-top">
 			<div class="container-fluid">
 				<a class="navbar-brand" aria-current="page"
-					href='<c:url value="/User/mypage/home"/>'>PPUMTING</a>
+					href='<c:url value="/User/mypage/home.jsp"/>'>PPUMTING</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false"
