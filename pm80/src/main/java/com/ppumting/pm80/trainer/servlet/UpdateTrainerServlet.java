@@ -26,7 +26,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		String trainerId = (String) session.getAttribute("trainerId");
+		String trainerId = (String)session.getAttribute("trainerId");
 		
 		if (trainerId == null) {
 			request.getRequestDispatcher("mypage").forward(request, response);
@@ -60,14 +60,6 @@ public class UpdateTrainerServlet extends HttpServlet {
 			errorMsgs.add("주소를 입력해주세요");
 		}
 
-//		RequestDispatcher dispatcher = null;
-//		if(errorMsgs.size() > 0) {
-//			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
-//			request.setAttribute("errorMsgs", errorMsgs);
-//			dispatcher.forward(request, response);
-//			return;
-//		}
-
 		Trainer trainer = new Trainer();
 		trainer.setTrainerId(trainerId);
 		trainer.setPasswd(passwd);
@@ -77,7 +69,15 @@ public class UpdateTrainerServlet extends HttpServlet {
 
 		trainerService.updateTrainer(trainer);
 		request.setAttribute("trainer", trainer);
-
+		
+//		RequestDispatcher dispatcher = null;
+//		if(errorMsgs.size() > 0) {
+//			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
+//			request.setAttribute("errorMsgs", errorMsgs);
+//			dispatcher.forward(request, response);
+//			return;
+//		}
+		
 //		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
 //		dispatcher.forward(request, response);
 	}
