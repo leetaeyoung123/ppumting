@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ppumting.pm80.trainer.domain.Trainer;
 import com.ppumting.pm80.trainer.service.TrainerService;
@@ -17,20 +18,34 @@ import com.ppumting.pm80.trainer.service.TrainerService;
 @WebServlet("/Trainer/update/updateTrainer")
 public class UpdateTrainerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TrainerService trainerService = TrainerService.getInstance();
+	TrainerService trainerService;
 
 	public void init() {
 		trainerService = new TrainerService();
 	}
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		String trainerId = (String) session.getAttribute("trainerId");
+		
+		if (trainerId == null) {
+			request.getRequestDispatcher("mypage").forward(request, response);
+			return;
+		}
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
-
+		
 		String trainerId = request.getParameter("trainerId");
+		HttpSession session = request.getSession(false);
+		session.setAttribute("trainerId", trainerId);
+		response.sendRedirect("../mypage");
+		System.out.println(trainerId);
+		
 		String name = request.getParameter("name");
-		String ssn = request.getParameter("ssn");
 		String passwd = request.getParameter("passwd");
 		String phone = request.getParameter("phone");
 		String addr = request.getParameter("addr");
@@ -58,7 +73,6 @@ public class UpdateTrainerServlet extends HttpServlet {
 		trainer.setTrainerId(trainerId);
 		trainer.setPasswd(passwd);
 		trainer.setName(name);
-		trainer.setSsn(ssn);
 		trainer.setPhone(phone);
 		trainer.setAddr(addr);
 
