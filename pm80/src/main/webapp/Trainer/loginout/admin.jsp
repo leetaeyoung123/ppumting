@@ -6,7 +6,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../ico/favicon-32x32.png">
-    <link rel="stylesheet" href="logincss/normalize.css">
     <link rel="stylesheet" type="text/css" href="adminlogin.css">
     <title>트레이너 로그인</title>
   </head>

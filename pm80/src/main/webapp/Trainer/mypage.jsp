@@ -66,7 +66,7 @@
 							href='<c:url value="/Note/selectTitleMsg"/>'>${countNote}</a> --%>
 						${trainerId}님
 						<button class="login_btn">
-							<a href='<c:url value="/Trainer/update/updatetrainer.jsp"/>'>수정</a>
+							<a href='<c:url value="/Trainer/update/updateTrainer"/>'>수정</a>
 						</button>
 						<button class="login_btn">
 							<a href='<c:url value="/Trainer/loginout/admin.jsp"/>'>로그아웃</a>

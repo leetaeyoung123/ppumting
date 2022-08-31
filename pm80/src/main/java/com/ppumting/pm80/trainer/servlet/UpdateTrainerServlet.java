@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class UpdateTrainerServlet extends HttpServlet {
 			request.getRequestDispatcher("mypage").forward(request, response);
 			return;
 		}
+		request.setAttribute("trainer", trainerService.trainerSelect(trainerId));
+		request.getRequestDispatcher("updatetrainer.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +54,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 		List<String> errorMsgs = new ArrayList<>();
 		
 		if(passwd == null || passwd.length() == 0) {
-			errorMsgs.add("PW를 입력해주세요");
+			errorMsgs.add("비밀번호를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
 		}else if(phone == null || phone.length() == 0) {
@@ -77,7 +80,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 //			dispatcher.forward(request, response);
 //			return;
 //		}
-		
+//		
 //		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
 //		dispatcher.forward(request, response);
 	}

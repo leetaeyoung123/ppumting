@@ -48,7 +48,7 @@
 				<button class="update_btn" type="submit">회원정보 수정하기</button>
 			</form>
 
-			<form action="/Trainer/loginout/login">
+			<form action="/Trainer/loginout/admin">
 				<button class="delete_btn" type="submit">회원탈퇴</button>
 			</form>
 		</div>

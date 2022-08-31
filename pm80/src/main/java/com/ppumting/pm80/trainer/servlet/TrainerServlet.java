@@ -73,9 +73,10 @@ public class TrainerServlet extends HttpServlet {
 
 		trainerService.addTrainer(trainer);
 		request.setAttribute("trainer", trainer);
-
-		dispatcher = request.getRequestDispatcher("success.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("../loginout/login");
+		
+//		dispatcher = request.getRequestDispatcher("success.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 }

@@ -18,102 +18,106 @@ public class TrainerDao {
 	}
 
 	NamingService namingService = NamingService.getInstance();
-	DataSource datasource = (DataSource)namingService.getAttribute("dataSource");
+	DataSource datasource = (DataSource) namingService.getAttribute("dataSource");
 
-     public void addTrainer(Trainer trainer) {
-    	 System.out.println("START addTrainer!");
-         String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr, price)"
-                  + "VALUES(?, ?, ?, ?, ?, ?, ?)";
+	// 트레이너 회원가입
+	public void addTrainer(Trainer trainer) {
+		System.out.println("START addTrainer!");
+		String sql = "INSERT INTO Trainer(trainerId, name, ssn, phone, passwd, addr, price)"
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
-         try {
-            Connection con = null;
-            PreparedStatement  pstmt = null;
-            try {
-               con = datasource.getConnection();
-               pstmt = con.prepareStatement(sql);
-               pstmt.setString(1, trainer.getTrainerId());
-               pstmt.setString(2, trainer.getName());
-               pstmt.setString(3, trainer.getSsn());
-               pstmt.setString(4, trainer.getPhone());
-               pstmt.setString(5, trainer.getPasswd());
-               pstmt.setString(6, trainer.getAddr());
-               pstmt.setString(7, trainer.getPrice());
-               pstmt.executeUpdate();
-               System.out.println("END addTrainer!");
-            } finally{
-            	datasource.close(pstmt,con);
-            	System.out.println("NEW Trainer Registration");
-            }
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainer.getTrainerId());
+				pstmt.setString(2, trainer.getName());
+				pstmt.setString(3, trainer.getSsn());
+				pstmt.setString(4, trainer.getPhone());
+				pstmt.setString(5, trainer.getPasswd());
+				pstmt.setString(6, trainer.getAddr());
+				pstmt.setString(7, trainer.getPrice());
+				pstmt.executeUpdate();
+				System.out.println("END addTrainer!");
+			} finally {
+				datasource.close(pstmt, con);
+				System.out.println("NEW Trainer Registration");
+			}
 
-         } catch (Exception e) {
-            e.printStackTrace();
-         }
-      }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-     public List<Trainer> findAllTrainers() {
-         String sql = "SELECT * FROM Trainer";
+	// 트레이너 조회
+	public List<Trainer> findAllTrainers() {
+		String sql = "SELECT * FROM Trainer";
 
-         List<Trainer> trainerList = new ArrayList<>();
+		List<Trainer> trainerList = new ArrayList<>();
 
-         try {
-            Connection con = null;
-            PreparedStatement  pstmt = null;
-            ResultSet rs = null;
-            try {
-               con = datasource.getConnection();
-               pstmt = con.prepareStatement(sql);
-               rs = pstmt.executeQuery();
-               while(rs.next()) {
-            	   Trainer t = new Trainer();
-            	   t.setTrainerId(rs.getString("trainerId"));
-            	   t.setName(rs.getString("name"));
-            	   t.setPasswd(rs.getString("passwd"));
-            	   t.setSsn(rs.getString("ssn"));
-            	   trainerList.add(t);
-               }
-            } finally{
-            	datasource.close(rs, pstmt,con);
-            }
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					Trainer t = new Trainer();
+					t.setTrainerId(rs.getString("trainerId"));
+					t.setName(rs.getString("name"));
+					t.setPasswd(rs.getString("passwd"));
+					t.setSsn(rs.getString("ssn"));
+					trainerList.add(t);
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
 
-            System.out.println("Find Trainer");
-         } catch (Exception e) {
-            e.printStackTrace();
-         }
+			System.out.println("Find Trainer");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return trainerList;
-      }
+	}
 
+	// 트레이너 개별 조회
 	public boolean isValidTrainers(String trainerId, String passwd) {
-	    String sql = "SELECT trainerId, passwd FROM Trainer WHERE trainerId = ?";
+		String sql = "SELECT trainerId, passwd FROM Trainer WHERE trainerId = ?";
 
-        try {
-           Connection con = null;
-           PreparedStatement pstmt = null;
-           ResultSet rs = null;
-           try {
-              con = datasource.getConnection();
-              pstmt = con.prepareStatement(sql);
-              pstmt.setString(1, trainerId);
-              rs = pstmt.executeQuery();
+		try {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = datasource.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, trainerId);
+				rs = pstmt.executeQuery();
 
-              Trainer trainerInfo = new Trainer();
-              while(rs.next()) {
-           	   trainerInfo.setTrainerId(rs.getString("trainerId"));
-           	   trainerInfo.setPasswd(rs.getString("passwd"));
-              }
-              if(trainerId.equals(trainerInfo.getTrainerId()) && passwd.equals(trainerInfo.getPasswd())) {
-            	  return true;
-              }else {
-            	  return false;
-              }
-           } finally{
-           	datasource.close(rs, pstmt,con);
-           }
-        } catch (Exception e) {
-           e.printStackTrace();
-        }
+				Trainer trainerInfo = new Trainer();
+				while (rs.next()) {
+					trainerInfo.setTrainerId(rs.getString("trainerId"));
+					trainerInfo.setPasswd(rs.getString("passwd"));
+				}
+				if (trainerId.equals(trainerInfo.getTrainerId()) && passwd.equals(trainerInfo.getPasswd())) {
+					return true;
+				} else {
+					return false;
+				}
+			} finally {
+				datasource.close(rs, pstmt, con);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
-	
+
+	// 트레이너 포인트 확인
 	public String checkTrainerPoint(String trainerId) {
 		String sql = "SELECT price FROM Trainer WHERE trainerId = ?";
 		String result = "없는 트레이너";
@@ -123,18 +127,19 @@ public class TrainerDao {
 			pstmt.setString(1, trainerId);
 			ResultSet rs = pstmt.executeQuery();
 			try {
-				while(rs.next()) {
+				while (rs.next()) {
 					result = rs.getString("price");
 				}
 			} finally {
-				datasource.close(rs, pstmt, con); 
+				datasource.close(rs, pstmt, con);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;	
+		return result;
 	}
 
+	// 로그인
 	public boolean login(String trainerId, String passwd) {
 		String sql = "SELECT trainerId, passwd FROM Trainer WHERE trainerId = ?";
 		boolean loginResult = false;
@@ -147,25 +152,26 @@ public class TrainerDao {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, trainerId);
 				rs = pstmt.executeQuery();
-				Trainer trainer= new Trainer();
-				while(rs.next()) {
+				Trainer trainer = new Trainer();
+				while (rs.next()) {
 					trainer.setTrainerId(rs.getString("trainerId"));
 					trainer.setPasswd(rs.getString("passwd"));
-					if(trainerId.equals(trainer.getTrainerId()) && passwd.equals(trainer.getPasswd())) {
+					if (trainerId.equals(trainer.getTrainerId()) && passwd.equals(trainer.getPasswd())) {
 						loginResult = true;
-					}else {
+					} else {
 						loginResult = false;
 					}
 				}
 			} finally {
-				datasource.close(rs, pstmt, con); 
+				datasource.close(rs, pstmt, con);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return loginResult;	
+		return loginResult;
 	}
 
+	// 트레이너 삭제
 	public void delete(String trainerId, String passwd) {
 		String sql = "DELETE FROM Trainer WHERE trainerId = ?";
 		try {
@@ -183,7 +189,8 @@ public class TrainerDao {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// 트레이너 선택
 	public Trainer trainerSelect(String trainerId) {
 		String sql = "SELECT * FROM Trainer WHERE trainerId = ?";
 		Trainer trainer = new Trainer();
@@ -196,7 +203,7 @@ public class TrainerDao {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, trainerId);
 				rs = pstmt.executeQuery();
-				while(rs.next()) {
+				while (rs.next()) {
 					trainer.setTrainerId(rs.getString("trainerId"));
 					trainer.setPasswd(rs.getString("passwd"));
 					trainer.setName(rs.getString("name"));
@@ -212,7 +219,8 @@ public class TrainerDao {
 		}
 		return trainer;
 	}
-	
+
+	// 트레이너 확인
 	public boolean checkTrainer(String trainerId) {
 		String sql = "SELECT trainerId FROM Trainer WHERE trainerId = ? ";
 		boolean checkResult = false;
@@ -225,10 +233,10 @@ public class TrainerDao {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, trainerId);
 				rs = pstmt.executeQuery();
-				while(rs.next()) {
+				while (rs.next()) {
 					Trainer trainer = new Trainer();
 					trainer.setTrainerId(rs.getString("trainerId"));
-					if(trainerId.equals(trainer.getTrainerId())) {
+					if (trainerId.equals(trainer.getTrainerId())) {
 						checkResult = true;
 					}
 				}
@@ -240,7 +248,8 @@ public class TrainerDao {
 		}
 		return checkResult;
 	}
-	
+
+	// 트레이너 수정
 	public void updateTrainer(Trainer trainer) {
 		String sql = "UPDATE Trainer SET passwd = ?, name = ?, phone = ?, addr = ? WHERE trainerId = ?";
 		try {
