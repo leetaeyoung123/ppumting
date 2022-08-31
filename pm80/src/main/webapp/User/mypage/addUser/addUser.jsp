@@ -21,6 +21,15 @@
       
       <div id="login_wrap">
         <form class="login_form" action="addUser" method="post">
+        
+         <div class="id_input">
+          <input type="text" name="userId" maxlength="13" placeholder="아이디" required>
+        </div>
+        
+        <div class="pw_input">
+          <input type="password" name="pw" maxlength="13" placeholder="비밀번호" required>
+        </div>
+        
         <div class="name_input">
           <input type="text" name="name" placeholder="이름" required>
         </div>
@@ -34,17 +43,7 @@
         <div class="phone_input">
           <input type="tel" name="phone" maxlength="13" placeholder="휴대전화" required>
         </div>
-        
-        
-        <div class="id_input">
-          <input type="text" name="userId" maxlength="13" placeholder="아이디" required>
-        </div>
-        
-        
-        <div class="pw_input">
-          <input type="password" name="pw" maxlength="13" placeholder="비밀번호" required>
-        </div>
-        
+                
         <div class="addr_input">
           <select name = "addr1" required>
 			<option>지역 선택</option>
@@ -77,13 +76,5 @@
         <span class="text">All Rights Reserved.</span>
       </footer>
     </div>
-<!--     <script>
-    	function btn(){
-    	   	if(true){
-        		alert();
-        	}
-    	}
- 
-    </script> -->
   </body>
 </html>

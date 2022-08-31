@@ -25,8 +25,13 @@ public class Userservlet extends HttpServlet {
 		userService = new Userservice();
 		pointService = new PointService();
 	}
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
-	//회원가입
+	}
+		
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
@@ -39,32 +44,7 @@ public class Userservlet extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
-		
-		List<String> errorMsgs = new ArrayList<>();
-		if(userId == null || userId.length() == 0) {
-			errorMsgs.add("id를 입력해주세요,");		
-		}else if(pw == null || pw.length() == 0) {
-			errorMsgs.add("비밀번호를 입력해주세요");
-		}else if(name == null || name.length() == 0) {
-			errorMsgs.add("이름을 입력해주세요");
-		}else if(ssn == null || ssn.length() == 0) {
-			errorMsgs.add("주민번호를 입력해주세요");
-		}else if(phone == null || phone.length() == 0) {
-			errorMsgs.add("전화번호를 입력해주세요");
-		}else if(addr1 == null || addr1.length() == 0 || 
-				addr2 == null || addr2.length() == 0) {
-			errorMsgs.add("주소를 입력해주세요");
-		}
-		
-		RequestDispatcher dispatcher = null;
-		if(errorMsgs.size() > 0) {
-			dispatcher = request.getRequestDispatcher("error.jsp");
-			request.setAttribute("errorMsgs", errorMsgs);
-			dispatcher.forward(request, response);
-			return;
-		}
 
-		
 		User user = new User();
 		user.setUserId(userId);
 		user.setPw(pw);
@@ -72,11 +52,26 @@ public class Userservlet extends HttpServlet {
 		user.setSsn(ssn);
 		user.setPhone(phone);
 		user.setAddr(addr1+ " " + addr2);
-		Userservice userService = new Userservice();
+		
+		// 같은 아이디가 있으면 중복검사
+		List<String> errorMsgs = new ArrayList<>();
+		if (user.getUserId().equals(userId)) {
+			errorMsgs.add("중복된 아이디 입니다");
+		}
+		
+		RequestDispatcher dispatcher = null;
+		if(errorMsgs.size() > 0 ) {
+			dispatcher = request.getRequestDispatcher("/User/mypage/error.jsp");
+			request.setAttribute("errorMsgs", errorMsgs);
+			dispatcher.forward(request, response);
+			return ;
+		}
+		
+		// 같은 아이디가 없다면 생성
 		userService.addUser(user);
 		pointService.createAccountNum(userId);
 		request.setAttribute("user", user);
-		response.sendRedirect("../loginout/login");
-		return;
+		dispatcher = request.getRequestDispatcher("../loginout/login");
+		dispatcher.forward(request, response);
 	}
 }
