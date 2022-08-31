@@ -49,7 +49,7 @@
 			</form>
 
 			<form action="deleteTrainer" method="Post">
-				<button class="delete_btn" type="submit" onclick="delCheck()">회원탈퇴</button>
+				<button class="delete_btn" type="submit">회원탈퇴</button>
 			</form>
 		</div>
 
