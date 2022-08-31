@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../ico/favicon-32x32.png">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="signupcss/normalize.css">
+    <link rel="stylesheet" type="text/css" href="signupcss/style.css?after">
 <meta charset="UTF-8">
 <title>Error</title>
 </head>
