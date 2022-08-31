@@ -33,8 +33,8 @@ public class TrainerService {
 		return trainerDao.login(trainerId, passwd);
 	}
 	
-	public void delete(String trainerId, String passwd) {
-		trainerDao.delete(trainerId, passwd);
+	public boolean delete(String trainerId, String passwd) {
+		return trainerDao.delete(trainerId, passwd);
 	}
 
 	public boolean checkTrainer(String trainerId) {

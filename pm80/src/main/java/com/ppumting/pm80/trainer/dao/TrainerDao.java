@@ -172,8 +172,9 @@ public class TrainerDao {
 	}
 
 	// 트레이너 삭제
-	public void delete(String trainerId, String passwd) {
+	public boolean delete(String trainerId, String passwd) {
 		String sql = "DELETE FROM Trainer WHERE trainerId = ?";
+		boolean result = false;
 		try {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -188,6 +189,7 @@ public class TrainerDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 
 	// 트레이너 선택

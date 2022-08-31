@@ -1,8 +1,6 @@
 package com.ppumting.pm80.trainer.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,32 +23,50 @@ public class DeleteTrainerServlet extends HttpServlet {
 		trainerService = new TrainerService();
 	}
        
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.setCharacterEncoding("UTF-8");
+//		HttpSession session = request.getSession(false);
+////		String trainerId = (String)session.getAttribute("trainerId");
+//		String trainerId = request.getParameter("trainerId");
+//		String passwd = request.getParameter("passwd");
+//		
+//		Trainer trainer = new Trainer();
+//		trainer.setTrainerId(trainerId);
+//		trainer.setSsn(passwd);
+//		trainerService.delete(trainerId, passwd);
+//		request.setAttribute("trainer", trainer);
+//		
+//		session.setAttribute("trainerId", trainerId);
+//		
+////		RequestDispatcher dispatcher = null;
+////		if(errorMsgs.size() > 0 ) {
+////			dispatcher = request.getRequestDispatcher("deletefailure.jsp");
+////			request.setAttribute("errorMsgs", errorMsgs);
+////			dispatcher.forward(request, response);
+////			return;
+////		}
+//		
+////		dispatcher = request.getRequestDispatcher("deletesuccess.jsp");
+////		dispatcher.forward(request, response);
+//
+//	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession(false);
 		
 		String trainerId = request.getParameter("trainerId");
 		String passwd = request.getParameter("passwd");
 		
-		Trainer trainer = new Trainer();
-		trainer.setTrainerId(trainerId);
-		trainer.setSsn(passwd);
-		trainerService.delete(trainerId, passwd);
-		request.setAttribute("trainer", trainer);
+		//트레이너 삭제 실패
+		if(trainerService.delete(trainerId, passwd) == false) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("deleteResult/error.jsp");
+			dispatcher.forward(request, response);
+		}
+		//트레이저 삭제 성공
+		request.setAttribute("trainerId", trainerId);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("deleteResult/success.jsp");
+		dispatcher.forward(request, response);
 		
-		session.setAttribute("trainerId", trainerId);
-		response.sendRedirect("../loginout/login");
-		
-//		RequestDispatcher dispatcher = null;
-//		if(errorMsgs.size() > 0 ) {
-//			dispatcher = request.getRequestDispatcher("deletefailure.jsp");
-//			request.setAttribute("errorMsgs", errorMsgs);
-//			dispatcher.forward(request, response);
-//			return;
-//		}
-		
-//		dispatcher = request.getRequestDispatcher("deletesuccess.jsp");
-//		dispatcher.forward(request, response);
-
 	}
 }
