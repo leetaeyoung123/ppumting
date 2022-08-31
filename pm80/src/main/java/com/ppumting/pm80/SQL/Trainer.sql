@@ -1,12 +1,12 @@
 CREATE TABLE Trainer (
-	trainerId	 	VARCHAR(20) PRIMARY KEY,
+	trainerId	 	VARCHAR(16) PRIMARY KEY,
 	name			VARCHAR(20) NOT NULL,
 	ssn 			VARCHAR(7) 	NOT NULL,
 	phone 			VARCHAR(13) NOT NULL,
 	passwd			VARCHAR(20) NOT NULL,
 	addr 			VARCHAR(25) NOT NULL,
 	price			BIGINT		NOT NULL
-)AUTO_INCREMENT = 1;
+);
 	-- CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid)
 
 -- ALTER TABLE Trainers ADD CONSTRAINT Trainers_aid_FK FOREIGN KEY (aid) REFERENCES Point(aid);

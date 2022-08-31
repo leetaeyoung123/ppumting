@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,12 +27,14 @@ public class UpdateTrainerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		String trainerId = (String) session.getAttribute("trainerId");
+		String trainerId = (String)session.getAttribute("trainerId");
 		
 		if (trainerId == null) {
 			request.getRequestDispatcher("mypage").forward(request, response);
 			return;
 		}
+		request.setAttribute("trainer", trainerService.trainerSelect(trainerId));
+		request.getRequestDispatcher("updatetrainer.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +54,7 @@ public class UpdateTrainerServlet extends HttpServlet {
 		List<String> errorMsgs = new ArrayList<>();
 		
 		if(passwd == null || passwd.length() == 0) {
-			errorMsgs.add("PW를 입력해주세요");
+			errorMsgs.add("비밀번호를 입력해주세요");
 		}else if(name == null || name.length() == 0) {
 			errorMsgs.add("이름을 입력해주세요");
 		}else if(phone == null || phone.length() == 0) {
@@ -59,14 +62,6 @@ public class UpdateTrainerServlet extends HttpServlet {
 		}else if(addr == null || addr.length() == 0){
 			errorMsgs.add("주소를 입력해주세요");
 		}
-
-//		RequestDispatcher dispatcher = null;
-//		if(errorMsgs.size() > 0) {
-//			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
-//			request.setAttribute("errorMsgs", errorMsgs);
-//			dispatcher.forward(request, response);
-//			return;
-//		}
 
 		Trainer trainer = new Trainer();
 		trainer.setTrainerId(trainerId);
@@ -77,7 +72,15 @@ public class UpdateTrainerServlet extends HttpServlet {
 
 		trainerService.updateTrainer(trainer);
 		request.setAttribute("trainer", trainer);
-
+		
+//		RequestDispatcher dispatcher = null;
+//		if(errorMsgs.size() > 0) {
+//			dispatcher = request.getRequestDispatcher("updatefailure.jsp");
+//			request.setAttribute("errorMsgs", errorMsgs);
+//			dispatcher.forward(request, response);
+//			return;
+//		}
+//		
 //		dispatcher = request.getRequestDispatcher("updatesuccess.jsp");
 //		dispatcher.forward(request, response);
 	}

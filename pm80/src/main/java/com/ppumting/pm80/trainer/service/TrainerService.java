@@ -6,11 +6,11 @@ import com.ppumting.pm80.trainer.dao.TrainerDao;
 import com.ppumting.pm80.trainer.domain.Trainer;
 
 public class TrainerService {
-	private static TrainerService instance = new TrainerService(); //싱글톤
+//	private static TrainerService instance = new TrainerService(); //싱글톤
 	private TrainerDao trainerDao = TrainerDao.getInstance();
 	
-	public static TrainerService getInstance() {
-		return instance;
+	public TrainerService() {
+		
 	}
 
 	public void addTrainer(Trainer trainer) {

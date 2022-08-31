@@ -17,8 +17,7 @@ import com.ppumting.pm80.trainer.service.TrainerService;
 @WebServlet("/Trainer/add/findTrainer")
 public class FindTrainerServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
-
-   private TrainerService trainerService = TrainerService.getInstance();
+   TrainerService trainerService;
   
    public void init() throws ServletException {
 	   super.init();
